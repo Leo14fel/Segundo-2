@@ -1,0 +1,479 @@
+plugins {
+    id 'java'
+    id 'org.springframework.boot' version '4.0.8'
+}
+
+group = 'com.classforge'
+version = '0.1.0-SNAPSHOT'
+description = 'Backend and orchestration layer for ClassForge'
+
+repositories {
+    mavenCentral()
+}
+
+configurations { legacyMigration }
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_21
+    targetCompatibility = JavaVersion.VERSION_21
+}
+
+dependencies {
+    implementation platform('org.springframework.boot:spring-boot-dependencies:4.0.8')
+    implementation platform('software.amazon.awssdk:bom:2.55.1')
+
+    implementation 'org.springframework.boot:spring-boot-starter-webmvc'
+    implementation 'org.springframework.boot:spring-boot-starter-websocket'
+    implementation 'org.springframework.boot:spring-boot-starter-data-mongodb'
+    implementation 'org.springframework.boot:spring-boot-starter-aspectj'
+    implementation 'org.springframework.boot:spring-boot-starter-validation'
+    implementation 'org.springframework.boot:spring-boot-starter-security'
+    implementation 'com.auth0:java-jwt:4.6.0'
+    implementation('nl.martijndwars:web-push:5.1.2') { exclude group: 'org.bouncycastle' }
+    implementation 'org.bouncycastle:bcprov-jdk18on:1.86'
+    implementation 'org.bitbucket.b_c:jose4j:0.9.6'
+    implementation 'org.openpnp:opencv:4.9.0-0'
+    implementation 'org.freemarker:freemarker'
+    implementation 'org.apache.commons:commons-compress:1.28.0'
+    implementation 'software.amazon.awssdk:bedrockruntime'
+    implementation 'software.amazon.awssdk:url-connection-client'
+
+    testImplementation 'com.h2database:h2' // Only for verifying the one-time legacy import tool
+    legacyMigration 'com.h2database:h2:2.4.240'
+
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation 'org.springframework.security:spring-security-test'
+}
+
+tasks.register('migrateLegacyDatabase', JavaExec) {
+    group = 'application'
+    description = 'Imports an existing H2 database read-only into MongoDB, preserving IDs and verifying every document.'
+    dependsOn classes
+    classpath = sourceSets.main.runtimeClasspath + configurations.legacyMigration
+    mainClass = 'com.classforge.migration.LegacyH2MigrationCli'
+    def source = providers.gradleProperty('legacySource')
+    def target = providers.gradleProperty('mongoDatabase').orElse('classforge')
+    doFirst {
+        if (!source.isPresent()) throw new GradleException('Use -PlegacySource=<absolute path to classforge.mv.db>')
+        args '--source=' + source.get(), '--database=' + target.get()
+    }
+}
+
+tasks.named('processResources') {
+    from('gradle/wrapper/gradle-wrapper.jar') {
+        into 'generation/spring/static/gradle/wrapper'
+    }
+    from('gradlew') { into 'generation/spring/static' }
+    from('gradlew.bat') { into 'generation/spring/static' }
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.release = 21
+}
+
+tasks.named('test') {
+    useJUnitPlatform()
+}
+
+
+// CU09-CAL-011: OpenCV loads packaged native libraries. Java 21 permits this,
+// but future JDKs require explicit native-access opt-in; enable it for every Test task.
+tasks.withType(Test).configureEach {
+    jvmArgs '--enable-native-access=ALL-UNNAMED'
+}
+
+// CU08-FIX-010-ASSISTANT-E2E-RELIABILITY
+tasks.register('assistantE2EReliability', Test) {
+    group = 'verification'
+    description = 'Runs the real Assistant HTTP endpoint repeatedly against llama.cpp and reports reliability by operation type.'
+
+    // CU08-FIX-010-V1.3: custom Test task must be wired to the test runtime.
+    dependsOn testClasses
+    testClassesDirs = sourceSets.test.output.classesDirs
+    classpath = sourceSets.test.runtimeClasspath
+
+    // The external LLM is nondeterministic; execute the benchmark on every invocation.
+    outputs.upToDateWhen { false }
+    outputs.cacheIf { false }
+    useJUnitPlatform()
+    filter {
+        includeTestsMatching 'com.classforge.assistant.AssistantE2EReliabilityIntegrationTest'
+    }
+
+    def option = { String name, String defaultValue ->
+        project.findProperty(name)?.toString() ?: defaultValue
+    }
+
+    systemProperty 'assistant.benchmark.enabled', 'true'
+    systemProperty 'assistant.benchmark.attempts', option('attempts', '5')
+    systemProperty 'assistant.benchmark.errorFailurePercent', option('errorFailurePercent', '60')
+    systemProperty 'assistant.benchmark.verbose', option('verbose', 'false')
+    systemProperty 'classforge.assistant.llama-url', option('llamaUrl', 'http://127.0.0.1:8092')
+    systemProperty 'classforge.assistant.llama-model', option('model', 'local-model')
+
+    // CU08-FIX-014-NATIVE-TOOLS-CUTOVER
+    systemProperty 'assistant.benchmark.suite', option('suite', 'regression')
+
+    def reportFile = option('reportFile', '')
+    if (reportFile) {
+        systemProperty 'assistant.benchmark.reportFile', reportFile
+    }
+
+    testLogging {
+        events 'passed', 'failed', 'skipped'
+        showStandardStreams = true
+        exceptionFormat = 'full'
+    }
+}
+
+// C2-CU09-002-VISION-BENCHMARK
+tasks.register('assistantVisionBenchmark', Test) {
+    group = 'verification'
+    description = 'Runs the real image->UML benchmark against the configured llama.cpp multimodal runtime.'
+
+    dependsOn testClasses
+    testClassesDirs = sourceSets.test.output.classesDirs
+    classpath = sourceSets.test.runtimeClasspath
+
+    outputs.upToDateWhen { false }
+    outputs.cacheIf { false }
+    useJUnitPlatform()
+    filter {
+        includeTestsMatching 'com.classforge.assistant.vision.AssistantVisionBenchmarkIntegrationTest'
+    }
+
+    def option = { String name, String defaultValue ->
+        project.findProperty(name)?.toString() ?: defaultValue
+    }
+
+    systemProperty 'assistant.vision.benchmark.enabled', 'true'
+    systemProperty 'assistant.vision.benchmark.suite', option('visionSuite', 'regression')
+    systemProperty 'assistant.vision.benchmark.attempts', option('attempts', '1')
+    systemProperty 'assistant.vision.benchmark.verbose', option('verbose', 'false')
+    systemProperty 'assistant.vision.benchmark.minSemanticPercent', option('minSemanticPercent', '0')
+    systemProperty 'assistant.vision.benchmark.minSafetyPercent', option('minSafetyPercent', '100')
+    systemProperty 'assistant.vision.benchmark.minSchemaPercent', option('minSchemaPercent', '100')
+    systemProperty 'assistant.vision.benchmark.timeoutSeconds', option('timeoutSeconds', '90')
+    systemProperty 'assistant.vision.benchmark.maxCompletionTokens', option('maxCompletionTokens', '2800')
+    systemProperty 'assistant.vision.benchmark.twoPass', option('visionTwoPass', 'false')
+    systemProperty 'assistant.vision.benchmark.relationshipMaxCompletionTokens', option('relationshipMaxCompletionTokens', '1800')
+    systemProperty 'assistant.vision.benchmark.imageStrategy', option('visionImageStrategy', 'original')
+    systemProperty 'assistant.vision.benchmark.hybridCv', option('visionHybridCv', 'false')
+    systemProperty 'assistant.vision.benchmark.hybridGeometryOnly', option('visionHybridGeometryOnly', 'false')
+    systemProperty 'assistant.vision.benchmark.hybridLocalizationTokens', option('hybridLocalizationTokens', '1200')
+    systemProperty 'assistant.vision.benchmark.hybridRelationshipTokens', option('hybridRelationshipTokens', '512')
+    systemProperty 'assistant.vision.benchmark.hybridMultiplicityTokens', option('hybridMultiplicityTokens', '128')
+    systemProperty 'assistant.vision.benchmark.caseFilter', option('visionCase', '')
+    systemProperty 'assistant.vision.benchmark.modelLabel', option('modelLabel', option('visionModel', 'vision-model'))
+    systemProperty 'classforge.assistant.vision.url', option('visionUrl', 'http://127.0.0.1:8094')
+    systemProperty 'classforge.assistant.vision.model', option('visionModel', 'vision-model')
+
+    def reportFile = option('reportFile', '')
+    if (reportFile) {
+        systemProperty 'assistant.vision.benchmark.reportFile', reportFile
+    }
+
+    testLogging {
+        events 'passed', 'failed', 'skipped'
+        showStandardStreams = true
+        exceptionFormat = 'full'
+    }
+}
+
+
+// C2-CU09-003-VISION-E2E-CLOSURE
+tasks.register('assistantVisionAcceptance', Test) {
+    group = 'verification'
+    description = 'Runs the real Vision -> semantic plan -> canonical command -> persisted ProjectDocument acceptance flow.'
+
+    dependsOn testClasses
+    testClassesDirs = sourceSets.test.output.classesDirs
+    classpath = sourceSets.test.runtimeClasspath
+    outputs.upToDateWhen { false }
+    outputs.cacheIf { false }
+    useJUnitPlatform()
+    filter {
+        includeTestsMatching 'com.classforge.assistant.vision.AssistantVisionAcceptanceIntegrationTest'
+    }
+
+    def option = { String name, String defaultValue ->
+        project.findProperty(name)?.toString() ?: defaultValue
+    }
+
+    systemProperty 'assistant.vision.acceptance.enabled', 'true'
+    systemProperty 'classforge.assistant.vision.url', option('visionUrl', 'http://127.0.0.1:8094')
+    systemProperty 'classforge.assistant.vision.model', option('visionModel', 'vision-model')
+
+    testLogging {
+        events 'passed', 'failed', 'skipped'
+        showStandardStreams = true
+        exceptionFormat = 'full'
+    }
+}
+
+// C3-CU13-006: compile and test representative exported Spring Boot projects.
+tasks.register('springGenerationAcceptance', Test) {
+    group = 'verification'
+    description = 'Generates representative CU-13 Spring Boot ZIPs, extracts them to temp directories, and runs their own Gradle build/context-load tests.'
+
+    dependsOn testClasses
+    testClassesDirs = sourceSets.test.output.classesDirs
+    classpath = sourceSets.test.runtimeClasspath
+
+    outputs.upToDateWhen { false }
+    outputs.cacheIf { false }
+    useJUnitPlatform()
+    maxParallelForks = 1
+    filter {
+        includeTestsMatching 'com.classforge.generation.spring.acceptance.SpringGenerationAcceptanceIntegrationTest'
+    }
+
+    systemProperty 'spring.generation.acceptance.enabled', 'true'
+    systemProperty 'spring.generation.acceptance.report-file', layout.buildDirectory.file('reports/spring-generation-acceptance.json').get().asFile.absolutePath
+    systemProperty 'spring.generation.acceptance.gradle-user-home', gradle.gradleUserHomeDir.absolutePath
+
+    def generatedJavaHome = providers.gradleProperty('generatedJavaHome')
+    if (generatedJavaHome.isPresent()) {
+        systemProperty 'spring.generation.acceptance.java-home', generatedJavaHome.get()
+    }
+
+    testLogging {
+        events 'passed', 'failed', 'skipped'
+        showStandardStreams = true
+        exceptionFormat = 'full'
+    }
+}
+
+
+// C3-CU14: compile and context-load representative CRUD simple and Auth exports.
+tasks.register('springCrudGenerationAcceptance', Test) {
+    group = 'verification'
+    description = 'Generates CU-14 simple CRUD and authenticated systems, then runs their own Gradle build/context-load tests.'
+
+    dependsOn testClasses
+    testClassesDirs = sourceSets.test.output.classesDirs
+    classpath = sourceSets.test.runtimeClasspath
+    outputs.upToDateWhen { false }
+    outputs.cacheIf { false }
+    useJUnitPlatform()
+    maxParallelForks = 1
+    filter {
+        includeTestsMatching 'com.classforge.generation.spring.acceptance.SpringCrudGenerationAcceptanceIntegrationTest'
+    }
+
+    systemProperty 'spring.crud.acceptance.enabled', 'true'
+    systemProperty 'spring.crud.acceptance.gradle-user-home', gradle.gradleUserHomeDir.absolutePath
+
+    def generatedJavaHome = providers.gradleProperty('generatedJavaHome')
+    if (generatedJavaHome.isPresent()) {
+        systemProperty 'spring.crud.acceptance.java-home', generatedJavaHome.get()
+    }
+
+    testLogging {
+        events 'passed', 'failed', 'skipped'
+        showStandardStreams = true
+        exceptionFormat = 'full'
+    }
+}
+
+// C4-CU15: validate generated OpenAPI/Postman artifacts against the same canonical CRUD/Auth contract.
+tasks.register('springApiArtifactsAcceptance', Test) {
+    group = 'verification'
+    description = 'Generates CU-15 OpenAPI/Postman artifacts for simple CRUD and Auth modes, validates contract parity/determinism, and builds the exported projects.'
+
+    dependsOn testClasses
+    testClassesDirs = sourceSets.test.output.classesDirs
+    classpath = sourceSets.test.runtimeClasspath
+    outputs.upToDateWhen { false }
+    outputs.cacheIf { false }
+    useJUnitPlatform()
+    maxParallelForks = 1
+    filter {
+        includeTestsMatching 'com.classforge.generation.spring.acceptance.SpringApiArtifactsAcceptanceIntegrationTest'
+    }
+
+    systemProperty 'spring.api.artifacts.acceptance.enabled', 'true'
+    systemProperty 'spring.api.artifacts.acceptance.gradle-user-home', gradle.gradleUserHomeDir.absolutePath
+
+    def generatedJavaHome = providers.gradleProperty('generatedJavaHome')
+    if (generatedJavaHome.isPresent()) {
+        systemProperty 'spring.api.artifacts.acceptance.java-home', generatedJavaHome.get()
+    }
+
+    testLogging {
+        events 'passed', 'failed', 'skipped'
+        showStandardStreams = true
+        exceptionFormat = 'full'
+    }
+}
+
+// C5-CU16: validate the semantic Domain Manifest against canonical Spring/API plans.
+tasks.register('domainManifestAcceptance', Test) {
+    group = 'verification'
+    description = 'Generates CU-16 Domain Manifest fixtures for relations, composite IDs, Auth and JOINED inheritance, validates semantics/determinism, and builds the exported projects.'
+
+    dependsOn testClasses
+    testClassesDirs = sourceSets.test.output.classesDirs
+    classpath = sourceSets.test.runtimeClasspath
+    outputs.upToDateWhen { false }
+    outputs.cacheIf { false }
+    useJUnitPlatform()
+    maxParallelForks = 1
+    filter {
+        includeTestsMatching 'com.classforge.generation.spring.acceptance.DomainManifestAcceptanceIntegrationTest'
+    }
+
+    systemProperty 'spring.domain.manifest.acceptance.enabled', 'true'
+    systemProperty 'spring.domain.manifest.acceptance.gradle-user-home', gradle.gradleUserHomeDir.absolutePath
+
+    def generatedJavaHome = providers.gradleProperty('generatedJavaHome')
+    if (generatedJavaHome.isPresent()) {
+        systemProperty 'spring.domain.manifest.acceptance.java-home', generatedJavaHome.get()
+    }
+
+    testLogging {
+        events 'passed', 'failed', 'skipped'
+        showStandardStreams = true
+        exceptionFormat = 'full'
+    }
+}
+
+
+// C6-CU17: build representative generated Angular frontends against the repo's installed Angular toolchain.
+tasks.register('generatedAngularAcceptance', Test) {
+    group = 'verification'
+    description = 'Generates CU-17 SIMPLE_CRUD and AUTH_INFORMATION_SYSTEM Angular frontends and runs production ng build for both.'
+
+    dependsOn testClasses
+    testClassesDirs = sourceSets.test.output.classesDirs
+    classpath = sourceSets.test.runtimeClasspath
+    outputs.upToDateWhen { false }
+    outputs.cacheIf { false }
+    useJUnitPlatform()
+    maxParallelForks = 1
+    filter {
+        includeTestsMatching 'com.classforge.generation.spring.acceptance.GeneratedAngularAcceptanceIntegrationTest'
+    }
+
+    systemProperty 'spring.angular.acceptance.enabled', 'true'
+    systemProperty 'spring.angular.acceptance.node-modules', file("${projectDir}/../frontend/node_modules").absolutePath
+
+    testLogging {
+        events 'passed', 'failed', 'skipped'
+        showStandardStreams = true
+        exceptionFormat = 'full'
+    }
+}
+
+// C7-CU18: validate representative generated Flutter Android applications.
+tasks.register('generatedFlutterAcceptance', Test) {
+    group = 'verification'
+    description = 'Generates CU-18 SIMPLE_CRUD and AUTH_INFORMATION_SYSTEM Flutter apps and runs analyze/test/debug Android build for both.'
+
+    dependsOn testClasses
+    testClassesDirs = sourceSets.test.output.classesDirs
+    classpath = sourceSets.test.runtimeClasspath
+    outputs.upToDateWhen { false }
+    outputs.cacheIf { false }
+    useJUnitPlatform()
+    maxParallelForks = 1
+    filter {
+        includeTestsMatching 'com.classforge.generation.spring.acceptance.GeneratedFlutterAcceptanceIntegrationTest'
+    }
+
+    systemProperty 'spring.flutter.acceptance.enabled', 'true'
+    def flutterCommand = project.findProperty('flutterCommand')?.toString() ?: 'flutter'
+    systemProperty 'spring.flutter.acceptance.command', flutterCommand
+
+    // Windows CU-19 hardening: keep JUnit @TempDir on the repository volume.
+    // Kotlin incremental caches for Flutter plugins cannot relativize source files
+    // across different drive roots (for example F:\FlutterPubCache vs C:\Temp).
+    def flutterAcceptanceTemp = layout.buildDirectory.dir('tmp/generated-flutter-acceptance').get().asFile
+    doFirst {
+        flutterAcceptanceTemp.mkdirs()
+    }
+    systemProperty 'java.io.tmpdir', flutterAcceptanceTemp.absolutePath
+
+    testLogging {
+        events 'passed', 'failed', 'skipped'
+        showStandardStreams = true
+        exceptionFormat = 'full'
+    }
+}
+
+// C8-CU19: validate generated natural-language/voice assistant for Simple and Auth exports.
+tasks.register('generatedAssistantAcceptance', Test) {
+    group = 'verification'
+    description = 'Generates CU-19 SIMPLE_CRUD and AUTH_INFORMATION_SYSTEM assistants, validates privacy/determinism, and builds both exported Spring projects.'
+
+    dependsOn testClasses
+    testClassesDirs = sourceSets.test.output.classesDirs
+    classpath = sourceSets.test.runtimeClasspath
+    outputs.upToDateWhen { false }
+    outputs.cacheIf { false }
+    useJUnitPlatform()
+    maxParallelForks = 1
+    filter {
+        includeTestsMatching 'com.classforge.generation.spring.acceptance.GeneratedAssistantAcceptanceIntegrationTest'
+    }
+
+    systemProperty 'spring.generated.assistant.acceptance.enabled', 'true'
+    systemProperty 'spring.generated.assistant.acceptance.gradle-user-home', gradle.gradleUserHomeDir.absolutePath
+
+    def generatedJavaHome = providers.gradleProperty('generatedJavaHome')
+    if (generatedJavaHome.isPresent()) {
+        systemProperty 'spring.generated.assistant.acceptance.java-home', generatedJavaHome.get()
+    }
+
+    testLogging {
+        events 'passed', 'failed', 'skipped'
+        showStandardStreams = true
+        exceptionFormat = 'full'
+    }
+}
+
+// C9-CU10/CU11: Enterprise Architect XMI 2.1 import/export + semantic round-trip.
+tasks.register('xmiEnterpriseArchitectAcceptance', Test) {
+    group = 'verification'
+    description = 'Runs CU-10/CU-11 Enterprise Architect XMI 2.1 fixture import, secure parsing, HTTP preview/apply/export, and semantic round-trip acceptance.'
+
+    dependsOn testClasses
+    testClassesDirs = sourceSets.test.output.classesDirs
+    classpath = sourceSets.test.runtimeClasspath
+    outputs.upToDateWhen { false }
+    outputs.cacheIf { false }
+    useJUnitPlatform()
+    maxParallelForks = 1
+    filter {
+        includeTestsMatching 'com.classforge.integration.xmi.*'
+    }
+
+    testLogging {
+        events 'passed', 'failed', 'skipped'
+        showStandardStreams = true
+        exceptionFormat = 'full'
+    }
+}
+
+// C10-CU27: deterministic final transition/demo scenario.
+tasks.register('demoScenarioAcceptance', Test) {
+    group = 'verification'
+    description = 'Validates the deterministic CU-27 Veterinaria demo profile, owner/editor access, canonical UML fixture, and XMI round-trip.'
+
+    dependsOn testClasses
+    testClassesDirs = sourceSets.test.output.classesDirs
+    classpath = sourceSets.test.runtimeClasspath
+    outputs.upToDateWhen { false }
+    outputs.cacheIf { false }
+    useJUnitPlatform()
+    maxParallelForks = 1
+    filter {
+        includeTestsMatching 'com.classforge.demo.DemoScenarioAcceptanceIntegrationTest'
+    }
+
+    testLogging {
+        events 'passed', 'failed', 'skipped'
+        showStandardStreams = true
+        exceptionFormat = 'full'
+    }
+}

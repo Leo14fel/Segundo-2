@@ -1,0 +1,908 @@
+<script setup lang="ts">
+import { computed, nextTick, onMounted, onUnmounted, ref, watch } from "vue";
+import { storeToRefs } from "pinia";
+import { useEditorStore } from "./editor-store";
+import { createUmlClass, nextClassName } from "./editor-elements";
+import type {
+  DiagramNodeLayout,
+  ProjectSummary,
+  UmlClass,
+  UmlCommand,
+  ProjectRole,
+  UmlRelationship,
+} from "./types";
+import { computeAutoLayout } from "./canvas/auto-layout";
+import UmlCanvas from "./canvas/UmlCanvas.vue";
+import InspectorPanel from "./InspectorPanel.vue";
+import RelationshipDialog from "./RelationshipDialog.vue";
+import { useAuthStore } from "../auth/auth-store";
+import { downloadProjectXmi, saveLayouts } from "./editor-api";
+import { connectProjectSync, type PresenceConnection } from "./editor-sync";
+import ProjectTools from "./ProjectTools.vue";
+import SharingPanel from "./SharingPanel.vue";
+import PresencePanel from "./PresencePanel.vue";
+
+const editorStore = useEditorStore();
+const authStore = useAuthStore();
+const {
+  document,
+  loading,
+  error,
+  projectId,
+  projects,
+  canUndo,
+  canRedo,
+  effectiveRole,
+  collaborators,
+  syncStatus,
+  participants,
+  presenceSessionId,
+} = storeToRefs(editorStore);
+
+const selectedElementId = ref<string | null>(null);
+const cursorPosition = ref<{ x: number; y: number } | null>(null);
+const editingElementId = ref<string | null>(null);
+const remoteParticipants = computed(() =>
+  participants.value.filter(
+    (peer) => peer.sessionId !== presenceSessionId.value,
+  ),
+);
+const relationshipDialogOpen = ref(false);
+const projectMenuOpen = ref(false);
+const createProjectDialogOpen = ref(false);
+const newProjectName = ref("");
+const batchBusy = ref(false);
+const collaboratorsDialogOpen = ref(false);
+const redeemDialogOpen = ref(false);
+const relationalDialogOpen = ref(false);
+const collaboratorEmail = ref("");
+const collaboratorRole = ref<ProjectRole>("EDITOR");
+const canvasRef = ref<{
+  fitContent: () => void;
+  focusElement: (id: string) => void;
+} | null>(null);
+
+async function revealElement(id: string): Promise<void> {
+  if (!document.value?.umlModel.elements.some((element) => element.id === id))
+    return;
+  selectedElementId.value = id;
+  await nextTick();
+  canvasRef.value?.focusElement(id);
+}
+const importFileInput = ref<HTMLInputElement | null>(null);
+
+async function importXmiFile(event: Event): Promise<void> {
+  const input = event.target as HTMLInputElement;
+  const file = input.files?.[0];
+  if (!file) return;
+  try {
+    await editorStore.importXmi(file);
+  } catch {
+    // The store displays errors and retains the current project on rejection.
+  } finally {
+    input.value = "";
+  }
+}
+
+const shortProjectId = computed(
+  () => projectId.value?.slice(0, 8) ?? "sin proyecto",
+);
+const projectName = computed(() => {
+  const name = document.value?.metadata.name;
+  return typeof name === "string" && name.trim() ? name : "Proyecto sin nombre";
+});
+const revision = computed(() => document.value?.revision ?? 0);
+const busy = computed(() => loading.value || batchBusy.value);
+const mobileQuery = window.matchMedia("(max-width: 900px)");
+const observer = ref(mobileQuery.matches);
+function viewportChanged() {
+  observer.value = mobileQuery.matches;
+  if (observer.value) editingElementId.value = null;
+}
+mobileQuery.addEventListener("change", viewportChanged);
+onUnmounted(() => mobileQuery.removeEventListener("change", viewportChanged));
+const canEdit = computed(
+  () =>
+    !observer.value &&
+    effectiveRole.value === "EDITOR" &&
+    syncStatus.value === "connected",
+);
+const isOwner = computed(() => document.value?.ownerId === authStore.user?.id);
+const classes = computed(
+  () =>
+    document.value?.umlModel.elements.filter(
+      (element): element is UmlClass => element.kind === "class",
+    ) ?? [],
+);
+
+async function loadProjects(): Promise<void> {
+  try {
+    await editorStore.loadProjects();
+  } catch {
+    // El store expone el mensaje en `error`.
+  }
+}
+
+async function openProject(project: ProjectSummary): Promise<void> {
+  try {
+    selectedElementId.value = null;
+    await editorStore.openProject(project.id);
+    projectMenuOpen.value = false;
+  } catch {
+    // El store expone el mensaje en `error`.
+  }
+}
+
+async function openCollaborators(): Promise<void> {
+  try {
+    await editorStore.loadCollaborators();
+    collaboratorsDialogOpen.value = true;
+  } catch {
+    // El store expone el mensaje en `error`.
+  }
+}
+
+async function addCollaborator(): Promise<void> {
+  if (!collaboratorEmail.value.trim()) return;
+  try {
+    await editorStore.addCollaborator(
+      collaboratorEmail.value.trim(),
+      collaboratorRole.value,
+    );
+    collaboratorEmail.value = "";
+  } catch {
+    // El store expone el mensaje en `error`.
+  }
+}
+
+async function changeCollaboratorRole(
+  userId: string,
+  role: ProjectRole,
+): Promise<void> {
+  try {
+    await editorStore.updateCollaborator(userId, role);
+  } catch {
+    // El store expone el mensaje en `error`.
+  }
+}
+
+async function removeCollaborator(userId: string): Promise<void> {
+  try {
+    await editorStore.removeCollaborator(userId);
+  } catch {
+    // El store expone el mensaje en `error`.
+  }
+}
+
+async function createProject(): Promise<void> {
+  const name = newProjectName.value.trim() || "Proyecto sin nombre";
+  try {
+    selectedElementId.value = null;
+    await editorStore.createProject(name);
+    newProjectName.value = "";
+    createProjectDialogOpen.value = false;
+  } catch {
+    // El store expone el mensaje en `error`.
+  }
+}
+
+async function downloadXmi(): Promise<void> {
+  if (!projectId.value || busy.value) return;
+  try {
+    const { blob, filename } = await downloadProjectXmi(projectId.value);
+    const url = URL.createObjectURL(blob);
+    const link = window.document.createElement("a");
+    link.href = url;
+    link.download = filename;
+    link.click();
+    URL.revokeObjectURL(url);
+  } catch (error) {
+    editorStore.error =
+      error instanceof Error ? error.message : "No se pudo exportar el XMI.";
+  }
+}
+
+async function executeCommand(command: UmlCommand): Promise<boolean> {
+  try {
+    await editorStore.execute(command);
+    return true;
+  } catch {
+    return false;
+  }
+}
+
+async function createClass(): Promise<void> {
+  if (!document.value || busy.value || !canEdit.value) return;
+  const element = createUmlClass(nextClassName(document.value));
+
+  if (
+    await executeCommand({
+      commandType: "addElement",
+      element,
+    })
+  ) {
+    selectedElementId.value = element.id;
+  }
+}
+
+async function createRelationship(
+  relationship: UmlRelationship,
+): Promise<void> {
+  if (!document.value || busy.value || !canEdit.value) return;
+
+  if (
+    await executeCommand({
+      commandType: "addElement",
+      element: relationship,
+    })
+  ) {
+    selectedElementId.value = relationship.id;
+  }
+}
+
+async function handleMoveNode(payload: {
+  elementId: string;
+  layout: DiagramNodeLayout;
+}): Promise<void> {
+  if (!canEdit.value) return;
+  await executeCommand({
+    commandType: "setNodeLayout",
+    elementId: payload.elementId,
+    layout: payload.layout,
+  });
+}
+
+async function handleInspectorCommand(command: UmlCommand): Promise<void> {
+  const removedId =
+    command.commandType === "removeElement" ? command.elementId : null;
+  const ok = await executeCommand(command);
+  if (ok && removedId === selectedElementId.value) {
+    selectedElementId.value = null;
+  }
+}
+
+async function undo(): Promise<void> {
+  if (!canEdit.value || !canUndo.value || busy.value) return;
+  try {
+    await editorStore.undo();
+    ensureValidSelection();
+  } catch {
+    // El store ya expone el error.
+  }
+}
+
+async function redo(): Promise<void> {
+  if (!canEdit.value || !canRedo.value || busy.value) return;
+  try {
+    await editorStore.redo();
+    ensureValidSelection();
+  } catch {
+    // El store ya expone el error.
+  }
+}
+
+async function autoLayout(): Promise<void> {
+  if (
+    !document.value ||
+    !canEdit.value ||
+    classes.value.length === 0 ||
+    busy.value
+  )
+    return;
+
+  batchBusy.value = true;
+  try {
+    const layouts = computeAutoLayout(document.value);
+
+    const current = document.value;
+    const state = await saveLayouts(current.id, current.revision, layouts);
+    if (projectId.value === current.id) editorStore.applyProjectState(state);
+
+    await nextTick();
+    canvasRef.value?.fitContent();
+  } catch {
+    editorStore.error =
+      "No se pudo organizar el diagrama. Actualiza el proyecto si cambió en otra sesión.";
+  } finally {
+    batchBusy.value = false;
+  }
+}
+
+function ensureValidSelection(): void {
+  if (!selectedElementId.value || !document.value) return;
+  const stillExists = document.value.umlModel.elements.some(
+    (element) => element.id === selectedElementId.value,
+  );
+  if (!stillExists) selectedElementId.value = null;
+}
+
+watch(() => document.value?.revision, ensureValidSelection);
+
+let stopSync: PresenceConnection | undefined;
+function publishPresence() {
+  stopSync?.updatePresence({
+    cursor: cursorPosition.value,
+    selectedElementId: selectedElementId.value,
+    editingElementId: canEdit.value ? editingElementId.value : null,
+  });
+}
+watch(
+  [cursorPosition, selectedElementId, editingElementId, canEdit],
+  publishPresence,
+);
+watch(
+  [projectId, () => authStore.token],
+  ([id, token]) => {
+    stopSync?.();
+    selectedElementId.value = null;
+    editingElementId.value = null;
+    cursorPosition.value = null;
+    editorStore.participants = [];
+    editorStore.presenceSessionId = null;
+    editorStore.sessionEvents = [];
+    editorStore.sessionParticipants = [];
+    editorStore.sessionReady = false;
+    editorStore.sessionError = null;
+    if (!id || !token) return;
+    stopSync = connectProjectSync({
+      projectId: id,
+      token,
+      onEvent: (event) => editorStore.applySyncEvent(event),
+      onPresence: (event) => editorStore.applyPresence(event),
+      onConversation: (page) => editorStore.applySessionPage(page),
+      onStatus: (status) => {
+        editorStore.syncStatus = status;
+        if (status !== "connected") {
+          editorStore.sessionReady = false;
+          editorStore.participants = [];
+          editorStore.presenceSessionId = null;
+        }
+      },
+      onForbidden: (code) => {
+        if (code === 4401) authStore.clearSession();
+        else {
+          editorStore.document = null;
+          editorStore.projectId = null;
+          editorStore.effectiveRole = null;
+          editorStore.error = "El acceso al proyecto ya no está disponible.";
+        }
+      },
+    });
+    publishPresence();
+  },
+  { immediate: true },
+);
+onUnmounted(() => stopSync?.());
+
+onMounted(async () => {
+  await loadProjects();
+  const target = new URLSearchParams(window.location.search).get("project");
+  if (target && projects.value.some((p) => p.id === target))
+    try {
+      await editorStore.openProject(target);
+    } catch {}
+});
+</script>
+
+<template>
+  <v-app>
+    <v-main class="editor-main">
+      <div class="editor-shell">
+        <header class="editor-toolbar">
+          <div>
+            <div class="text-overline text-primary">FORGE STUDIO</div>
+            <h1 class="text-h5 font-weight-bold">{{ projectName }}</h1>
+          </div>
+
+          <div class="editor-toolbar__status">
+            <v-menu v-model="projectMenuOpen" :close-on-content-click="false">
+              <template #activator="{ props }">
+                <v-btn
+                  v-bind="props"
+                  size="small"
+                  variant="tonal"
+                  prepend-icon="mdi-folder-open-outline"
+                >
+                  Proyectos
+                </v-btn>
+              </template>
+              <v-card min-width="280" class="project-menu">
+                <v-list density="compact">
+                  <v-list-item
+                    v-for="project in projects"
+                    :key="project.id"
+                    :title="
+                      typeof project.metadata.name === 'string'
+                        ? project.metadata.name
+                        : 'Proyecto sin nombre'
+                    "
+                    :subtitle="`Revisión ${project.revision}`"
+                    prepend-icon="mdi-file-document-outline"
+                    @click="openProject(project)"
+                  />
+                  <v-list-item
+                    v-if="projects.length === 0"
+                    title="No hay proyectos guardados"
+                  />
+                </v-list>
+              </v-card>
+            </v-menu>
+            <v-btn
+              size="small"
+              color="primary"
+              variant="flat"
+              prepend-icon="mdi-plus"
+              :disabled="busy"
+              @click="createProjectDialogOpen = true"
+            >
+              Nuevo proyecto
+            </v-btn>
+            <input
+              ref="importFileInput"
+              type="file"
+              accept=".xmi,.xml,application/xml,text/xml"
+              hidden
+              @change="importXmiFile"
+            />
+            <v-btn
+              size="small"
+              variant="tonal"
+              prepend-icon="mdi-file-import-outline"
+              :disabled="busy || !projectId"
+              @click="relationalDialogOpen = true"
+            >
+              Importar XMI
+            </v-btn>
+            <v-btn
+              size="small"
+              variant="text"
+              :disabled="busy"
+              @click="redeemDialogOpen = true"
+              >Mis invitaciones</v-btn
+            >
+            <v-chip size="small" variant="tonal" color="secondary">
+              Proyecto {{ shortProjectId }}
+            </v-chip>
+            <v-chip size="small" variant="tonal" color="primary">
+              Revisión {{ revision }}
+            </v-chip>
+            <v-chip
+              v-if="projectId"
+              size="small"
+              variant="tonal"
+              :color="syncStatus === 'connected' ? 'success' : 'warning'"
+              role="status"
+            >
+              {{
+                syncStatus === "connected"
+                  ? "En tiempo real"
+                  : syncStatus === "unavailable"
+                    ? "Sin acceso"
+                    : "Reconectando…"
+              }}
+            </v-chip>
+            <v-chip
+              v-if="effectiveRole"
+              size="small"
+              variant="tonal"
+              :color="effectiveRole === 'EDITOR' ? 'secondary' : 'warning'"
+            >
+              {{ effectiveRole === "EDITOR" ? "Editor" : "Solo lectura" }}
+            </v-chip>
+            <v-btn
+              v-if="isOwner"
+              size="small"
+              variant="text"
+              prepend-icon="mdi-account-group-outline"
+              @click="openCollaborators"
+            >
+              Colaboradores
+            </v-btn>
+            <v-btn
+              size="small"
+              variant="text"
+              prepend-icon="mdi-download-outline"
+              :disabled="busy || !projectId"
+              @click="downloadXmi"
+            >
+              Descargar XMI
+            </v-btn>
+            <v-btn
+              size="small"
+              variant="tonal"
+              prepend-icon="mdi-database-outline"
+              :disabled="busy || !projectId"
+              @click="relationalDialogOpen = true"
+            >
+              Herramientas del proyecto
+            </v-btn>
+            <v-btn
+              size="small"
+              variant="text"
+              prepend-icon="mdi-logout"
+              @click="authStore.logout"
+            >
+              Salir
+            </v-btn>
+          </div>
+        </header>
+
+        <v-alert
+          v-if="error"
+          type="error"
+          variant="tonal"
+          class="mb-4"
+          title="Error del editor"
+          closable
+          @click:close="editorStore.error = null"
+        >
+          {{ error }}
+        </v-alert>
+        <v-alert
+          v-if="editorStore.importWarnings.length"
+          type="warning"
+          variant="tonal"
+          density="compact"
+          class="mb-3"
+          closable
+          @click:close="editorStore.importWarnings = []"
+        >
+          <div v-for="warning in editorStore.importWarnings" :key="warning">
+            {{ warning }}
+          </div>
+        </v-alert>
+
+        <div v-if="loading && !document" class="editor-loading">
+          <v-progress-circular indeterminate color="primary" size="48" />
+          <span class="text-body-2 text-medium-emphasis"
+            >Cargando proyectos...</span
+          >
+        </div>
+
+        <template v-else-if="document">
+          <v-alert v-if="observer" type="info" variant="tonal" class="mb-3"
+            >Modo móvil informativo: puedes seguir el diagrama en vivo,
+            conversar con el equipo y consultar los avisos. La edición se
+            realiza desde escritorio.</v-alert
+          >
+          <div class="editor-commandbar">
+            <div class="editor-commandbar__group">
+              <v-btn
+                color="primary"
+                variant="flat"
+                prepend-icon="mdi-plus-box-outline"
+                :disabled="busy || !canEdit"
+                @click="createClass"
+              >
+                Nueva clase
+              </v-btn>
+              <v-btn
+                color="secondary"
+                variant="tonal"
+                prepend-icon="mdi-vector-line"
+                :disabled="busy || !canEdit || classes.length === 0"
+                @click="relationshipDialogOpen = true"
+              >
+                Nueva relación
+              </v-btn>
+            </div>
+
+            <div class="editor-commandbar__group">
+              <v-btn
+                variant="text"
+                prepend-icon="mdi-undo"
+                :disabled="busy || !canEdit || !canUndo"
+                @click="undo"
+              >
+                Deshacer
+              </v-btn>
+              <v-btn
+                variant="text"
+                prepend-icon="mdi-redo"
+                :disabled="busy || !canEdit || !canRedo"
+                @click="redo"
+              >
+                Rehacer
+              </v-btn>
+              <v-btn
+                variant="tonal"
+                prepend-icon="mdi-auto-fix"
+                :disabled="busy || !canEdit || classes.length === 0"
+                @click="autoLayout"
+              >
+                Auto-organizar
+              </v-btn>
+            </div>
+          </div>
+
+          <PresencePanel
+            :key="document.id"
+            :participants="participants"
+            :own-session-id="presenceSessionId"
+            :document="document"
+            @select="selectedElementId = $event"
+          />
+          <div class="editor-grid">
+            <section class="toolbox-panel">
+              <div class="text-overline text-primary">Toolbox</div>
+              <div class="text-subtitle-2 font-weight-bold mb-3">
+                Modelado manual
+              </div>
+
+              <v-list density="compact" bg-color="transparent">
+                <v-list-item
+                  prepend-icon="mdi-cube-outline"
+                  title="Clase"
+                  subtitle="Nueva clase UML"
+                  :disabled="busy || !canEdit"
+                  @click="createClass"
+                />
+                <v-list-item
+                  prepend-icon="mdi-vector-line"
+                  title="Relación"
+                  subtitle="Asociación, agregación, composición o herencia"
+                  :disabled="busy || !canEdit || classes.length === 0"
+                  @click="relationshipDialogOpen = true"
+                />
+              </v-list>
+
+              <v-divider class="my-4" />
+
+              <div class="text-caption text-medium-emphasis">
+                Arrastra clases para guardar su posición. Selecciona un elemento
+                para editarlo en el inspector. Las mutaciones pasan por el
+                Command Bus del backend.
+              </div>
+
+              <v-progress-linear
+                v-if="busy"
+                indeterminate
+                color="primary"
+                class="mt-4"
+              />
+            </section>
+
+            <UmlCanvas
+              ref="canvasRef"
+              :document="document"
+              :selected-element-id="selectedElementId"
+              :busy="busy || !canEdit"
+              :participants="remoteParticipants"
+              @cursor="cursorPosition = $event"
+              @select="selectedElementId = $event"
+              @move-node="handleMoveNode"
+            />
+
+            <InspectorPanel
+              v-if="!observer"
+              :document="document"
+              :selected-element-id="selectedElementId"
+              :busy="busy || !canEdit"
+              @execute="handleInspectorCommand"
+              @clear-selection="selectedElementId = null"
+              @editing="editingElementId = $event"
+            />
+          </div>
+
+          <RelationshipDialog
+            v-model="relationshipDialogOpen"
+            :classes="classes"
+            :busy="busy || !canEdit"
+            @create="createRelationship"
+          />
+          <ProjectTools :key="document.id" :observer="observer" />
+        </template>
+
+        <div v-else-if="!error" class="editor-loading">
+          <span class="text-body-2 text-medium-emphasis"
+            >Abra o cree un proyecto para comenzar.</span
+          >
+          <v-btn
+            color="primary"
+            variant="flat"
+            prepend-icon="mdi-plus"
+            @click="createProjectDialogOpen = true"
+          >
+            Crear proyecto
+          </v-btn>
+        </div>
+
+        <v-dialog v-model="relationalDialogOpen" max-width="1120" scrollable>
+          <v-card>
+            <v-card-title>Herramientas del proyecto</v-card-title>
+            <v-card-text
+              ><ProjectTools
+                v-if="relationalDialogOpen && document"
+                :key="document.id"
+                :observer="observer"
+                :project-id="document.id"
+                :revision="revision"
+            /></v-card-text>
+            <v-card-actions
+              ><v-spacer /><v-btn @click="relationalDialogOpen = false"
+                >Cerrar</v-btn
+              ></v-card-actions
+            >
+          </v-card>
+        </v-dialog>
+        <v-dialog v-model="createProjectDialogOpen" max-width="420">
+          <v-card>
+            <v-card-title>Nuevo proyecto</v-card-title>
+            <v-card-text>
+              <v-text-field
+                v-model="newProjectName"
+                label="Nombre del proyecto"
+                autofocus
+                @keyup.enter="createProject"
+              />
+            </v-card-text>
+            <v-card-actions>
+              <v-spacer />
+              <v-btn variant="text" @click="createProjectDialogOpen = false"
+                >Cancelar</v-btn
+              >
+              <v-btn
+                color="primary"
+                variant="flat"
+                :disabled="busy"
+                @click="createProject"
+              >
+                Crear
+              </v-btn>
+            </v-card-actions>
+          </v-card>
+        </v-dialog>
+
+        <v-dialog v-model="redeemDialogOpen" max-width="560">
+          <v-card>
+            <v-card-title>Mis invitaciones</v-card-title>
+            <v-card-text
+              ><SharingPanel
+                v-if="redeemDialogOpen"
+                @accepted="redeemDialogOpen = false"
+            /></v-card-text>
+            <v-card-actions
+              ><v-spacer /><v-btn @click="redeemDialogOpen = false"
+                >Cerrar</v-btn
+              ></v-card-actions
+            >
+          </v-card>
+        </v-dialog>
+        <v-dialog v-model="collaboratorsDialogOpen" max-width="560">
+          <v-card>
+            <v-card-title>Colaboradores</v-card-title>
+            <v-card-text>
+              <SharingPanel
+                v-if="collaboratorsDialogOpen"
+                :project-id="projectId ?? undefined"
+              />
+            </v-card-text>
+            <v-card-actions
+              ><v-spacer /><v-btn @click="collaboratorsDialogOpen = false"
+                >Cerrar</v-btn
+              ></v-card-actions
+            >
+          </v-card>
+        </v-dialog>
+      </div>
+    </v-main>
+  </v-app>
+</template>
+
+<style scoped>
+.editor-main {
+  min-height: 100vh;
+  background:
+    radial-gradient(
+      circle at top left,
+      rgba(53, 208, 186, 0.08),
+      transparent 32%
+    ),
+    #0f1720;
+}
+
+.editor-shell {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-height: 100vh;
+  padding: 18px;
+}
+
+.editor-toolbar,
+.editor-commandbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.editor-toolbar {
+  margin-bottom: 14px;
+}
+
+.editor-toolbar__status,
+.editor-commandbar__group {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.editor-toolbar__status {
+  justify-content: flex-end;
+}
+
+.editor-commandbar {
+  margin-bottom: 12px;
+  padding: 10px 12px;
+  border: 1px solid rgba(148, 163, 184, 0.16);
+  border-radius: 14px;
+  background: rgba(17, 28, 38, 0.86);
+}
+
+.editor-grid {
+  display: grid;
+  grid-template-columns: 220px minmax(0, 1fr) 360px;
+  gap: 12px;
+  min-height: 0;
+  flex: 1;
+}
+
+.toolbox-panel {
+  min-width: 0;
+  padding: 14px;
+  border: 1px solid rgba(148, 163, 184, 0.18);
+  border-radius: 16px;
+  background: #111c26;
+}
+
+.editor-loading {
+  flex: 1;
+  min-height: 620px;
+  display: grid;
+  place-content: center;
+  justify-items: center;
+  gap: 16px;
+  border: 1px solid rgba(148, 163, 184, 0.18);
+  border-radius: 16px;
+  background: #0c141d;
+}
+
+.collaborator-form {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 120px auto;
+  gap: 8px;
+  align-items: center;
+}
+
+@media (max-width: 1180px) {
+  .editor-grid {
+    grid-template-columns: 180px minmax(0, 1fr) 300px;
+  }
+}
+
+@media (max-width: 900px) {
+  .editor-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .toolbox-panel {
+    display: none;
+  }
+
+  .editor-commandbar,
+  .editor-toolbar {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .editor-toolbar__status {
+    justify-content: flex-start;
+  }
+
+  .collaborator-form {
+    grid-template-columns: 1fr;
+  }
+}
+</style>

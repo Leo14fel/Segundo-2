@@ -1,0 +1,35 @@
+sequenceDiagram
+    actor B as Integrante B / móvil
+    participant Vue as Vue / PushPanel
+    participant SW as Service Worker
+    participant API as Spring Boot / JWT
+    participant DB as MongoDB replica set
+    actor A as Integrante A
+    participant Worker as Trabajador Push
+    participant Provider as Proveedor push del navegador
+    B->>Vue: Activar notificaciones explícitamente
+    Vue->>B: Pedir permiso del navegador
+    B-->>Vue: Permiso concedido
+    Vue->>SW: Registrar y crear suscripción PushManager
+    Vue->>API: Guardar endpoint + claves con JWT
+    API->>DB: Suscripción vinculada a B
+    Vue->>SW: Vincular cuenta B en IndexedDB
+    A->>API: Editar diagrama con baseRevision
+    API->>DB: Transacción: documento, actividad, aviso B y trabajo push
+    DB-->>API: Commit
+    Worker->>DB: Reclamar trabajo pendiente con lease
+    Worker->>Provider: POST cifrado AES128GCM + VAPID
+    alt Aceptado 2xx
+        Provider-->>Worker: Aceptado
+        Worker->>DB: SENT
+        Provider->>SW: Evento push
+        SW->>SW: Comprobar cuenta vinculada
+        SW-->>B: Aviso genérico
+        B->>SW: Pulsar aviso
+        SW->>Vue: Abrir proyecto / Actividad
+        Vue->>API: Recuperar datos con autenticación y permisos
+    else Suscripción vencida 404/410
+        Worker->>DB: Eliminar suscripción y marcar DEAD
+    else Fallo temporal
+        Worker->>DB: Programar reintento acotado
+    end

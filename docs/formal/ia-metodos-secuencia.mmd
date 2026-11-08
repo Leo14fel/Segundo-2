@@ -1,0 +1,35 @@
+sequenceDiagram
+    actor Usuario as Integrante
+    participant Vue as Forge Studio / Chat común
+    participant API as AssistantPlanService
+    participant LLM as Proveedor de IA configurado
+    participant Java as Catálogo + grounding + resolver
+    participant STOMP as ProjectCollaborationService
+    participant Mongo as MongoDB replica set
+    participant Equipo as Otros integrantes
+    Usuario->>Vue: Solicitar un cambio de método (texto o voz)
+    Note over Vue,API: Voz: Whisper transcribe antes del mismo pipeline
+    Vue->>API: Petición autenticada por proyecto
+    API->>LLM: Routing y catálogo de herramientas del documento actual
+    LLM-->>Java: edit_operation y argumentos (no confiables)
+    Java->>Java: Resolver clase/firma real y comprobar intención
+    Java->>Java: Validar IDs, tipos, parámetros y sobrecargas
+    alt Solicitud ambigua, inválida o con cambios no pedidos
+        Java-->>Vue: Rechazo; documento sin modificar
+    else Propuesta válida
+        Java-->>Vue: BATCH / SET_CLASS_OPERATIONS + baseRevision
+        Note over Vue,Equipo: Las propuestas del chat se comparten; recibirlas no las aplica
+        Usuario->>Vue: Confirmar cambios
+        Vue->>STOMP: Operación autenticada + baseRevision
+        STOMP->>STOMP: Permiso, revisión y validación autoritativa
+        alt Revisión obsoleta
+            STOMP-->>Vue: Rechazo y resincronización
+        else Revisión vigente
+            STOMP->>Mongo: Transacción: documento + actividad + sesión/avisos
+            Mongo-->>STOMP: Revisión incrementada
+            STOMP-->>Vue: Operación aplicada
+            STOMP-->>Equipo: Operación aplicada
+            Vue->>API: Recuperar documento autoritativo
+            Equipo->>API: Recuperar documento autoritativo
+        end
+    end

@@ -1,0 +1,17 @@
+package com.classforge.collaboration.protocol;
+
+public enum UmlCommandType {
+    SET_CLASS_OPERATIONS,
+    CREATE_CLASS,
+    RENAME_CLASS,
+    DELETE_CLASS,
+    RESTORE_CLASS,
+    ADD_ATTRIBUTE,
+    UPDATE_ATTRIBUTE,
+    DELETE_ATTRIBUTE,
+    CREATE_RELATIONSHIP,
+    UPDATE_RELATIONSHIP,
+    DELETE_RELATIONSHIP,
+    MOVE_CLASS,
+    BATCH
+}

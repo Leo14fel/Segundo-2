@@ -1,0 +1,15 @@
+.gradle/
+build/
+*.class
+.idea/
+*.iml
+.project
+.classpath
+frontend/node_modules/
+frontend/dist/
+mobile/.dart_tool/
+mobile/.flutter-plugins
+mobile/.flutter-plugins-dependencies
+mobile/build/
+mobile/android/.gradle/
+mobile/android/local.properties

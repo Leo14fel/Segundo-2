@@ -1,0 +1,51 @@
+# IntelliJ / JetBrains
+.idea/
+*.iml
+out/
+
+# VS Code
+.vscode/
+
+# Angular / Node
+frontend/node_modules/
+frontend/dist/
+frontend/.angular/
+frontend/.cache/
+npm-debug.log*
+
+# Spring / Gradle
+backend/build/
+backend/.gradle/
+backend/data/
+*.log
+
+# Generated ClassForge outputs
+.demo/
+.patch-backups/
+classforge.zip
+/classforge.rar
+/classforge-full.tar.gz
+generated/
+workspace/generated/
+
+# Source packages named "generated" are production/test code, not generated output
+!backend/src/main/java/com/classforge/generation/spring/generated/
+!backend/src/main/java/com/classforge/generation/spring/generated/**
+!backend/src/test/java/com/classforge/generation/spring/generated/
+!backend/src/test/java/com/classforge/generation/spring/generated/**
+
+# Environment / secrets
+.env
+.env.*
+!.env.example
+
+# OS
+.DS_Store
+Thumbs.db
+
+# AWS demo deployment bundle
+.aws-deploy-bundle/
+classforge-aws-deploy-bundle.zip
+
+# Local migration backups and reference copies; publish the adapted source only
+/artifacts/frontend-rebuild/

@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: classforge-test
+
+  mongodb:
+    uri: ${CLASSFORGE_TEST_MONGODB_URI:mongodb://localhost:27017/?replicaSet=rs0}
+    database: classforge_tests
+    representation:
+      uuid: standard
+
+server:
+  port: 0
+
+classforge:
+  security:
+    jwt:
+      secret: classforge-test-secret-isolated-from-development-database-2026
+      expiration-minutes: 60

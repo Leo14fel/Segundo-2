@@ -1,0 +1,61 @@
+flowchart LR
+    Desktop[Desarrollador: navegador escritorio]
+    Mobile[Integrante móvil: modo informativo]
+    subgraph Frontend[Forge Studio - Vue 3]
+        Canvas[Vue Flow: pizarra UML]
+        Chat[GroupAssistant: chat común]
+        History[ProjectHistory: actividad, sesiones y avisos]
+        Adapter[Adaptador de contratos y revisión]
+        Sync[Cliente STOMP + reconciliación HTTP]
+        PushUI[PushPanel + PushManager]
+        PushSW[Service Worker: avisos y vínculo de cuenta]
+    end
+    subgraph Backend[Spring Boot - autoridad del proyecto]
+        Auth[JWT y permisos OWNER / EDITOR]
+        Project[Proyecto: clases, atributos, métodos, validación y persistencia]
+        Collaboration[Operaciones y presencia STOMP]
+        Assistant[Asistente grupal y planner]
+        Context[Contexto: UML + miembros + mensajes + actividad acotada]
+        Activity[Actividad, sesiones, visitas y notificaciones]
+        Generation[XMI y generación de aplicaciones]
+        Push[Suscripciones y cola transaccional push]
+        PushWorker[Trabajador: cifrado VAPID y reintentos]
+    end
+    Mongo[(MongoDB replica set)]
+    LLM[llama.cpp local o Bedrock configurado]
+    Whisper[Whisper local: voz]
+    PushProvider[Proveedor push del navegador]
+    Desktop --> Frontend
+    Mobile --> Frontend
+    Canvas --> Adapter
+    Chat --> Sync
+    History --> Adapter
+    Adapter -->|REST /api - Bearer JWT| Auth
+    Sync <-->|STOMP /ws - JWT CONNECT| Collaboration
+    Sync -->|Reconciliación de documento y mensajes| Auth
+    Auth --> Project
+    Auth --> Assistant
+    Auth --> Activity
+    Auth --> Generation
+    Collaboration --> Project
+    Assistant --> Context
+    Context --> Mongo
+    Assistant --> LLM
+    Assistant --> Whisper
+    Assistant -->|Propuesta, sin escritura autónoma| Chat
+    Chat -->|Confirmación explícita y baseRevision| Collaboration
+    Project --> Mongo
+    Activity --> Mongo
+    Project -->|Cambio persistido| Activity
+    Assistant --> Mongo
+    Generation --> Project
+    History --> PushUI
+    PushUI -->|REST autenticado| Auth
+    PushUI --> PushSW
+    Auth --> Push
+    Activity -->|Misma transacción del aviso| Push
+    Push --> Mongo
+    PushWorker -->|Reclamo con lease| Mongo
+    PushWorker -->|HTTPS cifrado| PushProvider
+    PushProvider --> PushSW
+    PushSW -->|Aviso genérico; abrir proyecto autorizado| Mobile

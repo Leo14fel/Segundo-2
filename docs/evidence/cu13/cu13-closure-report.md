@@ -8,7 +8,7 @@
 
 ## Decisión
 
-CU-13 queda cerrado. El artefacto exportado por ClassForge se genera desde el `UmlModel` canónico a través de CU-12 y de la IR de generación Spring, se valida antes del archivado, se empaqueta de forma determinista y puede compilar/cargar Spring sobre H2 sin edición manual.
+CU-13 queda cerrado. El artefacto exportado por SinapUML se genera desde el `UmlModel` canónico a través de CU-12 y de la IR de generación Spring, se valida antes del archivado, se empaqueta de forma determinista y puede compilar/cargar Spring sobre H2 sin edición manual.
 
 El cierre de CU-13 **no cierra el Ciclo 3**: CU-14 — API CRUD expresiva con modos CRUD simple / Sistema de Información con Auth — permanece como siguiente caso.
 

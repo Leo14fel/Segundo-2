@@ -13,7 +13,7 @@ closed through the existing `VISION` error contract: `OUTPUT_CONTRACT` or
 `TRANSPORT`, HTTP 503, and frontend retry. No proposal, preview, Apply, or
 mutation is returned.
 
-`CLASSFORGE_ASSISTANT_VISION_HYBRID_FALLBACK=true` remains an operational
+`SINAPUML_ASSISTANT_VISION_HYBRID_FALLBACK=true` remains an operational
 rollback/debug override. Diagrams below `minClasses` remain semantic-only by
 routing; they are not fallback. This changes no public API, frontend, or vision
 inference behavior.

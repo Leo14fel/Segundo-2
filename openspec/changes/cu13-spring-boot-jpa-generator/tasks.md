@@ -30,7 +30,7 @@
 - [x] Add planner tests for every mapping rule.
 
 ## 4. FreeMarker rendering
-- [x] Add FreeMarker generator dependency to ClassForge backend.
+- [x] Add FreeMarker generator dependency to SinapUML backend.
 - [x] Create versioned templates under `src/main/resources/generation/spring/`.
 - [x] Render `build.gradle` and `settings.gradle` with pinned Spring Boot 4.0.8 / Java 21.
 - [x] Add static Gradle Wrapper 9.2.0 resources/scripts.

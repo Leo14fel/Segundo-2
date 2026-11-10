@@ -1,18 +1,18 @@
 spring:
   application:
-    name: classforge-test
+    name: sinapuml-test
 
   mongodb:
-    uri: ${CLASSFORGE_TEST_MONGODB_URI:mongodb://localhost:27017/?replicaSet=rs0}
-    database: classforge_tests
+    uri: ${SINAPUML_TEST_MONGODB_URI:mongodb://localhost:27017/?replicaSet=rs0}
+    database: sinapuml_tests
     representation:
       uuid: standard
 
 server:
   port: 0
 
-classforge:
+sinapuml:
   security:
     jwt:
-      secret: classforge-test-secret-isolated-from-development-database-2026
+      secret: sinapuml-test-secret-isolated-from-development-database-2026
       expiration-minutes: 60

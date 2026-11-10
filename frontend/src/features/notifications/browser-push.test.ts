@@ -39,7 +39,7 @@ describe("browser push activation", () => {
   });
   it("rejects activation if the account changed while permission was requested", async () => {
     permission.mockResolvedValueOnce("granted");
-    localStorage.setItem("forge-studio.access-token", "different-token");
+    localStorage.setItem("sinapuml.access-token", "different-token");
     await expect(enablePush("alice", "old-token", "key")).rejects.toThrow(
       "La cuenta cambió",
     );

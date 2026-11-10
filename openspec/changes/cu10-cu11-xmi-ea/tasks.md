@@ -5,7 +5,7 @@
 - [x] Import Package/Class/Property/DataType.
 - [x] Import Association/Aggregation/Composition/Generalization.
 - [x] Import multiplicities and attribute metadata.
-- [x] Preserve deterministic identity for external XMI and round-trip ClassForge UUIDs.
+- [x] Preserve deterministic identity for external XMI and round-trip SinapUML UUIDs.
 - [x] Add revision-bound preview/apply.
 - [x] Add deterministic XMI export.
 - [x] Add Angular import/export workflow.

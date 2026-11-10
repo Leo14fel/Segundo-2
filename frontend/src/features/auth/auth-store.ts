@@ -11,7 +11,7 @@ import {
   type AuthUser,
 } from "./auth-api";
 
-const TOKEN_STORAGE_KEY = "forge-studio.access-token";
+const TOKEN_STORAGE_KEY = "sinapuml.access-token";
 
 export const useAuthStore = defineStore("auth", () => {
   const token = ref<string | null>(localStorage.getItem(TOKEN_STORAGE_KEY));

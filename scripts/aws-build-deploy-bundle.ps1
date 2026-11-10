@@ -1,6 +1,6 @@
 [CmdletBinding()]
 param(
-    [string]$Output = "classforge-aws-deploy-bundle.zip",
+    [string]$Output = "sinapuml-aws-deploy-bundle.zip",
     [switch]$SkipTests
 )
 
@@ -44,7 +44,7 @@ $Jar = Get-ChildItem (Join-Path $Root "backend\build\libs\*.jar") |
     Sort-Object Length -Descending |
     Select-Object -First 1
 if (-not $Jar) { throw "No Spring Boot jar found under backend/build/libs." }
-Copy-Item $Jar.FullName (Join-Path $Stage "classforge.jar")
+Copy-Item $Jar.FullName (Join-Path $Stage "sinapuml.jar")
 
 $Browser = Join-Path $Root "frontend\dist"
 if (-not (Test-Path (Join-Path $Browser "index.html"))) {
@@ -54,7 +54,7 @@ Copy-Item $Browser (Join-Path $Stage "frontend") -Recurse
 
 Copy-Item (Join-Path $Root "deploy\aws\nginx") $Stage -Recurse
 Copy-Item (Join-Path $Root "deploy\aws\systemd") $Stage -Recurse
-Copy-Item (Join-Path $Root "deploy\aws\classforge.env.example") $Stage
+Copy-Item (Join-Path $Root "deploy\aws\sinapuml.env.example") $Stage
 Copy-Item (Join-Path $Root "deploy\aws\install-origin.sh") $Stage
 Copy-Item (Join-Path $Root "deploy\aws\install-whisper.sh") $Stage
 Copy-Item (Join-Path $Root "deploy\aws\iam") $Stage -Recurse

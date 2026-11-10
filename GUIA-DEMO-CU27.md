@@ -19,11 +19,11 @@ $env:Path = "$env:JAVA_HOME\bin;$env:Path"
 Se eliminan únicamente:
 
 ```text
-backend/data/classforge-demo*
+backend/data/sinapuml-demo*
 .demo/
 ```
 
-La base normal `backend/data/classforge*` no se toca.
+La base normal `backend/data/sinapuml*` no se toca.
 
 ## 2. Consola 1 — Backend demo
 
@@ -61,8 +61,8 @@ npm start
 ## 5. Credenciales
 
 ```text
-OWNER  demo@classforge.local / classforge-demo
-EDITOR colaborador@classforge.local / classforge-demo
+OWNER  demo@sinapuml.local / sinapuml-demo
+EDITOR colaborador@sinapuml.local / sinapuml-demo
 
 Proyecto   Veterinaria CU-27
 Project ID 27000000-0000-0000-0000-000000000100
@@ -81,7 +81,7 @@ Si vas a demostrar texto, voz e imagen, levanta también los runtimes indicados 
 Con el backend demo ya ejecutándose manualmente:
 
 ```powershell
-.\scripts\demo-ea-smoke.ps1 -RepositoryPath "F:\demo\classforge-cu27.qea"
+.\scripts\demo-ea-smoke.ps1 -RepositoryPath "F:\demo\sinapuml-cu27.qea"
 ```
 
 Usa un repositorio EA desechable.

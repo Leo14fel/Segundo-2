@@ -5,8 +5,8 @@
   "scenario": "Veterinaria CU-27",
   "projectId": "27000000-0000-0000-0000-000000000100",
   "actors": {
-    "owner": "demo@classforge.local",
-    "editor": "colaborador@classforge.local"
+    "owner": "demo@sinapuml.local",
+    "editor": "colaborador@sinapuml.local"
   },
   "model": {
     "classes": 6,

@@ -59,7 +59,7 @@ $hybridCv = ($VisionMode -eq 'hybrid-cv').ToString().ToLowerInvariant()
 
 $repo = (Get-Location).Path
 $gradle = Join-Path $repo 'backend\gradlew.bat'
-Require (Test-Path -LiteralPath $gradle) 'Ejecuta este script desde la raiz del repo ClassForge.'
+Require (Test-Path -LiteralPath $gradle) 'Ejecuta este script desde la raiz del repo SinapUML.'
 
 if ([string]::IsNullOrWhiteSpace($ReportFile)) {
     $ReportFile = Join-Path $repo ('backend\build\reports\assistant-vision\' + $Suite + '.json')

@@ -2,7 +2,7 @@
 
 **Estado:** OFICIAL desde `C2-cu08-fix-014`.
 
-El Assistant de ClassForge usa Qwen2.5-3B-Instruct Q4_K_M mediante llama.cpp native function calling. El antiguo planner que pedía al LLM serializar directamente `AssistantSemanticPlan` fue retirado del runtime.
+El Assistant de SinapUML usa Qwen2.5-3B-Instruct Q4_K_M mediante llama.cpp native function calling. El antiguo planner que pedía al LLM serializar directamente `AssistantSemanticPlan` fue retirado del runtime.
 
 ## Pipeline oficial
 
@@ -30,7 +30,7 @@ texto / transcript de Whisper
 ## Responsabilidades
 
 - Qwen decide la operación semántica y los argumentos libres de la tool.
-- ClassForge resuelve referencias existentes, typos, provenance y UUIDs.
+- SinapUML resuelve referencias existentes, typos, provenance y UUIDs.
 - Los nombres nuevos se recuperan literalmente del texto del usuario.
 - El LLM nunca recibe autoridad de escritura.
 - Preview/validator/Apply/Command Bus siguen siendo la única ruta de mutación.
@@ -51,7 +51,7 @@ Crea Cliente, agregale email STRING y relaciona Cliente con Factura
 
 primero se clasifica en una ruta pequeña y ordenada (`create_class -> add_attributes -> create_association`). Cada step expone una sola tool pesada. El resultado aceptado se proyecta sobre un `ProjectDocument` efímero usando el mismo `UmlAssistantCommandResolver`; los UUIDs creados por preview funcionan como identidades temporales del plan. El proyecto persistido no cambia.
 
-Si Qwen devuelve varias llamadas durante un step, ClassForge conserva únicamente la primera llamada compatible con la tool esperada. Desde fix-014 v1.5 los steps no reenvían historial `assistant/tool`: el estado entre rondas vive exclusivamente en el `ProjectDocument` efímero y en el catálogo dinámico reconstruido a partir de él. Esto reduce contexto y evita incompatibilidades del chat template sin perder identidades creadas en steps previos.
+Si Qwen devuelve varias llamadas durante un step, SinapUML conserva únicamente la primera llamada compatible con la tool esperada. Desde fix-014 v1.5 los steps no reenvían historial `assistant/tool`: el estado entre rondas vive exclusivamente en el `ProjectDocument` efímero y en el catálogo dinámico reconstruido a partir de él. Esto reduce contexto y evita incompatibilidades del chat template sin perder identidades creadas en steps previos.
 
 La ruta final se resuelve de nuevo como un único BATCH desde el documento original antes de devolver el preview al usuario.
 
@@ -117,7 +117,7 @@ usuario
   -> BATCH final / preview / Apply
 ```
 
-El router no recibe enums del proyecto y por eso su costo de contexto es acotado aunque la redaccion sea nueva. El segundo nivel expone exactamente una tool UML por step. `parallel_tool_calls=false` sigue activo, pero si Qwen devuelve varias llamadas de la misma tool ClassForge ejecuta la primera y responde `DEFERRED_REPLAN` a las restantes en vez de abortar la planificacion.
+El router no recibe enums del proyecto y por eso su costo de contexto es acotado aunque la redaccion sea nueva. El segundo nivel expone exactamente una tool UML por step. `parallel_tool_calls=false` sigue activo, pero si Qwen devuelve varias llamadas de la misma tool SinapUML ejecuta la primera y responde `DEFERRED_REPLAN` a las restantes en vez de abortar la planificacion.
 
 `finish_plan` deja de ser necesario para completar el flujo oficial: la lista ordenada devuelta por `route_uml_request` determina cuantos steps deben resolverse. Los previews efimeros siguen siendo la fuente de identidad para simbolos creados en steps anteriores.
 
@@ -139,7 +139,7 @@ Fix-014 v1.4 introduce `AssistantToolRouteAdjudicator`:
 - si llama.cpp devuelve contenido conversacional sin `tool_calls`, el gateway hace un unico reintento native-tools mas estricto;
 - `max_tokens` del step baja a 256 para acotar bursts sin limitar los argumentos esperados.
 
-El objetivo no es codificar frases del benchmark, sino impedir efectos laterales no solicitados: Qwen propone semantica; ClassForge adjudica la familia compatible con el texto y el `ProjectDocument`, y el resolver sigue siendo la autoridad de referencias/UUID/provenance.
+El objetivo no es codificar frases del benchmark, sino impedir efectos laterales no solicitados: Qwen propone semantica; SinapUML adjudica la familia compatible con el texto y el `ProjectDocument`, y el resolver sigue siendo la autoridad de referencias/UUID/provenance.
 
 <!-- CU08-FIX-014-V1.5-STATELESS-COMPOUND -->
 ## Hardening holdout v1.5: compound stateless y semántica explícita

@@ -14,5 +14,5 @@ runs. Fallback to semantic remains enabled.
 
 Production does not retain heavy diagnostics; benchmark and geometry-only
 paths retain them. This change adds no public API, UI, model, prompt, mask, or
-geometry change. `CLASSFORGE_ASSISTANT_VISION_HYBRID=false` remains the
+geometry change. `SINAPUML_ASSISTANT_VISION_HYBRID=false` remains the
 semantic-only kill switch.

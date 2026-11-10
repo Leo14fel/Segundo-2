@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='utf-8'?>
+<mxfile host="Electron" type="device">
+  <diagram id="D16" name="D16 · Despliegue local">
+    <mxGraphModel dx="680" dy="480" grid="1" gridSize="10" guides="1" page="1" pageScale="1" pageWidth="680" pageHeight="480" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="D16-1" value="«device» Navegador&lt;br&gt;Escritorio / móvil" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#111111;strokeColor=#333333;strokeWidth=1;fillColor=#FFFFFF;shape=cube;size=10;" vertex="1" parent="1">
+          <mxGeometry x="205" y="15" width="270" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="D16-2" value="«executionEnvironment»&lt;br&gt;Vite :4200 / Spring :8082" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#111111;strokeColor=#333333;strokeWidth=1;fillColor=#FFFFFF;shape=cube;size=10;" vertex="1" parent="1">
+          <mxGeometry x="205" y="180" width="270" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="D16-3" value="«executionEnvironment»&lt;br&gt;MongoDB replica set :27017" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#111111;strokeColor=#333333;strokeWidth=1;fillColor=#FFFFFF;shape=cube;size=10;" vertex="1" parent="1">
+          <mxGeometry x="20" y="365" width="260" height="85" as="geometry" />
+        </mxCell>
+        <mxCell id="D16-4" value="«external» IA / voz / push&lt;br&gt;Runtimes opcionales" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#111111;strokeColor=#333333;strokeWidth=1;fillColor=#FFFFFF;shape=cube;size=10;" vertex="1" parent="1">
+          <mxGeometry x="390" y="365" width="270" height="85" as="geometry" />
+        </mxCell>
+        <mxCell id="D16-5" value="HTTP / REST / STOMP" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#111111;strokeColor=#333333;strokeWidth=1;fillColor=#FFFFFF;edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=open;endFill=0;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="D16-1" target="D16-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="D16-6" value="MongoDB" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#111111;strokeColor=#333333;strokeWidth=1;fillColor=#FFFFFF;edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=open;endFill=0;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="D16-2" target="D16-3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="D16-7" value="HTTP" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#111111;strokeColor=#333333;strokeWidth=1;fillColor=#FFFFFF;edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=open;endFill=0;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="D16-2" target="D16-4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

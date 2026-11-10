@@ -1,4 +1,4 @@
-# ClassForge — Assistant Command Pipeline
+# SinapUML — Assistant Command Pipeline
 
 CU08-001 implementa texto → AssistantSemanticPlan → BATCH UmlCommand.
 
@@ -44,8 +44,8 @@ http://127.0.0.1:8092/v1/chat/completions
 Propiedades:
 
 ```text
-classforge.assistant.llama-url
-classforge.assistant.llama-model
+sinapuml.assistant.llama-url
+sinapuml.assistant.llama-model
 ```
 
 El gateway usa `/v1/chat/completions` con native `tools`, `tool_choice=required`, temperatura 0 y `parallel_tool_calls=false`. La primera llamada usa el catálogo liviano `route_uml_request`; `AssistantToolRouteAdjudicator` corrige pasos incompatibles con evidencia del `ProjectDocument` y luego cada step expone una única tool UML semántica con enums canónicos.
@@ -136,7 +136,7 @@ LLM
   comprende lenguaje y produce intención
 
 AssistantPlanNormalizer
-  aplica defaults del perfil ClassForge
+  aplica defaults del perfil SinapUML
 
 UmlAssistantCommandResolver
   resuelve nombres, UUIDs y expande a comandos
@@ -152,7 +152,7 @@ El prompt incluye:
 - clases existentes;
 - atributos con tipo, visibilidad, nullable e identifier;
 - relaciones existentes;
-- reglas del perfil ClassForge;
+- reglas del perfil SinapUML;
 - tipos admitidos;
 - convenciones de dirección de relaciones;
 - ejemplos few-shot con paráfrasis naturales.
@@ -180,7 +180,7 @@ Si el usuario declara el tipo:
 typeSource = EXPLICIT
 ```
 
-Un atributo `id` sigue la convención ClassForge:
+Un atributo `id` sigue la convención SinapUML:
 
 ```text
 identifier = true
@@ -245,7 +245,7 @@ en lugar de serializar propiedades no aplicables como `newName`, `relationshipTy
 
 Si Java agota el presupuesto temporal, el usuario recibe un error específico de timeout.
 
-Si llama.cpp termina por límite de tokens (`finish_reason=length`), ClassForge lo reporta como truncamiento y no intenta aplicar un JSON incompleto.
+Si llama.cpp termina por límite de tokens (`finish_reason=length`), SinapUML lo reporta como truncamiento y no intenta aplicar un JSON incompleto.
 
 Ninguno de estos errores modifica `ProjectDocument`.
 
@@ -378,7 +378,7 @@ Crea Cita y relaciona Cita con Animal
 
 porque `Cita` se incorpora al conjunto de nombres conocidos después de aceptar su `CREATE_CLASS`.
 
-El prompt recuerda explícitamente al modelo que las clases presentes en `CONTEXTO CLASSFORGE` ya existen y no deben recrearse.
+El prompt recuerda explícitamente al modelo que las clases presentes en `CONTEXTO SINAPUML` ya existen y no deben recrearse.
 
 El filtro sigue siendo una capa de defensa; Java no confía en que el LLM respete el prompt.
 
@@ -412,11 +412,11 @@ Para una petición sobre clases existentes, el contexto contiene solo esas clase
 
 ### Prompt estable
 
-Las reglas ClassForge permanecen en el system prompt, que se mantiene estable entre peticiones.
+Las reglas SinapUML permanecen en el system prompt, que se mantiene estable entre peticiones.
 
 Se eliminó la duplicación de reglas dentro del JSON de contexto y se redujo el número de ejemplos few-shot.
 
-Esto favorece también la reutilización de prefijos del runtime sin acoplar ClassForge a una opción concreta de llama.cpp.
+Esto favorece también la reutilización de prefijos del runtime sin acoplar SinapUML a una opción concreta de llama.cpp.
 
 ### Presupuesto de salida
 
@@ -489,7 +489,7 @@ Microfono navegador
 
 Whisper solo produce texto. No conoce `ProjectDocument`, no genera UUIDs y no ejecuta comandos.
 
-Qwen produce tool calls UML; ClassForge construye `AssistantSemanticPlan` internamente y el modelo nunca modifica directamente el modelo canónico.
+Qwen produce tool calls UML; SinapUML construye `AssistantSemanticPlan` internamente y el modelo nunca modifica directamente el modelo canónico.
 
 La mutacion sigue ocurriendo exclusivamente cuando el usuario pulsa `Aplicar`, por el mismo Command Bus/BATCH de CU08-001.
 
@@ -514,8 +514,8 @@ La captura usa Web Audio API y solicita cancelacion de eco, reduccion de ruido y
 Defaults Spring:
 
 ```text
-classforge.assistant.whisper-url=http://127.0.0.1:8093
-classforge.assistant.whisper-language=es
+sinapuml.assistant.whisper-url=http://127.0.0.1:8093
+sinapuml.assistant.whisper-language=es
 ```
 
 Nota histórica de CU08-002: en ese corte CU08-003 aún estaba pendiente. El cierre se encuentra documentado inmediatamente después en la sección CU08-003.
@@ -623,7 +623,7 @@ Server: whisper.cpp
   o, como compatibilidad, GET / contiene la identidad Whisper.cpp Server
 ```
 
-Si `/health` responde correctamente pero la identidad no coincide, ClassForge publica `available=false`, `state=MISMATCH` y explica que el puerto está ocupado por otro servicio.
+Si `/health` responde correctamente pero la identidad no coincide, SinapUML publica `available=false`, `state=MISMATCH` y explica que el puerto está ocupado por otro servicio.
 
 El panel refresca este estado cada 30 segundos mientras no haya planificación ni transcripción activa. El refresco manual continúa disponible. De esta forma un runtime detenido después de abrir el workspace no permanece visualmente verde de forma indefinida y el polling no compite con una inferencia activa.
 
@@ -660,7 +660,7 @@ Desde fix-014 no existe routing `legacy/tools/compare`. `AssistantPlanService` d
 <!-- CU08-FIX-014-V1.4-ROUTE-ADJUDICATION -->
 ## Fix-014 v1.4 — route adjudication
 
-El router native es una propuesta semántica, no una autoridad de mutación. Para una petición simple ClassForge adjudica exactamente una operación compatible con referencias y cues del proyecto. Esto impide que una ruta como `create_class -> rename_class` cree un símbolo efímero no solicitado antes del rename. En compuestos, la ruta se ordena por dependencias y cada ronda guarda solo la primera tool call compatible.
+El router native es una propuesta semántica, no una autoridad de mutación. Para una petición simple SinapUML adjudica exactamente una operación compatible con referencias y cues del proyecto. Esto impide que una ruta como `create_class -> rename_class` cree un símbolo efímero no solicitado antes del rename. En compuestos, la ruta se ordena por dependencias y cada ronda guarda solo la primera tool call compatible.
 
 <!-- C2-CU09-001-VISION-CONVERGENCE -->
 ## Convergencia visual CU-09
@@ -670,7 +670,7 @@ La entrada visual no llama al planner textual de Qwen ni escribe `ProjectDocumen
 <!-- C2-CU09-002-VISION-RUNTIME -->
 ## Runtime visual real — C2-cu09-002
 
-`VisionModelGateway` tiene ahora una implementación `LlamaCppVisionModelGateway` condicionada por `classforge.assistant.vision.provider=llama-cpp`. Usa un runtime multimodal separado en 8094 y no reutiliza el planner native-tools de 8092.
+`VisionModelGateway` tiene ahora una implementación `LlamaCppVisionModelGateway` condicionada por `sinapuml.assistant.vision.provider=llama-cpp`. Usa un runtime multimodal separado en 8094 y no reutiliza el planner native-tools de 8092.
 
 ```text
 normalized image + names-only project context

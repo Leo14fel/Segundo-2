@@ -10,7 +10,7 @@
 
 ## 1. Resumen ejecutivo
 
-CU-09 incorpora a ClassForge una nueva forma de entrada: una imagen o fotografía de un diagrama de clases UML puede analizarse localmente y transformarse en una propuesta estructurada, editable y aplicable sobre el mismo modelo canónico que utiliza el modelado manual, la colaboración realtime y el Asistente de texto/voz.
+CU-09 incorpora a SinapUML una nueva forma de entrada: una imagen o fotografía de un diagrama de clases UML puede analizarse localmente y transformarse en una propuesta estructurada, editable y aplicable sobre el mismo modelo canónico que utiliza el modelado manual, la colaboración realtime y el Asistente de texto/voz.
 
 La solución final no delega toda la reconstrucción a un único modelo multimodal. Se adopta una arquitectura híbrida:
 
@@ -48,11 +48,11 @@ El riesgo arquitectónico principal era que Imagen -> UML terminara creando una 
 
 ### Objetivo funcional
 
-> Dada una imagen/fotografía con UML de clases visible, ClassForge debe producir una propuesta estructurada que el usuario pueda revisar y aplicar de forma segura sobre el `ProjectDocument` actual.
+> Dada una imagen/fotografía con UML de clases visible, SinapUML debe producir una propuesta estructurada que el usuario pueda revisar y aplicar de forma segura sobre el `ProjectDocument` actual.
 
 ### Restricción estructural
 
-> La IA visual nunca escribe directamente en el modelo. Toda salida debe atravesar el pipeline semántico/canónico normal de ClassForge.
+> La IA visual nunca escribe directamente en el modelo. Toda salida debe atravesar el pipeline semántico/canónico normal de SinapUML.
 
 ---
 
@@ -85,7 +85,7 @@ La imagen no se persiste en `ProjectDocument`.
 
 ## 4. Flujo end-to-end de una imagen
 
-La siguiente secuencia representa el camino completo desde archivo hasta modelo listo para ClassForge:
+La siguiente secuencia representa el camino completo desde archivo hasta modelo listo para SinapUML:
 
 ```text
 [1] Usuario selecciona/captura imagen

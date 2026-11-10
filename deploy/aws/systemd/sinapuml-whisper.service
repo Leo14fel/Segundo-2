@@ -1,0 +1,21 @@
+[Unit]
+Description=SinapUML whisper.cpp speech-to-text runtime
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=sinapuml
+Group=sinapuml
+WorkingDirectory=/opt/sinapuml/whisper
+ExecStart=/opt/sinapuml/whisper/whisper-server -m /opt/sinapuml/whisper/models/ggml-base.bin -l es --host 127.0.0.1 --port 8093 -t 2 -nfa -nt
+Restart=on-failure
+RestartSec=5
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectHome=true
+ProtectSystem=strict
+ReadWritePaths=/opt/sinapuml/whisper
+
+[Install]
+WantedBy=multi-user.target

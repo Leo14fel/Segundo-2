@@ -14,7 +14,7 @@ Genera DTOs, services y controllers con CREATE/READ/UPDATE/DELETE/LIST, búsqued
 Requiere clase Auth + atributo username + atributo password por UUID. Ambos atributos deben ser STRING. El target fuerza username único/no nulo y password no nulo, hashea con BCrypt, no expone password en responses, proporciona bootstrap inicial sólo con tabla vacía, login JWT de una hora y protege el resto del API. No existe registro público posterior, refresh token ni roles en CU-14.
 
 ## Seguridad y autoridad
-- OWNER/EDITOR de ClassForge sigue controlando quién puede exportar.
+- OWNER/EDITOR de SinapUML sigue controlando quién puede exportar.
 - La autenticación generada es un dominio independiente.
 - La configuración del target no persiste ni incrementa revisión.
 - Selecciones stale/inconsistentes fallan antes de producir ZIP.

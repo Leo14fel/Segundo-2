@@ -1,0 +1,56 @@
+@startuml
+left to right direction
+title Forge Studio Casos de uso del segundo parcial
+skinparam shadowing false
+skinparam packageStyle rectangle
+
+actor "Integrante autenticado" as Integrante
+actor Propietario
+actor Colaborador
+actor "Integrante en modo móvil" as Movil
+actor "Proveedor de IA" as IA
+actor "Servicio de transcripción" as Voz
+actor "Proveedor push" as Push
+
+Propietario --|> Integrante
+Colaborador --|> Integrante
+
+rectangle "Forge Studio" {
+  usecase "CU-SP-01\nConsultar a la IA grupal" as Consulta
+  usecase "CU-SP-02\nSolicitar revisión del diagrama" as Revision
+  usecase "CU-SP-03\nResumir lo avanzado" as Resumen
+  usecase "CU-SP-04\nSolicitar y confirmar\nedición por voz" as Edicion
+  usecase "CU-SP-05\nRetomar sesión registrada" as Retomar
+  usecase "CU-SP-06\nObservar proyecto desde móvil" as Observar
+  usecase "CU-SP-07\nActivar y recibir avisos push" as Avisos
+}
+
+Integrante -- Consulta
+Integrante -- Revision
+Integrante -- Resumen
+Integrante -- Edicion
+Integrante -- Retomar
+Movil -- Observar
+Movil -- Avisos
+IA -- Consulta
+IA -- Revision
+IA -- Resumen
+IA -- Edicion
+Voz -- Edicion
+Push -- Avisos
+
+note bottom of Edicion
+  Una propuesta no modifica el UML por sí sola.
+  Aplicar requiere confirmación, permiso
+  y una revisión vigente del documento.
+end note
+note bottom of Movil
+  Modo de uso de la interfaz.
+  No representa un rol VIEWER del backend.
+end note
+note bottom of Retomar
+  Identificadores CU-SP provisionales.
+  Complementan el catálogo heredado CU-01 a CU-31.
+  La aceptación en nube permanece pendiente.
+end note
+@enduml

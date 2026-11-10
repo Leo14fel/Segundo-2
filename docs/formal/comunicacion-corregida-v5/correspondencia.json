@@ -1,0 +1,51 @@
+[
+  {
+    "codigo_archivo": "D007",
+    "codigo_documento": "D07",
+    "caso": "CU-SP-01",
+    "archivo": "D007-comunicacion-consulta-ia-grupal.drawio",
+    "titulo": "Consultar a la IA grupal"
+  },
+  {
+    "codigo_archivo": "D008",
+    "codigo_documento": "D08",
+    "caso": "CU-SP-02",
+    "archivo": "D008-comunicacion-revision-diagrama.drawio",
+    "titulo": "Solicitar revisión del diagrama"
+  },
+  {
+    "codigo_archivo": "D009",
+    "codigo_documento": "D09",
+    "caso": "CU-SP-03",
+    "archivo": "D009-comunicacion-resumen-avances.drawio",
+    "titulo": "Resumir los avances"
+  },
+  {
+    "codigo_archivo": "D010",
+    "codigo_documento": "D10",
+    "caso": "CU-SP-04",
+    "archivo": "D010-comunicacion-edicion-por-voz.drawio",
+    "titulo": "Solicitar y confirmar edición por voz"
+  },
+  {
+    "codigo_archivo": "D011",
+    "codigo_documento": "D11",
+    "caso": "CU-SP-05",
+    "archivo": "D011-comunicacion-retomar-sesion.drawio",
+    "titulo": "Retomar una sesión registrada"
+  },
+  {
+    "codigo_archivo": "D012",
+    "codigo_documento": "D12",
+    "caso": "CU-SP-06",
+    "archivo": "D012-comunicacion-observacion-movil.drawio",
+    "titulo": "Observar el proyecto desde el móvil"
+  },
+  {
+    "codigo_archivo": "D013",
+    "codigo_documento": "D13",
+    "caso": "CU-SP-07",
+    "archivo": "D013-comunicacion-notificaciones-push.drawio",
+    "titulo": "Activar y recibir avisos push"
+  }
+]

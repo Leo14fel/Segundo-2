@@ -6,10 +6,10 @@ Every successful CU-14 API export SHALL include root-level `domain-manifest.json
 
 ## Requirement: manifest is derived from canonical generation state
 
-The manifest SHALL be derived from ClassForge generation models/plans and SHALL NOT be reconstructed by parsing generated OpenAPI/Postman files.
+The manifest SHALL be derived from SinapUML generation models/plans and SHALL NOT be reconstructed by parsing generated OpenAPI/Postman files.
 
 ### Scenario: stable source identity
-Entity, attribute and relation entries MUST preserve their source ClassForge UUID whenever the underlying canonical model provides one.
+Entity, attribute and relation entries MUST preserve their source SinapUML UUID whenever the underlying canonical model provides one.
 
 ## Requirement: entities expose semantic UI/assistant metadata
 

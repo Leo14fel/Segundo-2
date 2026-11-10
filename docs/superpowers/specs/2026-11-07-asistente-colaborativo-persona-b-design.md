@@ -1,4 +1,4 @@
-# Segundo parcial: asistente colaborativo de ClassForge
+# Segundo parcial: asistente colaborativo de SinapUML
 
 Estado: diseño aprobado por el usuario el 2026-11-07. Implementación y evidencia
 en `docs/parcial2/README.md`.
@@ -40,7 +40,7 @@ queda como mejora posterior, según el apartado 31 del documento original.
 - `ProjectStompAuthorizationInterceptor` permite únicamente destinos de
   operaciones/presencia. El destino de asistente necesita autorización explícita.
 - Ya existen adaptadores de herramientas para llama.cpp y Bedrock, elegidos por
-  `classforge.assistant.text.provider`. No equivalen a un gateway conversacional.
+  `sinapuml.assistant.text.provider`. No equivalen a un gateway conversacional.
 - La configuración de pruebas usa H2 en memoria; la base de desarrollo usa
   `backend/data`, que no debe emplearse en pruebas.
 
@@ -57,7 +57,7 @@ Reemplazar el planner o crear otra vía de escritura contradice los requisitos
 independencia. Por estas restricciones no se proponen como alternativas válidas.
 
 La decisión de implementación propuesta es añadir el backend en
-`com.classforge.projectassistant` y el frontend conversacional en
+`com.sinapuml.projectassistant` y el frontend conversacional en
 `features/project-assistant`. La integración reutiliza el componente o extrae
 la presentación de preview/Apply existente, evitando tener dos componentes
 Angular con el mismo nombre y dos implementaciones del chat.

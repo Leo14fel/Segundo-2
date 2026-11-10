@@ -390,7 +390,7 @@ onMounted(async () => {
       <div class="editor-shell">
         <header class="editor-toolbar">
           <div>
-            <div class="text-overline text-primary">FORGE STUDIO</div>
+            <div class="text-overline text-primary">SinapUML</div>
             <h1 class="text-h5 font-weight-bold">{{ projectName }}</h1>
           </div>
 

@@ -1,6 +1,6 @@
-# PUDS — ClassForge
+# PUDS — SinapUML
 
-Evidencia del **Proceso Unificado de Desarrollo de Software** aplicado a ClassForge.
+Evidencia del **Proceso Unificado de Desarrollo de Software** aplicado a SinapUML.
 
 ## Convención
 

@@ -11,7 +11,7 @@ function Require([bool]$Condition, [string]$Message) { if (-not $Condition) { Fa
 
 $repo = (Get-Location).Path
 $gradle = Join-Path $repo 'backend\gradlew.bat'
-Require (Test-Path -LiteralPath $gradle) 'Ejecuta este script desde la raiz de ClassForge.'
+Require (Test-Path -LiteralPath $gradle) 'Ejecuta este script desde la raiz de SinapUML.'
 
 & .\scripts\assistant-vision-smoke.ps1 -VisionUrl $VisionUrl -VisionModel $VisionModel
 

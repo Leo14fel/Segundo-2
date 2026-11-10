@@ -153,7 +153,7 @@ min semantic classes:       4
 hybrid fallback:         false
 ```
 
-`CLASSFORGE_ASSISTANT_VISION_HYBRID=false` conserva un kill switch semantic-only. `CLASSFORGE_ASSISTANT_VISION_HYBRID_FALLBACK=true` conserva rollback/debug explícito, pero no es el default productivo.
+`SINAPUML_ASSISTANT_VISION_HYBRID=false` conserva un kill switch semantic-only. `SINAPUML_ASSISTANT_VISION_HYBRID_FALLBACK=true` conserva rollback/debug explícito, pero no es el default productivo.
 
 ### Calibraciones cerradas
 

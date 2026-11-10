@@ -57,7 +57,7 @@ self.addEventListener("push", (event) =>
       if (!data) return;
       const user = await settings(false);
       if (!user || user !== data.recipientUserId) return;
-      await self.registration.showNotification("Forge Studio", {
+      await self.registration.showNotification("SinapUML", {
         body: "Tienes novedades en un proyecto compartido.",
         tag: typeof data.tag === "string" ? data.tag : "forge-update",
         icon: "/icons/icon-192.png",

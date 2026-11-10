@@ -21,11 +21,11 @@ Flutter chat/mic ─┘            |
                          QUERY directo / mutación preview+apply
 ```
 
-Los clientes nunca contactan directamente Whisper ni llama.cpp. El backend generado reutiliza por defecto las mismas instancias locales de ClassForge y permite override mediante `LLAMA_URL`, `LLAMA_MODEL`, `WHISPER_URL`, `WHISPER_LANGUAGE` y `APP_API_BASE_URL`.
+Los clientes nunca contactan directamente Whisper ni llama.cpp. El backend generado reutiliza por defecto las mismas instancias locales de SinapUML y permite override mediante `LLAMA_URL`, `LLAMA_MODEL`, `WHISPER_URL`, `WHISPER_LANGUAGE` y `APP_API_BASE_URL`.
 
 ## Native tool calling
 
-El patrón replica la autoridad del Assistant principal sin crear una dependencia runtime hacia ClassForge:
+El patrón replica la autoridad del Assistant principal sin crear una dependencia runtime hacia SinapUML:
 
 1. `route_data_request` clasifica la petición;
 2. se expone una tool pesada compatible con el intent;

@@ -8,7 +8,7 @@ CU-12 transforma de forma determinista y read-only:
 UmlModel -> RelationalModelMapper -> RelationalModel -> CU-13 Spring Boot/JPA
 ```
 
-`RelationalModel` es una IR derivada, efímera e interna en `com.classforge.generation.relational`. No pertenece a `ProjectDocument`, no se persiste, no tiene endpoint, API ni UI. `UmlModel` sigue siendo la fuente de verdad.
+`RelationalModel` es una IR derivada, efímera e interna en `com.sinapuml.generation.relational`. No pertenece a `ProjectDocument`, no se persiste, no tiene endpoint, API ni UI. `UmlModel` sigue siendo la fuente de verdad.
 
 ## IR y validación
 

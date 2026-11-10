@@ -1,7 +1,7 @@
 # Cierre de Persona A y migración NoSQL
 
 Objetivo: completar última visita, notificaciones persistentes/realtime, Activity Center responsive
-y pruebas de aceptación; migrar toda la base propia de ClassForge a MongoDB sin perder los datos
+y pruebas de aceptación; migrar toda la base propia de SinapUML a MongoDB sin perder los datos
 H2 existentes ni las garantías de autoría, revisión, sesiones y conversación compartida.
 
 Decisión técnica: MongoDB, con Spring Data MongoDB y replica set para transacciones multidocumento.
@@ -26,7 +26,7 @@ Runbook: [persona-a-cierre.md](persona-a-cierre.md).
 Resultados y capturas: [aceptación](../evidence/parcial2/acceptance.md).
 
 Los generadores de aplicaciones del primer parcial conservan su contrato de salida Spring/JPA;
-la migración NoSQL se aplica al almacenamiento propio de ClassForge, incluyendo el chat IA.
+la migración NoSQL se aplica al almacenamiento propio de SinapUML, incluyendo el chat IA.
 
 Fuentes técnicas:
 - https://www.mongodb.com/docs/manual/reference/limits/

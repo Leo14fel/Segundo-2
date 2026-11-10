@@ -1,0 +1,24 @@
+[Unit]
+Description=SinapUML Spring Boot (AWS demo)
+After=network-online.target sinapuml-whisper.service
+Wants=network-online.target sinapuml-whisper.service
+
+[Service]
+Type=simple
+User=sinapuml
+Group=sinapuml
+WorkingDirectory=/opt/sinapuml
+EnvironmentFile=/etc/sinapuml/sinapuml.env
+ExecStart=/usr/bin/java -jar /opt/sinapuml/app/sinapuml.jar --spring.profiles.active=aws-demo
+Restart=on-failure
+RestartSec=5
+TimeoutStopSec=30
+SuccessExitStatus=143
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectHome=true
+ProtectSystem=strict
+ReadWritePaths=/opt/sinapuml/data
+
+[Install]
+WantedBy=multi-user.target

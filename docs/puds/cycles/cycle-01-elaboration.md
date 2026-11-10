@@ -6,7 +6,7 @@
 
 ## Objetivo
 
-Construir un incremento ejecutable que validara tempranamente los riesgos arquitectónicos de ClassForge:
+Construir un incremento ejecutable que validara tempranamente los riesgos arquitectónicos de SinapUML:
 
 - modelo UML canónico;
 - persistencia y revisión;

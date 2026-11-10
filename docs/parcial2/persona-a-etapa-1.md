@@ -5,7 +5,7 @@
 
 Esta etapa implementa los puntos 1–4: historial, registro transaccional de cambios aceptados,
 consultas estructuradas y sesiones con participantes y resumen. Los módulos nuevos están en
-`com.classforge.activity` y `com.classforge.session`; no dependen del asistente conversacional.
+`com.sinapuml.activity` y `com.sinapuml.session`; no dependen del asistente conversacional.
 
 ## Persistencia y garantías
 
@@ -139,9 +139,9 @@ el evento transaccional para la etapa posterior de notificaciones.
 
 | Variable | Predeterminado | Uso |
 | --- | --- | --- |
-| `CLASSFORGE_SESSION_INACTIVITY_TIMEOUT` | `PT30M` | Duración positiva antes del cierre |
-| `CLASSFORGE_SESSION_SWEEP_INTERVAL` | `PT1M` | Intervalo entre barridos |
-| `CLASSFORGE_SESSION_MAINTENANCE_ENABLED` | `true` | Activar cierre periódico |
+| `SINAPUML_SESSION_INACTIVITY_TIMEOUT` | `PT30M` | Duración positiva antes del cierre |
+| `SINAPUML_SESSION_SWEEP_INTERVAL` | `PT1M` | Intervalo entre barridos |
+| `SINAPUML_SESSION_MAINTENANCE_ENABLED` | `true` | Activar cierre periódico |
 
 Desactivar el mantenimiento no desactiva el cierre por inactividad cuando llega una nueva operación.
 Las tablas e índices se crean con la política JPA `ddl-auto=update` existente. La base normal en archivo

@@ -6,7 +6,7 @@
 
 ## Purpose
 
-`domain-manifest.json` is the semantic contract of a generated ClassForge application. It exists for consumers that need more domain meaning than OpenAPI alone carries, especially the generated Angular UI (CU-17) and the future application assistant (CU-19).
+`domain-manifest.json` is the semantic contract of a generated SinapUML application. It exists for consumers that need more domain meaning than OpenAPI alone carries, especially the generated Angular UI (CU-17) and the future application assistant (CU-19).
 
 It is **not** a second source of truth and it is not hand-maintained. It is rendered deterministically from the same generation state that already produces JPA, CRUD/Auth, OpenAPI and Postman.
 
@@ -116,7 +116,7 @@ Identifiers are represented structurally rather than as an opaque string:
     "kind": "SIMPLE",
     "fields": [
       {
-        "attributeId": "uuid-from-classforge",
+        "attributeId": "uuid-from-sinapuml",
         "name": "id",
         "type": "UUID"
       }
@@ -262,6 +262,6 @@ CU-16 does not generate:
 - natural-language execution in the generated application (CU-19);
 - aliases inferred by an LLM;
 - business rules absent from the canonical model;
-- a persisted Domain Manifest inside ClassForge.
+- a persisted Domain Manifest inside SinapUML.
 
 The manifest is an ephemeral generated artifact, just like OpenAPI and Postman.

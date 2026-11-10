@@ -37,7 +37,7 @@ Estado no recuperable:
 
 - backend `SpringBootGenerationServiceTests`;
 - backend `SpringBootGenerationControllerTests`;
-- regresión `com.classforge.generation.*`;
+- regresión `com.sinapuml.generation.*`;
 - frontend `npm run test:generation`;
 - frontend `npm run build`;
 - `git diff --check`.

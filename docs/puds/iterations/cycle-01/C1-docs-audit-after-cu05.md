@@ -9,7 +9,7 @@ Alinear codigo, producto y PUDS.
 - puerto real 8082;
 - estado real hasta CU-05;
 - persistencia JPA/Hibernate + H2;
-- `*.classforge` como formato portable futuro;
+- `*.sinapuml` como formato portable futuro;
 - orden original separado del orden ejecutado;
 - Command Bus marcado como implementado;
 - proximo caso CU-06;

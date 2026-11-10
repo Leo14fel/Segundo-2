@@ -1,0 +1,76 @@
+classDiagram
+    class Project {
+        UUID id
+        UUID ownerId
+        String name
+        long revision
+    }
+    class ProjectDocument {
+        String schemaVersion
+    }
+    class UmlModel
+    class DiagramLayout
+    class UmlClass {
+        UUID id
+        String name
+    }
+    class UmlAttribute {
+        UUID id
+        String name
+        UmlDataType dataType
+        String customTypeName
+        UmlVisibility visibility
+        boolean nullable
+        boolean identifier
+    }
+    class UmlOperation {
+        UUID id
+        String name
+        UmlVisibility visibility
+        String returnType
+    }
+    class UmlParameter {
+        UUID id
+        String name
+        String type
+    }
+    class UmlRelationship {
+        UUID id
+        UUID sourceClassId
+        UUID targetClassId
+        UmlRelationshipType type
+    }
+    class Multiplicity {
+        int lower
+        Integer upper
+    }
+    class ProjectAiMessage {
+        UUID id
+        UUID projectId
+        UUID requestId
+        UUID authorUserId
+        String authorDisplayName
+        String role
+        AssistantMode type
+        String content
+        long sequence
+        long projectRevision
+    }
+
+    Project "1" *-- "1" ProjectDocument : documento actual
+    ProjectDocument "1" *-- "1" UmlModel
+    ProjectDocument "1" *-- "1" DiagramLayout
+    UmlModel "1" *-- "0..*" UmlClass
+    UmlModel "1" *-- "0..*" UmlRelationship
+    UmlClass "1" *-- "0..*" UmlAttribute
+    UmlClass "1" *-- "0..*" UmlOperation
+    UmlOperation "1" *-- "0..*" UmlParameter
+    UmlRelationship --> "1" UmlClass : sourceClassId
+    UmlRelationship --> "1" UmlClass : targetClassId
+    UmlRelationship "1" *-- "0..1" Multiplicity : sourceMultiplicity
+    UmlRelationship "1" *-- "0..1" Multiplicity : targetMultiplicity
+    Project "1" --> "0..*" ProjectAiMessage : conversación por projectId
+
+    note for ProjectDocument "Documento UML embebido en el proyecto de MongoDB. Este diagrama representa el dominio, no una colección por clase UML."
+    note for ProjectAiMessage "Mensajes persistidos por proyecto. El contexto enviado al proveedor es acotado; no representa toda la historia."
+    note for UmlOperation "returnType nulo representa void. Una firma no implica un cuerpo de negocio generado."

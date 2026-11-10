@@ -1,0 +1,81 @@
+<?xml version='1.0' encoding='utf-8'?>
+<mxfile host="Electron" type="device">
+  <diagram id="D12" name="D12 · Comunicación · CU-SP-06">
+    <mxGraphModel dx="1350" dy="950" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1350" pageHeight="950" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="D12-1" value="D12  /  Comunicación · CU-SP-06" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#243746;strokeColor=#657581;strokeWidth=1.3;fillColor=#FFFFFF;text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacing=0;fontSize=24;fontStyle=1;fontColor=#243746;" vertex="1" parent="1">
+          <mxGeometry x="30" y="20" width="1290" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="D12-2" value="Observar el proyecto desde un móvil · objetos de análisis y mensajes numerados." style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#243746;strokeColor=#657581;strokeWidth=1.3;fillColor=#FFFFFF;text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacing=0;fontSize=13;fontStyle=0;fontColor=#526570;" vertex="1" parent="1">
+          <mxGeometry x="30" y="62" width="1290" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="D12-3" value="SinapUML  ·  PUDS  ·  9 de noviembre de 2026  |  Modelo documental basado en la implementación local" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#243746;strokeColor=#657581;strokeWidth=1.3;fillColor=#FFFFFF;text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacing=0;fontSize=11;fontStyle=0;fontColor=#6A7881;" vertex="1" parent="1">
+          <mxGeometry x="30" y="910" width="1290" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="D12-4" value="Integrante móvil" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#243746;strokeColor=#657581;strokeWidth=1.3;fillColor=#FFFFFF;shape=umlActor;labelWidth=160;verticalLabelPosition=bottom;verticalAlign=top;fillColor=#FFFFFF;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="120" y="170" width="48" height="72" as="geometry" />
+        </mxCell>
+        <mxCell id="D12-5" value="«boundary»&lt;br&gt;:Modo observador" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#243746;strokeColor=#657581;strokeWidth=1.3;fillColor=#FFFFFF;rounded=0;fillColor=#EAF1F7;spacing=8;" vertex="1" parent="1">
+          <mxGeometry x="350" y="165" width="205" height="88" as="geometry" />
+        </mxCell>
+        <mxCell id="D12-6" value="«control»&lt;br&gt;:API / STOMP" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#243746;strokeColor=#657581;strokeWidth=1.3;fillColor=#FFFFFF;rounded=0;fillColor=#EAF1F7;spacing=8;" vertex="1" parent="1">
+          <mxGeometry x="770" y="165" width="205" height="88" as="geometry" />
+        </mxCell>
+        <mxCell id="D12-7" value="«entity»&lt;br&gt;:Proyecto y registros" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#243746;strokeColor=#657581;strokeWidth=1.3;fillColor=#FFFFFF;rounded=0;fillColor=#EDF7F4;spacing=8;" vertex="1" parent="1">
+          <mxGeometry x="770" y="445" width="205" height="88" as="geometry" />
+        </mxCell>
+        <mxCell id="D12-8" value="Otro integrante" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#243746;strokeColor=#657581;strokeWidth=1.3;fillColor=#FFFFFF;shape=umlActor;labelWidth=160;verticalLabelPosition=bottom;verticalAlign=top;fillColor=#FFFFFF;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="410" y="450" width="48" height="72" as="geometry" />
+        </mxCell>
+        <mxCell id="D12-9" value="1" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#243746;strokeColor=#657581;strokeWidth=1.3;whiteSpace=nowrap;edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=open;endFill=0;labelBackgroundColor=#FFFFFF;fontSize=12;fontSize=12;endArrow=none;edgeStyle=none;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" edge="1" parent="1" source="D12-4" target="D12-5">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="186.0" y="206.0" />
+              <mxPoint x="186.0" y="209.0" />
+              <mxPoint x="332.0" y="209.0" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="D12-10" value="2, 4, 7, 8, 10, A2, A3" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#243746;strokeColor=#657581;strokeWidth=1.3;whiteSpace=nowrap;edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=open;endFill=0;labelBackgroundColor=#FFFFFF;fontSize=12;fontSize=12;endArrow=none;edgeStyle=none;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" edge="1" parent="1" source="D12-5" target="D12-6">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="573.0" y="209.0" />
+              <mxPoint x="752.0" y="209.0" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="D12-11" value="3, 6, 9" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#243746;strokeColor=#657581;strokeWidth=1.3;whiteSpace=nowrap;edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=open;endFill=0;labelBackgroundColor=#FFFFFF;fontSize=12;fontSize=12;endArrow=none;edgeStyle=none;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="D12-6" target="D12-7">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="872.5" y="271.0" />
+              <mxPoint x="872.5" y="427.0" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="D12-12" value="5" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#243746;strokeColor=#657581;strokeWidth=1.3;whiteSpace=nowrap;edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=open;endFill=0;labelBackgroundColor=#FFFFFF;fontSize=12;fontSize=12;endArrow=none;edgeStyle=none;exitX=0;exitY=0.5;entryX=0.5;entryY=0;" edge="1" parent="1" source="D12-6" target="D12-8">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="752.0" y="209.0" />
+              <mxPoint x="752.0" y="432.0" />
+              <mxPoint x="434.0" y="432.0" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="D12-13" value="A1" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#243746;strokeColor=#657581;strokeWidth=1.3;whiteSpace=nowrap;edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=open;endFill=0;labelBackgroundColor=#FFFFFF;fontSize=12;fontSize=12;endArrow=none;" edge="1" parent="1" source="D12-5" target="D12-5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="D12-14" value="1. Integrante móvil → Modo observador: Abrir proyecto en modo informativo&lt;br&gt;2. Modo observador → API / STOMP: Leer proyecto y conectar presencia&lt;br&gt;3. API / STOMP → Proyecto y registros: Validar acceso y leer estado&lt;br&gt;4. API / STOMP → Modo observador: Documento actual&lt;br&gt;5. Otro integrante → API / STOMP: Confirmar cambio autorizado&lt;br&gt;6. API / STOMP → Proyecto y registros: Guardar cambio con revisión&lt;br&gt;7. API / STOMP → Modo observador: Evento de operación / presencia" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#243746;strokeColor=#657581;strokeWidth=1.3;fillColor=#FFFFFF;text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacing=0;fontSize=13;fontStyle=0;fontColor=#243746;" vertex="1" parent="1">
+          <mxGeometry x="45" y="585" width="620" height="265" as="geometry" />
+        </mxCell>
+        <mxCell id="D12-15" value="8. Modo observador → API / STOMP: Reconciliar documento cada 2,5 s&lt;br&gt;9. API / STOMP → Proyecto y registros: Leer versión autoritativa&lt;br&gt;10. API / STOMP → Modo observador: Actualizar representación&lt;br&gt;A1. Modo observador → Modo observador: Mostrar desconexión; evitar afirmar sincronía&lt;br&gt;A2. Modo observador → API / STOMP: Reconectar y recuperar estado actual&lt;br&gt;A3. API / STOMP → Modo observador: Documento autoritativo" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#243746;strokeColor=#657581;strokeWidth=1.3;fillColor=#FFFFFF;text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacing=0;fontSize=13;fontStyle=0;fontColor=#243746;" vertex="1" parent="1">
+          <mxGeometry x="700" y="585" width="620" height="265" as="geometry" />
+        </mxCell>
+        <mxCell id="D12-16" value="Excepción / límite: desconexión y retorno. El móvil no ofrece edición en esta experiencia. No existe rol VIEWER persistido; la autorización real corresponde al backend." style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#243746;strokeColor=#657581;strokeWidth=1.3;fillColor=#FFFFFF;shape=note;size=16;fillColor=#FFF5DE;spacing=10;align=left;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="45" y="845" width="1260" height="57" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -1,0 +1,128 @@
+<?xml version='1.0' encoding='utf-8'?>
+<mxfile host="Electron" type="device">
+  <diagram id="D16" name="D16 · Arquitectura física y despliegue">
+    <mxGraphModel dx="1450" dy="970" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1450" pageHeight="970" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="D16-1" value="D16  /  Arquitectura física y despliegue" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#243746;strokeColor=#657581;strokeWidth=1.3;fillColor=#FFFFFF;text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacing=0;fontSize=24;fontStyle=1;fontColor=#243746;" vertex="1" parent="1">
+          <mxGeometry x="30" y="20" width="1390" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="D16-2" value="Izquierda: entorno local documentado. Derecha: objetivo de nube todavía no desplegado ni aceptado." style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#243746;strokeColor=#657581;strokeWidth=1.3;fillColor=#FFFFFF;text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacing=0;fontSize=13;fontStyle=0;fontColor=#526570;" vertex="1" parent="1">
+          <mxGeometry x="30" y="62" width="1390" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="D16-3" value="SinapUML  ·  PUDS  ·  9 de noviembre de 2026  |  Modelo documental basado en la implementación local" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#243746;strokeColor=#657581;strokeWidth=1.3;fillColor=#FFFFFF;text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacing=0;fontSize=11;fontStyle=0;fontColor=#6A7881;" vertex="1" parent="1">
+          <mxGeometry x="30" y="930" width="1390" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="D16-4" value="ENTORNO LOCAL" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#243746;strokeColor=#657581;strokeWidth=1.3;fillColor=#FFFFFF;fillColor=#F4F5F6;verticalAlign=top;spacing=15;fontStyle=1;fontSize=18;" vertex="1" parent="1">
+          <mxGeometry x="35" y="125" width="650" height="690" as="geometry" />
+        </mxCell>
+        <mxCell id="D16-5" value="«propuesto» NUBE + HTTPS" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#243746;strokeColor=#657581;strokeWidth=1.3;fillColor=#FFFFFF;fillColor=#FFF5DE;dashed=1;verticalAlign=top;spacing=15;fontStyle=1;fontSize=18;" vertex="1" parent="1">
+          <mxGeometry x="755" y="125" width="650" height="690" as="geometry" />
+        </mxCell>
+        <mxCell id="D16-6" value="«device» Navegador&lt;br&gt;Escritorio / móvil" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#243746;strokeColor=#657581;strokeWidth=1.3;fillColor=#FFFFFF;rounded=0;fillColor=#EAF1F7;spacing=8;" vertex="1" parent="1">
+          <mxGeometry x="80" y="205" width="250" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="D16-7" value="«executionEnvironment»&lt;br&gt;Vite · puerto 4200" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#243746;strokeColor=#657581;strokeWidth=1.3;fillColor=#FFFFFF;rounded=0;fillColor=#EAF1F7;spacing=8;" vertex="1" parent="1">
+          <mxGeometry x="390" y="205" width="250" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="D16-8" value="«executionEnvironment»&lt;br&gt;JVM 21 · Spring Boot :8082" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#243746;strokeColor=#657581;strokeWidth=1.3;fillColor=#FFFFFF;rounded=0;fillColor=#EAF1F7;spacing=8;" vertex="1" parent="1">
+          <mxGeometry x="235" y="420" width="320" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="D16-9" value="«executionEnvironment»&lt;br&gt;MongoDB replica set :27017" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#243746;strokeColor=#657581;strokeWidth=1.3;fillColor=#FFFFFF;shape=cylinder3;size=15;fillColor=#EDF7F4;" vertex="1" parent="1">
+          <mxGeometry x="80" y="650" width="250" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="D16-10" value="Runtimes opcionales&lt;br&gt;Whisper / llama.cpp" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#243746;strokeColor=#657581;strokeWidth=1.3;fillColor=#FFFFFF;rounded=0;fillColor=#EDF7F4;spacing=8;" vertex="1" parent="1">
+          <mxGeometry x="390" y="650" width="250" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="D16-11" value="HTTP" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#243746;strokeColor=#657581;strokeWidth=1.3;whiteSpace=nowrap;edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=open;endFill=0;labelBackgroundColor=#FFFFFF;fontSize=12;edgeStyle=none;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" edge="1" parent="1" source="D16-6" target="D16-7">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="348.0" y="260.0" />
+              <mxPoint x="372.0" y="260.0" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="D16-12" value="proxy /api y /ws" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#243746;strokeColor=#657581;strokeWidth=1.3;whiteSpace=nowrap;edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=open;endFill=0;labelBackgroundColor=#FFFFFF;fontSize=12;edgeStyle=none;exitX=0;exitY=0.5;entryX=0.5;entryY=0;" edge="1" parent="1" source="D16-7" target="D16-8">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="372.0" y="260.0" />
+              <mxPoint x="372.0" y="402.0" />
+              <mxPoint x="395.0" y="402.0" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="D16-13" value="driver MongoDB" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#243746;strokeColor=#657581;strokeWidth=1.3;whiteSpace=nowrap;edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=open;endFill=0;labelBackgroundColor=#FFFFFF;fontSize=12;edgeStyle=none;exitX=0;exitY=0.5;entryX=0.5;entryY=0;" edge="1" parent="1" source="D16-8" target="D16-9">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="217.0" y="475.0" />
+              <mxPoint x="217.0" y="632.0" />
+              <mxPoint x="205.0" y="632.0" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="D16-14" value="HTTP local" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#243746;strokeColor=#657581;strokeWidth=1.3;whiteSpace=nowrap;edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=open;endFill=0;labelBackgroundColor=#FFFFFF;fontSize=12;edgeStyle=none;exitX=0.5;exitY=1;entryX=0;entryY=0.5;" edge="1" parent="1" source="D16-8" target="D16-10">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="395.0" y="548.0" />
+              <mxPoint x="372.0" y="548.0" />
+              <mxPoint x="372.0" y="700.0" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="D16-15" value="«device» Navegadores remotos&lt;br&gt;Desarrolladores y observador móvil" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#243746;strokeColor=#657581;strokeWidth=1.3;fillColor=#FFFFFF;rounded=0;fillColor=#FFF5DE;spacing=8;" vertex="1" parent="1">
+          <mxGeometry x="810" y="205" width="540" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="D16-16" value="«propuesto» Hosting&lt;br&gt;Frontend + HTTPS" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#243746;strokeColor=#657581;strokeWidth=1.3;fillColor=#FFFFFF;rounded=0;fillColor=#FFF5DE;spacing=8;" vertex="1" parent="1">
+          <mxGeometry x="810" y="420" width="245" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="D16-17" value="«propuesto» API&lt;br&gt;Spring Boot + WSS" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#243746;strokeColor=#657581;strokeWidth=1.3;fillColor=#FFFFFF;rounded=0;fillColor=#FFF5DE;spacing=8;" vertex="1" parent="1">
+          <mxGeometry x="1105" y="420" width="245" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="D16-18" value="«propuesto» MongoDB&lt;br&gt;Replica set administrado" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#243746;strokeColor=#657581;strokeWidth=1.3;fillColor=#FFFFFF;shape=cylinder3;size=15;fillColor=#FFF5DE;" vertex="1" parent="1">
+          <mxGeometry x="810" y="650" width="245" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="D16-19" value="«externo» IA y push&lt;br&gt;Proveedor por configurar" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#243746;strokeColor=#657581;strokeWidth=1.3;fillColor=#FFFFFF;rounded=0;fillColor=#FFF5DE;spacing=8;" vertex="1" parent="1">
+          <mxGeometry x="1105" y="650" width="245" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="D16-20" value="HTTPS" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#243746;strokeColor=#657581;strokeWidth=1.3;whiteSpace=nowrap;edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=open;endFill=0;labelBackgroundColor=#FFFFFF;fontSize=12;dashed=1;edgeStyle=none;exitX=0.5;exitY=1;entryX=1;entryY=0.5;" edge="1" parent="1" source="D16-15" target="D16-16">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1080.0" y="333.0" />
+              <mxPoint x="1080.0" y="475.0" />
+              <mxPoint x="1073.0" y="475.0" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="D16-21" value="HTTPS / WSS" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#243746;strokeColor=#657581;strokeWidth=1.3;whiteSpace=nowrap;edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=open;endFill=0;labelBackgroundColor=#FFFFFF;fontSize=12;dashed=1;edgeStyle=none;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" edge="1" parent="1" source="D16-16" target="D16-17">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1073.0" y="475.0" />
+              <mxPoint x="1087.0" y="475.0" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="D16-22" value="TLS" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#243746;strokeColor=#657581;strokeWidth=1.3;whiteSpace=nowrap;edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=open;endFill=0;labelBackgroundColor=#FFFFFF;fontSize=12;dashed=1;edgeStyle=none;exitX=0;exitY=0.5;entryX=1;entryY=0.5;" edge="1" parent="1" source="D16-17" target="D16-18">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1087.0" y="475.0" />
+              <mxPoint x="1087.0" y="700.0" />
+              <mxPoint x="1073.0" y="700.0" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="D16-23" value="HTTPS" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#243746;strokeColor=#657581;strokeWidth=1.3;whiteSpace=nowrap;edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=open;endFill=0;labelBackgroundColor=#FFFFFF;fontSize=12;dashed=1;edgeStyle=none;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="D16-17" target="D16-19">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1227.5" y="548.0" />
+              <mxPoint x="1227.5" y="632.0" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="D16-24" value="No hay cuenta de nube configurada ni recepción push real verificada. Esta topología de nube es una propuesta sin proveedor elegido. Docker local se usa para MongoDB; no demuestra despliegue en nube." style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#243746;strokeColor=#657581;strokeWidth=1.3;fillColor=#FFFFFF;shape=note;size=16;fillColor=#FFF5DE;spacing=10;align=left;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="45" y="850" width="1350" height="65" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

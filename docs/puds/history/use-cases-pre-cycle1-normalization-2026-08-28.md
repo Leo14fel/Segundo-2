@@ -6,15 +6,15 @@
 > La especificación vigente está en `../use-cases.md` y el estado vigente en `../current-status.md`.
 
 ---
-# ClassForge — Casos de Uso y Ruta de Implementación según PUDS
+# SinapUML — Casos de Uso y Ruta de Implementación según PUDS
 
 > Documento de diseño para `docs/puds/use-cases.md`
 
 ## 1. Propósito
 
-Este documento define los casos de uso principales de **ClassForge** y los organiza como guía para la implementación siguiendo el **Proceso Unificado de Desarrollo de Software (PUDS)**.
+Este documento define los casos de uso principales de **SinapUML** y los organiza como guía para la implementación siguiendo el **Proceso Unificado de Desarrollo de Software (PUDS)**.
 
-ClassForge es una herramienta CASE colaborativa que permite modelar diagramas de clases UML y, a partir de ellos, generar aplicaciones funcionales compuestas por:
+SinapUML es una herramienta CASE colaborativa que permite modelar diagramas de clases UML y, a partir de ellos, generar aplicaciones funcionales compuestas por:
 
 - Backend Spring Boot + JPA.
 - API REST documentada mediante OpenAPI.
@@ -93,7 +93,7 @@ La IA, el canvas, XMI y los generadores **no deben tener modelos de dominio inde
 
 ## A1. Modelador
 
-Usuario principal de ClassForge.
+Usuario principal de SinapUML.
 
 Puede:
 
@@ -117,7 +117,7 @@ Puede:
 
 ## A3. Enterprise Architect
 
-Sistema externo con el que ClassForge intercambia modelos mediante XMI.
+Sistema externo con el que SinapUML intercambia modelos mediante XMI.
 
 ## A4. Sistema de archivos
 
@@ -131,7 +131,7 @@ Actor técnico externo utilizado para:
 
 ## A5. Usuario de la aplicación generada
 
-Persona que utiliza la aplicación web o mobile generada por ClassForge.
+Persona que utiliza la aplicación web o mobile generada por SinapUML.
 
 Puede:
 
@@ -141,7 +141,7 @@ Puede:
 
 ---
 
-# 5. Casos de uso de ClassForge
+# 5. Casos de uso de SinapUML
 
 ---
 
@@ -157,14 +157,14 @@ Crear un proyecto que contenga un modelo UML independiente y persistible.
 
 ### Precondiciones
 
-- ClassForge está iniciado.
+- SinapUML está iniciado.
 
 ### Flujo principal
 
 1. El usuario selecciona **Nuevo proyecto**.
 2. Introduce un nombre.
-3. ClassForge genera un identificador único.
-4. ClassForge crea un modelo UML vacío.
+3. SinapUML genera un identificador único.
+4. SinapUML crea un modelo UML vacío.
 5. Se inicializa la revisión del proyecto.
 6. El proyecto se abre en el diagramador.
 
@@ -198,15 +198,15 @@ Crear un proyecto que contenga un modelo UML independiente y persistible.
 
 ### Objetivo
 
-Persistir y recuperar completamente un modelo de ClassForge.
+Persistir y recuperar completamente un modelo de SinapUML.
 
 ### Flujo principal
 
 1. El usuario selecciona un proyecto existente.
-2. ClassForge recupera su modelo UML.
+2. SinapUML recupera su modelo UML.
 3. El diagramador representa el modelo.
 4. El usuario realiza modificaciones.
-5. ClassForge guarda el nuevo estado.
+5. SinapUML guarda el nuevo estado.
 
 ### Postcondiciones
 
@@ -244,7 +244,7 @@ Construir un diagrama de clases UML mediante interacción gráfica.
 5. El canvas refleja el nuevo elemento.
 6. El usuario añade atributos.
 7. El usuario crea relaciones.
-8. ClassForge valida las modificaciones.
+8. SinapUML valida las modificaciones.
 
 ### Operaciones mínimas
 
@@ -346,9 +346,9 @@ Revertir operaciones del diagramador.
 1. El usuario ejecuta una modificación.
 2. La modificación se almacena como comando.
 3. Selecciona **Deshacer**.
-4. ClassForge revierte el comando.
+4. SinapUML revierte el comando.
 5. Selecciona **Rehacer**.
-6. ClassForge vuelve a aplicarlo.
+6. SinapUML vuelve a aplicarlo.
 
 ### Dependencia
 
@@ -441,7 +441,7 @@ Estos eventos no modifican el modelo UML y no necesitan persistencia permanente.
 
 ### Objetivo
 
-Permitir operar ClassForge mediante lenguaje hablado.
+Permitir operar SinapUML mediante lenguaje hablado.
 
 ### Flujo principal
 
@@ -451,7 +451,7 @@ Permitir operar ClassForge mediante lenguaje hablado.
 4. Whisper convierte audio a texto.
 5. El texto se entrega al asistente.
 6. El LLM genera uno o varios comandos estructurados.
-7. ClassForge valida los comandos.
+7. SinapUML valida los comandos.
 8. Los comandos se aplican al modelo.
 9. El canvas refleja el resultado.
 
@@ -505,10 +505,10 @@ Convertir una fotografía o imagen de un diagrama de clases en un modelo editabl
 ### Flujo principal
 
 1. El usuario selecciona una imagen.
-2. ClassForge realiza preprocesamiento opcional.
+2. SinapUML realiza preprocesamiento opcional.
 3. Un modelo multimodal local interpreta la imagen.
 4. El modelo produce una estructura intermedia.
-5. ClassForge valida cada elemento UML.
+5. SinapUML valida cada elemento UML.
 6. Se genera el modelo canónico.
 7. El canvas muestra el resultado.
 8. El usuario corrige manualmente cualquier error.
@@ -527,7 +527,7 @@ La salida del modelo multimodal debe considerarse una **propuesta**, no una verd
 
 ### Objetivo
 
-Convertir un archivo XMI proveniente de Enterprise Architect al modelo canónico de ClassForge.
+Convertir un archivo XMI proveniente de Enterprise Architect al modelo canónico de SinapUML.
 
 ### Flujo principal
 
@@ -535,7 +535,7 @@ Convertir un archivo XMI proveniente de Enterprise Architect al modelo canónico
 2. Selecciona el archivo exportado desde Enterprise Architect.
 3. El adaptador analiza XMI.
 4. Convierte elementos soportados al modelo canónico.
-5. ClassForge valida el resultado.
+5. SinapUML valida el resultado.
 6. Se crea o actualiza el proyecto.
 7. El modelo se representa en el canvas.
 
@@ -566,7 +566,7 @@ Generar un XMI importable por Enterprise Architect.
 ### Flujo principal
 
 1. El usuario selecciona **Exportar a Enterprise Architect**.
-2. ClassForge valida el modelo.
+2. SinapUML valida el modelo.
 3. El adaptador genera XMI.
 4. Se guarda el archivo.
 5. El archivo puede importarse en Enterprise Architect.
@@ -576,7 +576,7 @@ Generar un XMI importable por Enterprise Architect.
 La compatibilidad debe comprobarse mediante una prueba real:
 
 ```text
-ClassForge
+SinapUML
    ↓ exportar XMI
 Enterprise Architect
    ↓ importar
@@ -604,7 +604,7 @@ Convertir determinísticamente el modelo UML a una representación de base de da
 ### Flujo principal
 
 1. El usuario solicita generación.
-2. ClassForge valida el modelo UML.
+2. SinapUML valida el modelo UML.
 3. Se aplica el conjunto de reglas de transformación.
 4. Se genera `RelationalModel`.
 5. El modelo resultante se utiliza para generar JPA y persistencia.
@@ -1241,7 +1241,7 @@ No conviene dejar estos casos para el final.
 
 ### Iteración I1 — Visión y alcance
 
-**Objetivo:** definir exactamente qué construye ClassForge.
+**Objetivo:** definir exactamente qué construye SinapUML.
 
 Entregables:
 
@@ -1649,7 +1649,7 @@ Casos:
 
 ---
 
-## Iteración C10 — Voz dentro de ClassForge
+## Iteración C10 — Voz dentro de SinapUML
 
 Reutilizar la misma infraestructura de comandos para controlar el diagramador.
 
@@ -1726,7 +1726,7 @@ Desconectar Internet.
 
 Comprobar:
 
-- ClassForge inicia.
+- SinapUML inicia.
 - Diagramador funciona.
 - colaboración funciona sobre LAN;
 - Whisper funciona;
@@ -1833,7 +1833,7 @@ CU-04 Validar UML
 
 - CU-05 Undo/Redo.
 - CU-07 Presencia.
-- CU-08 Voz en ClassForge.
+- CU-08 Voz en SinapUML.
 - CU-10/11 Enterprise Architect.
 - CU-18 Mobile.
 - CU-21 Operaciones relacionadas.
@@ -2087,7 +2087,7 @@ Si se utiliza este documento como guía diaria, el orden recomendado es:
 21. LLM local
 22. AssistantCommand
 23. Voz para aplicaciones generadas
-24. Voz para ClassForge
+24. Voz para SinapUML
 25. Imagen → UML
 26. XMI import
 27. XMI export
@@ -2115,7 +2115,7 @@ Los cambios se sincronizan
         ↓
 Usuario genera aplicación
         ↓
-ClassForge genera:
+SinapUML genera:
     backend Spring Boot
     OpenAPI
     Postman
@@ -2147,7 +2147,7 @@ Consulta generada
 Resultado mostrado
 ```
 
-Este flujo representa la prueba integradora principal de ClassForge y debe orientar las decisiones de implementación durante todo el PUDS.
+Este flujo representa la prueba integradora principal de SinapUML y debe orientar las decisiones de implementación durante todo el PUDS.
 
 ---
 
@@ -2169,7 +2169,7 @@ Completar funcionalidades incrementalmente.
 
 Demostrar que el sistema completo funciona de extremo a extremo.
 
-La prioridad no será acumular pantallas o funcionalidades aisladas. La prioridad será mantener un **incremento ejecutable** que atraviese cada vez más partes del flujo completo de ClassForge.
+La prioridad no será acumular pantallas o funcionalidades aisladas. La prioridad será mantener un **incremento ejecutable** que atraviese cada vez más partes del flujo completo de SinapUML.
 
 <!-- AUTH-USE-CASES-V1 -->
 # Addendum PUDS — Autenticacion y ownership
@@ -2368,7 +2368,7 @@ CU03-002 incorpora JointJS como vista del modelo canonico.
 
 1. Usuario arrastra el shape.
 2. JointJS gestiona el movimiento visual.
-3. Al soltar, ClassForge captura posicion y tamano.
+3. Al soltar, SinapUML captura posicion y tamano.
 4. Se actualiza DiagramLayout.
 5. UmlModel permanece sin cambios.
 6. Documento queda dirty.
@@ -2650,7 +2650,7 @@ El plan no se aplica cuando la inferencia expira o cuando la salida queda trunca
 
 El plan producido por IA se considera una propuesta no confiable.
 
-Antes de resolverla a `UmlCommand`, ClassForge elimina acciones que afecten entidades no mencionadas por el usuario.
+Antes de resolverla a `UmlCommand`, SinapUML elimina acciones que afecten entidades no mencionadas por el usuario.
 
 La prueba de regresión principal es:
 
@@ -2744,12 +2744,12 @@ Para COMPOSITION, AGGREGATION y GENERALIZATION ya existentes, una petición en s
 
 1. El usuario pulsa `Hablar`.
 2. El navegador solicita acceso al microfono.
-3. ClassForge captura audio local y lo codifica como WAV mono 16 kHz.
+3. SinapUML captura audio local y lo codifica como WAV mono 16 kHz.
 4. El usuario pulsa `Detener` o se alcanza el limite de 20 segundos.
 5. Spring envia el WAV a `whisper-server`.
 6. Whisper devuelve un transcript.
 7. El transcript entra al mismo planner semantico de CU08-001 con `source=VOICE`.
-8. ClassForge aplica grounding, safety, resolucion deterministica y validacion sobre un preview.
+8. SinapUML aplica grounding, safety, resolucion deterministica y validacion sobre un preview.
 9. La UI muestra transcript, resumen e intenciones.
 10. Solo `Aplicar` despacha el BATCH al Command Bus.
 
@@ -2765,7 +2765,7 @@ Una respuesta fallida permite distinguir:
 ```text
 que entendio Whisper
 que plan produjo Gemma
-en que etapa lo rechazo ClassForge
+en que etapa lo rechazo SinapUML
 ```
 
 La informacion es de solo lectura y no modifica revision, ProjectDocument ni Command Bus.

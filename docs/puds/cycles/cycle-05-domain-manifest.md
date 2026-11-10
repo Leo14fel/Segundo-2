@@ -7,7 +7,7 @@
 
 ## Objetivo
 
-Cerrar la brecha semántica entre la aplicación Spring generada y sus consumidores posteriores mediante un `domain-manifest.json` determinista, validado y trazable a los UUID del modelo ClassForge.
+Cerrar la brecha semántica entre la aplicación Spring generada y sus consumidores posteriores mediante un `domain-manifest.json` determinista, validado y trazable a los UUID del modelo SinapUML.
 
 ## Scope
 

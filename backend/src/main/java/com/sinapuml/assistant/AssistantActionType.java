@@ -1,0 +1,14 @@
+package com.sinapuml.assistant;
+
+public enum AssistantActionType {
+    EDIT_OPERATION,
+    CREATE_CLASS,
+    RENAME_CLASS,
+    DELETE_CLASS,
+    ADD_ATTRIBUTES,
+    UPDATE_ATTRIBUTE,
+    DELETE_ATTRIBUTE,
+    CREATE_RELATIONSHIP,
+    UPDATE_RELATIONSHIP,
+    DELETE_RELATIONSHIP
+}

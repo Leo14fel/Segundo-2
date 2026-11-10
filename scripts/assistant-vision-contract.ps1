@@ -14,12 +14,12 @@ try {
     }
 
     & .\gradlew.bat test `
-        --tests 'com.classforge.assistant.vision.AssistantImageInputValidatorTests' `
-        --tests 'com.classforge.assistant.vision.VisionProposalGroundingValidatorTests' `
-        --tests 'com.classforge.assistant.vision.VisionProposalCompilerTests' `
-        --tests 'com.classforge.assistant.vision.VisionEvidenceBoundsValidatorTests' `
-        --tests 'com.classforge.assistant.vision.LlamaCppVisionModelGatewayTests' `
-        --tests 'com.classforge.assistant.vision.AssistantImagePlanIntegrationTests'
+        --tests 'com.sinapuml.assistant.vision.AssistantImageInputValidatorTests' `
+        --tests 'com.sinapuml.assistant.vision.VisionProposalGroundingValidatorTests' `
+        --tests 'com.sinapuml.assistant.vision.VisionProposalCompilerTests' `
+        --tests 'com.sinapuml.assistant.vision.VisionEvidenceBoundsValidatorTests' `
+        --tests 'com.sinapuml.assistant.vision.LlamaCppVisionModelGatewayTests' `
+        --tests 'com.sinapuml.assistant.vision.AssistantImagePlanIntegrationTests'
 
     exit $LASTEXITCODE
 } finally {

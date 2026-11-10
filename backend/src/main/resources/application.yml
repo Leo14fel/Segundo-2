@@ -1,9 +1,9 @@
 spring:
   application:
-    name: classforge
+    name: sinapuml
 
   mongodb:
-    uri: ${CLASSFORGE_MONGODB_URI:mongodb://localhost:27017/classforge?replicaSet=rs0}
+    uri: ${SINAPUML_MONGODB_URI:mongodb://localhost:27017/sinapuml?replicaSet=rs0}
     representation:
       uuid: standard
 
@@ -14,50 +14,50 @@ spring:
 
 server:
   port: 8082
-classforge:
+sinapuml:
   push:
-    enabled: ${CLASSFORGE_PUSH_ENABLED:false}
-    public-key: ${CLASSFORGE_PUSH_PUBLIC_KEY:}
-    private-key: ${CLASSFORGE_PUSH_PRIVATE_KEY:}
-    subject: ${CLASSFORGE_PUSH_SUBJECT:}
+    enabled: ${SINAPUML_PUSH_ENABLED:false}
+    public-key: ${SINAPUML_PUSH_PUBLIC_KEY:}
+    private-key: ${SINAPUML_PUSH_PRIVATE_KEY:}
+    subject: ${SINAPUML_PUSH_SUBJECT:}
   activity:
     sessions:
-      inactivity-timeout: ${CLASSFORGE_SESSION_INACTIVITY_TIMEOUT:PT30M}
-      sweep-interval: ${CLASSFORGE_SESSION_SWEEP_INTERVAL:PT1M}
-      maintenance-enabled: ${CLASSFORGE_SESSION_MAINTENANCE_ENABLED:true}
+      inactivity-timeout: ${SINAPUML_SESSION_INACTIVITY_TIMEOUT:PT30M}
+      sweep-interval: ${SINAPUML_SESSION_SWEEP_INTERVAL:PT1M}
+      maintenance-enabled: ${SINAPUML_SESSION_MAINTENANCE_ENABLED:true}
   assistant:
     conversation:
-      request-timeout-millis: ${CLASSFORGE_ASSISTANT_CONVERSATION_TIMEOUT_MILLIS:90000}
-      max-context-chars: ${CLASSFORGE_ASSISTANT_CONVERSATION_MAX_CONTEXT_CHARS:120000}
-      max-completion-tokens: ${CLASSFORGE_ASSISTANT_CONVERSATION_MAX_TOKENS:2048}
+      request-timeout-millis: ${SINAPUML_ASSISTANT_CONVERSATION_TIMEOUT_MILLIS:90000}
+      max-context-chars: ${SINAPUML_ASSISTANT_CONVERSATION_MAX_CONTEXT_CHARS:120000}
+      max-completion-tokens: ${SINAPUML_ASSISTANT_CONVERSATION_MAX_TOKENS:2048}
     text:
-      provider: ${CLASSFORGE_ASSISTANT_TEXT_PROVIDER:llama-cpp}
-    llama-url: ${CLASSFORGE_ASSISTANT_LLAMA_URL:http://127.0.0.1:8092}
-    llama-model: ${CLASSFORGE_ASSISTANT_LLAMA_MODEL:local-model}
-    whisper-url: ${CLASSFORGE_ASSISTANT_WHISPER_URL:http://127.0.0.1:8093}
+      provider: ${SINAPUML_ASSISTANT_TEXT_PROVIDER:llama-cpp}
+    llama-url: ${SINAPUML_ASSISTANT_LLAMA_URL:http://127.0.0.1:8092}
+    llama-model: ${SINAPUML_ASSISTANT_LLAMA_MODEL:local-model}
+    whisper-url: ${SINAPUML_ASSISTANT_WHISPER_URL:http://127.0.0.1:8093}
     bedrock:
-      enabled: ${CLASSFORGE_BEDROCK_ENABLED:false}
+      enabled: ${SINAPUML_BEDROCK_ENABLED:false}
       region: ${AWS_REGION:us-east-1}
-      request-timeout-seconds: ${CLASSFORGE_BEDROCK_TIMEOUT_SECONDS:300}
-      text-model: ${CLASSFORGE_BEDROCK_TEXT_MODEL:us.amazon.nova-2-lite-v1:0}
-      vision-model: ${CLASSFORGE_BEDROCK_VISION_MODEL:us.amazon.nova-2-lite-v1:0}
-      text-max-completion-tokens: ${CLASSFORGE_BEDROCK_TEXT_MAX_TOKENS:1024}
+      request-timeout-seconds: ${SINAPUML_BEDROCK_TIMEOUT_SECONDS:300}
+      text-model: ${SINAPUML_BEDROCK_TEXT_MODEL:us.amazon.nova-2-lite-v1:0}
+      vision-model: ${SINAPUML_BEDROCK_VISION_MODEL:us.amazon.nova-2-lite-v1:0}
+      text-max-completion-tokens: ${SINAPUML_BEDROCK_TEXT_MAX_TOKENS:1024}
     vision:
-      provider: ${CLASSFORGE_ASSISTANT_VISION_PROVIDER:llama-cpp}
-      url: ${CLASSFORGE_ASSISTANT_VISION_URL:http://127.0.0.1:8094}
-      model: ${CLASSFORGE_ASSISTANT_VISION_MODEL:vision-model}
-      request-timeout-seconds: ${CLASSFORGE_ASSISTANT_VISION_TIMEOUT_SECONDS:180}
-      max-completion-tokens: ${CLASSFORGE_ASSISTANT_VISION_MAX_TOKENS:3200}
-      dense-two-pass-enabled: ${CLASSFORGE_ASSISTANT_VISION_TWO_PASS:false}
-      dense-two-pass-min-classes: ${CLASSFORGE_ASSISTANT_VISION_TWO_PASS_MIN_CLASSES:4}
-      relationship-max-completion-tokens: ${CLASSFORGE_ASSISTANT_VISION_RELATIONSHIP_MAX_TOKENS:1800}
+      provider: ${SINAPUML_ASSISTANT_VISION_PROVIDER:llama-cpp}
+      url: ${SINAPUML_ASSISTANT_VISION_URL:http://127.0.0.1:8094}
+      model: ${SINAPUML_ASSISTANT_VISION_MODEL:vision-model}
+      request-timeout-seconds: ${SINAPUML_ASSISTANT_VISION_TIMEOUT_SECONDS:180}
+      max-completion-tokens: ${SINAPUML_ASSISTANT_VISION_MAX_TOKENS:3200}
+      dense-two-pass-enabled: ${SINAPUML_ASSISTANT_VISION_TWO_PASS:false}
+      dense-two-pass-min-classes: ${SINAPUML_ASSISTANT_VISION_TWO_PASS_MIN_CLASSES:4}
+      relationship-max-completion-tokens: ${SINAPUML_ASSISTANT_VISION_RELATIONSHIP_MAX_TOKENS:1800}
       dense-hybrid:
-        enabled: ${CLASSFORGE_ASSISTANT_VISION_HYBRID:true}
-        min-classes: ${CLASSFORGE_ASSISTANT_VISION_HYBRID_MIN_CLASSES:4}
-        fallback-to-semantic: ${CLASSFORGE_ASSISTANT_VISION_HYBRID_FALLBACK:false}
-        localization-max-completion-tokens: ${CLASSFORGE_ASSISTANT_VISION_HYBRID_LOCALIZATION_TOKENS:1200}
-        relationship-max-completion-tokens: ${CLASSFORGE_ASSISTANT_VISION_HYBRID_RELATIONSHIP_TOKENS:512}
-        multiplicity-max-completion-tokens: ${CLASSFORGE_ASSISTANT_VISION_HYBRID_MULTIPLICITY_TOKENS:128}
+        enabled: ${SINAPUML_ASSISTANT_VISION_HYBRID:true}
+        min-classes: ${SINAPUML_ASSISTANT_VISION_HYBRID_MIN_CLASSES:4}
+        fallback-to-semantic: ${SINAPUML_ASSISTANT_VISION_HYBRID_FALLBACK:false}
+        localization-max-completion-tokens: ${SINAPUML_ASSISTANT_VISION_HYBRID_LOCALIZATION_TOKENS:1200}
+        relationship-max-completion-tokens: ${SINAPUML_ASSISTANT_VISION_HYBRID_RELATIONSHIP_TOKENS:512}
+        multiplicity-max-completion-tokens: ${SINAPUML_ASSISTANT_VISION_HYBRID_MULTIPLICITY_TOKENS:128}
 
     image:
       max-bytes: 10485760
@@ -66,7 +66,7 @@ classforge:
 
   security:
     jwt:
-      secret: ${CLASSFORGE_JWT_SECRET:classforge-development-secret-change-before-production-2026}
+      secret: ${SINAPUML_JWT_SECRET:sinapuml-development-secret-change-before-production-2026}
       expiration-minutes: 480
     websocket:
-      allowed-origin-patterns: ${CLASSFORGE_WEBSOCKET_ALLOWED_ORIGINS:*}
+      allowed-origin-patterns: ${SINAPUML_WEBSOCKET_ALLOWED_ORIGINS:*}

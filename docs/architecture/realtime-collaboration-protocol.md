@@ -1,4 +1,4 @@
-# ClassForge — Protocolo de colaboración en tiempo real
+# SinapUML — Protocolo de colaboración en tiempo real
 
 ## Estado
 
@@ -217,4 +217,4 @@ La restauración es una nueva revisión normal y se difunde a todos los clientes
 
 ## Evidencia C2-cu31-003
 
-`ProjectStompAuthorizationInterceptor` usa directamente `com.classforge.project.access.ProjectAccessService`: `SUBSCRIBE` ejecuta `requireRead` y `SEND` ejecuta `requireEdit` para `/operations` y `/presence`. El E2E usa cuentas distintas OWNER/EDITOR; EDITOR publica una operación, OWNER y EDITOR reciben el broadcast y el control de revisión permanece intacto. Un usuario NONE es rechazado en destinations de ambos canales.
+`ProjectStompAuthorizationInterceptor` usa directamente `com.sinapuml.project.access.ProjectAccessService`: `SUBSCRIBE` ejecuta `requireRead` y `SEND` ejecuta `requireEdit` para `/operations` y `/presence`. El E2E usa cuentas distintas OWNER/EDITOR; EDITOR publica una operación, OWNER y EDITOR reciben el broadcast y el control de revisión permanece intacto. Un usuario NONE es rechazado en destinations de ambos canales.

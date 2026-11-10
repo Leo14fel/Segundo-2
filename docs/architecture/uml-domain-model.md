@@ -1,4 +1,4 @@
-# ClassForge — Modelo UML canonico
+# SinapUML — Modelo UML canonico
 
 ## Objetivo
 
@@ -69,7 +69,7 @@ Esto evita ambiguedad al generar Java, TypeScript, rutas y artefactos relacionad
 
 Un atributo `identifier=true` no puede ser nullable.
 
-ClassForge no asume que un atributo llamado `id` sea identificador. La semantica se modela explicitamente.
+SinapUML no asume que un atributo llamado `id` sea identificador. La semantica se modela explicitamente.
 
 ## Relaciones
 

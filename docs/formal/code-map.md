@@ -25,16 +25,16 @@ La regla transversal más importante es que **`ProjectDocument` es la fuente de 
 
 | Paquete | Responsabilidad | Entrada principal | Salida/efecto |
 |---|---|---|---|
-| `com.classforge.auth` | identidad local, BCrypt y JWT | credenciales | identidad autenticada |
-| `com.classforge.project` | proyecto, documento, persistencia y permisos | REST / servicios | `Project` + `ProjectDocument` |
-| `com.classforge.project.validation` | invariantes del UML canónico | `ProjectDocument` | diagnósticos |
-| `com.classforge.collaboration` | operaciones STOMP autoritativas y presencia | `UmlCommand` + `baseRevision` | revisión persistida + broadcast |
-| `com.classforge.assistant` | texto/voz -> plan semántico UML | texto / WAV | preview `BATCH` |
-| `com.classforge.assistant.tools` | grounding y resolución de herramientas | native tool calls | acciones semánticas |
-| `com.classforge.assistant.vision` | imagen -> propuesta UML | imagen | propuesta/preview; nunca persistencia directa |
-| `com.classforge.integration.xmi` | interoperabilidad Enterprise Architect | XMI / `ProjectDocument` | import preview / XMI determinista |
-| `com.classforge.generation.relational` | UML -> IR relacional | `ProjectDocument` | modelo relacional efímero |
-| `com.classforge.generation.spring` | aplicación generada completa | IR + opciones | ZIP reproducible |
+| `com.sinapuml.auth` | identidad local, BCrypt y JWT | credenciales | identidad autenticada |
+| `com.sinapuml.project` | proyecto, documento, persistencia y permisos | REST / servicios | `Project` + `ProjectDocument` |
+| `com.sinapuml.project.validation` | invariantes del UML canónico | `ProjectDocument` | diagnósticos |
+| `com.sinapuml.collaboration` | operaciones STOMP autoritativas y presencia | `UmlCommand` + `baseRevision` | revisión persistida + broadcast |
+| `com.sinapuml.assistant` | texto/voz -> plan semántico UML | texto / WAV | preview `BATCH` |
+| `com.sinapuml.assistant.tools` | grounding y resolución de herramientas | native tool calls | acciones semánticas |
+| `com.sinapuml.assistant.vision` | imagen -> propuesta UML | imagen | propuesta/preview; nunca persistencia directa |
+| `com.sinapuml.integration.xmi` | interoperabilidad Enterprise Architect | XMI / `ProjectDocument` | import preview / XMI determinista |
+| `com.sinapuml.generation.relational` | UML -> IR relacional | `ProjectDocument` | modelo relacional efímero |
+| `com.sinapuml.generation.spring` | aplicación generada completa | IR + opciones | ZIP reproducible |
 
 ## 3. Pipeline de generación
 
@@ -61,7 +61,7 @@ Las clases `*Renderer` y `GeneratedProjectValidator` son fachadas deliberadas. L
 
 | Ruta | Responsabilidad |
 |---|---|
-| `auth/` | sesión de ClassForge |
+| `auth/` | sesión de SinapUML |
 | `projects/model/` | tipos del proyecto/documento |
 | `projects/commands/` | Command Bus, inversas y ejecución UML |
 | `projects/state/` | estado del workspace y coordinación |
@@ -138,6 +138,6 @@ VisionHybridModelGateway
   └─ BedrockVisionHybridModelGateway    # aws-demo
 ```
 
-Soporte común Bedrock: `com.classforge.assistant.bedrock` (`BedrockRuntimeConfiguration`, `BedrockConverseSupport`, `BedrockDocumentCodec`). El provider se selecciona por configuración, no mediante bifurcaciones dentro del dominio.
+Soporte común Bedrock: `com.sinapuml.assistant.bedrock` (`BedrockRuntimeConfiguration`, `BedrockConverseSupport`, `BedrockDocumentCodec`). El provider se selecciona por configuración, no mediante bifurcaciones dentro del dominio.
 
 Runbook: `docs/runtime/aws-demo-deployment.md`. Autoridad para el diagrama DPL-01: `docs/formal/deployment-diagram-spec.md`.

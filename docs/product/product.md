@@ -1,4 +1,4 @@
-# ClassForge
+# SinapUML
 
 > Herramienta CASE colaborativa para modelado UML de clases y generación automática de aplicaciones backend/frontend operables mediante interfaz convencional, lenguaje natural y voz.
 
@@ -35,7 +35,7 @@ La separación anterior permite utilizar `product.md` como visión estable sin c
 
 ## 1. Visión del producto
 
-**ClassForge** es una aplicación web colaborativa orientada al diseño de diagramas de clases UML con foco en el modelado de aplicaciones respaldadas por bases de datos relacionales.
+**SinapUML** es una aplicación web colaborativa orientada al diseño de diagramas de clases UML con foco en el modelado de aplicaciones respaldadas por bases de datos relacionales.
 
 El producto permite construir un modelo de clases mediante distintos mecanismos de entrada, mantenerlo sincronizado entre varios usuarios y utilizarlo como fuente de verdad para generar automáticamente:
 
@@ -53,7 +53,7 @@ La aplicación debe funcionar **sin depender de Internet** para sus capacidades 
 
 ## 2. Principio arquitectónico central
 
-Todo ClassForge gira alrededor de un **modelo canónico propio** del dominio UML.
+Todo SinapUML gira alrededor de un **modelo canónico propio** del dominio UML.
 
 Ningún mecanismo de entrada debe manipular directamente el canvas, el código generado o la base de datos.
 
@@ -91,7 +91,7 @@ Este modelo canónico debe ser la **fuente de verdad del proyecto**.
 
 ## 3. Aplicación principal
 
-La aplicación principal de ClassForge será **web**.
+La aplicación principal de SinapUML será **web**.
 
 ### Stack previsto
 
@@ -110,7 +110,7 @@ La interfaz deberá ser responsive, pero no es requisito que la aplicación prin
 
 ## 4. Diagramador UML
 
-ClassForge debe permitir crear y editar diagramas de clases utilizando notación UML 2.5 o superior, tomando UML 2.5.1 como referencia concreta.
+SinapUML debe permitir crear y editar diagramas de clases utilizando notación UML 2.5 o superior, tomando UML 2.5.1 como referencia concreta.
 
 El dominio interno debe contemplar al menos:
 
@@ -259,7 +259,7 @@ Ejemplo:
 
 ### 5.4. Enterprise Architect
 
-ClassForge deberá poder interoperar con **Sparx Systems Enterprise Architect**.
+SinapUML deberá poder interoperar con **Sparx Systems Enterprise Architect**.
 
 Formato principal previsto:
 
@@ -287,7 +287,7 @@ CanonicalUmlModel
 Enterprise Architect
 ```
 
-El primer objetivo será soportar correctamente el subconjunto UML utilizado por ClassForge en lugar de intentar cubrir todo XMI desde el primer día.
+El primer objetivo será soportar correctamente el subconjunto UML utilizado por SinapUML en lugar de intentar cubrir todo XMI desde el primer día.
 
 **Estado vigente:** CU-10/CU-11 implementan ese subconjunto mediante XMI 2.1, parser seguro, preview/apply y export determinista. Package se aplana; diagramas, profiles, tagged values y extensiones propietarias de EA quedan fuera del alcance actual.
 
@@ -303,7 +303,7 @@ Eclipse UML2 se considerará únicamente si el soporte XMI propio resulta insufi
 
 ## 6. Colaboración en tiempo real
 
-ClassForge debe ser una aplicación colaborativa.
+SinapUML debe ser una aplicación colaborativa.
 
 Varios usuarios podrán abrir el mismo proyecto y visualizar los cambios de los demás en tiempo real.
 
@@ -383,7 +383,7 @@ La primera estrategia será:
 
 ## 7. Funcionamiento offline y en red local
 
-"Offline" significa que ClassForge no deberá depender de Internet para funcionar.
+"Offline" significa que SinapUML no deberá depender de Internet para funcionar.
 
 Esto no impide utilizar una red local.
 
@@ -391,7 +391,7 @@ Escenario esperado:
 
 ```text
 Laptop anfitriona
-├── ClassForge backend
+├── SinapUML backend
 ├── IA local
 ├── STT local
 └── colaboración
@@ -488,7 +488,7 @@ CU-13 no crea directorios vacíos para API futura.
 
 ### Plantillas CU-13
 
-Apache FreeMarker es propiedad de ClassForge y renderiza el modelo preparado. Las templates conceptuales cubren proyecto/build, bootstrap, entity, `IdClass`, repository, configuración H2/PostgreSQL, context-load test, README y `.gitignore`. No se genera código complejo por concatenación manual.
+Apache FreeMarker es propiedad de SinapUML y renderiza el modelo preparado. Las templates conceptuales cubren proyecto/build, bootstrap, entity, `IdClass`, repository, configuración H2/PostgreSQL, context-load test, README y `.gitignore`. No se genera código complejo por concatenación manual.
 
 ### Estructura objetivo acumulada tras CU-13/CU-14
 
@@ -532,7 +532,7 @@ La UX de CU-14 debe presentar dos modos **explícitos y mutuamente excluyentes**
 
 #### CRUD simple
 
-Genera la API expresiva sobre el proyecto Spring Boot/JPA de CU-13 sin seguridad de aplicación. No agrega Spring Security, login, JWT ni reglas especiales de credenciales. Es la opción directa para prototipos, APIs internas o sistemas donde la autenticación se resolverá fuera de ClassForge.
+Genera la API expresiva sobre el proyecto Spring Boot/JPA de CU-13 sin seguridad de aplicación. No agrega Spring Security, login, JWT ni reglas especiales de credenciales. Es la opción directa para prototipos, APIs internas o sistemas donde la autenticación se resolverá fuera de SinapUML.
 
 #### Sistema de Información con Auth
 
@@ -558,7 +558,7 @@ El resultado Auth debe incluir como mínimo:
 
 La selección debe validarse antes de renderizar. Referencias stale, tabla inexistente, atributos ajenos a la entidad, columnas sintéticas/relacionales o usuario y contraseña apuntando al mismo atributo provocan rechazo fail-closed y ningún ZIP parcial.
 
-Este perfil no debe confundirse con la autenticación de ClassForge: las cuentas OWNER/EDITOR controlan quién puede **generar** el artefacto; la tabla/entidad elegida controla quién podrá **iniciar sesión en la aplicación generada**.
+Este perfil no debe confundirse con la autenticación de SinapUML: las cuentas OWNER/EDITOR controlan quién puede **generar** el artefacto; la tabla/entidad elegida controla quién podrá **iniciar sesión en la aplicación generada**.
 
 Ejemplos de consultas deseadas:
 
@@ -576,7 +576,7 @@ Ejemplos de consultas deseadas:
 
 ## 11. Auditoría estándar
 
-Para que expresiones como "últimos", "recientes" o "modificados recientemente" tengan una semántica estable, ClassForge deberá permitir generar campos de auditoría.
+Para que expresiones como "últimos", "recientes" o "modificados recientemente" tengan una semántica estable, SinapUML deberá permitir generar campos de auditoría.
 
 Ejemplo mediante metadato/estereotipo:
 
@@ -641,9 +641,9 @@ CU-20, CU-21, CU-22 y CU-23 se conservan como trazabilidad pero quedan absorbido
 
 ## 13. Generación de frontend
 
-El frontend generado es distinto de la aplicación web principal ClassForge.
+El frontend generado es distinto de la aplicación web principal SinapUML.
 
-ClassForge debe poder generar una interfaz para utilizar el backend generado.
+SinapUML debe poder generar una interfaz para utilizar el backend generado.
 
 El docente podrá solicitar un frontend web o móvil, por lo que el generador debe contemplar ambas salidas.
 
@@ -686,7 +686,7 @@ Animal
 - especie: Especie
 ```
 
-ClassForge podrá inferir controles de formulario.
+SinapUML podrá inferir controles de formulario.
 
 Ejemplo de reglas:
 
@@ -766,7 +766,7 @@ DomainManifestPlan
 domain-manifest.json
 ```
 
-El manifest **no** será reconstruido desde OpenAPI ni será una fuente manual independiente. Su valor diferencial frente a OpenAPI es preservar semántica y trazabilidad del dominio ClassForge.
+El manifest **no** será reconstruido desde OpenAPI ni será una fuente manual independiente. Su valor diferencial frente a OpenAPI es preservar semántica y trazabilidad del dominio SinapUML.
 
 Ejemplo orientativo de schema v1:
 
@@ -971,7 +971,7 @@ El motor de ejecución deberá validar cada paso antes de ejecutarlo.
 
 ## 20. Alcance semántico de la generación
 
-ClassForge puede generar automáticamente de forma razonable:
+SinapUML puede generar automáticamente de forma razonable:
 
 | Funcionalidad | Alcance |
 |---|---:|
@@ -998,13 +998,13 @@ ClassForge puede generar automáticamente de forma razonable:
 
 Un diagrama de clases no contiene suficiente información para generar automáticamente cualquier comportamiento empresarial imaginable.
 
-ClassForge se enfocará inicialmente en **operaciones estructurales derivables del modelo de dominio**.
+SinapUML se enfocará inicialmente en **operaciones estructurales derivables del modelo de dominio**.
 
 ---
 
 ## 21. Metadatos de generación y perfil UML
 
-Para ampliar la capacidad del generador sin abandonar UML, ClassForge podrá soportar metadatos y/o un perfil UML propio.
+Para ampliar la capacidad del generador sin abandonar UML, SinapUML podrá soportar metadatos y/o un perfil UML propio.
 
 Ejemplos:
 
@@ -1178,11 +1178,11 @@ Principios:
 
 ---
 
-## 27. Persistencia de proyectos ClassForge
+## 27. Persistencia de proyectos SinapUML
 
 ### Decision vigente
 
-ClassForge utiliza **Spring Data JPA/Hibernate** para persistir proyectos.
+SinapUML utiliza **Spring Data JPA/Hibernate** para persistir proyectos.
 
 En desarrollo se utiliza **H2 en archivo**. PostgreSQL permanece como destino previsto para despliegues posteriores.
 
@@ -1202,7 +1202,7 @@ Los tests Spring utilizan H2 en memoria.
 
 ### Formato portable futuro
 
-Un archivo `*.classforge` sigue siendo una posibilidad futura de exportacion, importacion o backup.
+Un archivo `*.sinapuml` sigue siendo una posibilidad futura de exportacion, importacion o backup.
 
 No es el mecanismo primario de persistencia vigente.
 
@@ -1222,7 +1222,7 @@ Si se implementa, debera adaptar el mismo modelo canonico y no convertirse en un
 ---
 ## 28. Stack consolidado
 
-### Aplicación ClassForge
+### Aplicación SinapUML
 
 ```text
 Frontend
@@ -1336,7 +1336,7 @@ Veterinario
 
 El usuario pulsa **Generar**.
 
-ClassForge produce:
+SinapUML produce:
 
 ```text
 output/
@@ -1501,7 +1501,7 @@ No se debe introducir otra ruta que modifique directamente los arrays del modelo
 ---
 ## 33. Definición resumida del producto
 
-**ClassForge** es una herramienta CASE colaborativa y offline-first que permite diseñar modelos UML de clases mediante edición manual, voz, imágenes o Enterprise Architect, y transformar esos modelos en aplicaciones funcionales compuestas por un backend Spring Boot/JPA, una API REST/OpenAPI, una colección Postman y un frontend Angular web y un frontend Flutter mobile con Android formalmente validado.
+**SinapUML** es una herramienta CASE colaborativa y offline-first que permite diseñar modelos UML de clases mediante edición manual, voz, imágenes o Enterprise Architect, y transformar esos modelos en aplicaciones funcionales compuestas por un backend Spring Boot/JPA, una API REST/OpenAPI, una colección Postman y un frontend Angular web y un frontend Flutter mobile con Android formalmente validado.
 
 Las aplicaciones generadas incorporan un asistente de lenguaje natural y voz capaz de realizar operaciones sobre el dominio generado —como crear, consultar, actualizar, eliminar, filtrar, ordenar y navegar relaciones— sin requerir que dichas operaciones hayan sido programadas manualmente para cada dominio.
 
@@ -1511,7 +1511,7 @@ La generación se limita deliberadamente a comportamiento que pueda derivarse de
 
 ## 34. Nombre
 
-**ClassForge**
+**SinapUML**
 
 ### Significado
 

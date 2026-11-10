@@ -96,7 +96,7 @@ AUTH_INFORMATION_SYSTEM
 
 La tabla de autenticación debe corresponder a `RelationalTableOriginType.UML_CLASS`. Los campos de usuario y contraseña deben provenir de columnas `ATTRIBUTE` de esa misma tabla y representar atributos UML distintos. Para conservar identidad frente a renames, el contrato de CU-14 debe referirse a la clase y atributos mediante sus UUID de origen (`RelationalTable.origin().umlElementId()` / `RelationalColumn.sourceElementId()`), aunque la UI muestre nombres de tabla/entidad y atributo.
 
-Esta configuración es efímera y target-specific. No pertenece a `UmlModel`, no se escribe en `RelationalModel` y no cambia la revisión. La autenticación de la aplicación generada es independiente de `CurrentUser`/OWNER/EDITOR de ClassForge.
+Esta configuración es efímera y target-specific. No pertenece a `UmlModel`, no se escribe en `RelationalModel` y no cambia la revisión. La autenticación de la aplicación generada es independiente de `CurrentUser`/OWNER/EDITOR de SinapUML.
 
 La validación deberá ocurrir antes del render y fallar cerrada si las referencias son stale o no pertenecen a la entidad elegida. La contraseña nunca debe aparecer en DTOs de respuesta ni persistirse como texto plano cuando actúa como credencial.
 

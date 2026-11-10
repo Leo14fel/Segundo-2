@@ -1,4 +1,4 @@
-# ClassForge — Project Document
+# SinapUML — Project Document
 
 ## Decision
 

@@ -19,20 +19,20 @@ backend/.gradle/
 backend/data/
 *.log
 
-# Generated ClassForge outputs
+# Generated SinapUML outputs
 .demo/
 .patch-backups/
-classforge.zip
-/classforge.rar
-/classforge-full.tar.gz
+sinapuml.zip
+/sinapuml.rar
+/sinapuml-full.tar.gz
 generated/
 workspace/generated/
 
 # Source packages named "generated" are production/test code, not generated output
-!backend/src/main/java/com/classforge/generation/spring/generated/
-!backend/src/main/java/com/classforge/generation/spring/generated/**
-!backend/src/test/java/com/classforge/generation/spring/generated/
-!backend/src/test/java/com/classforge/generation/spring/generated/**
+!backend/src/main/java/com/sinapuml/generation/spring/generated/
+!backend/src/main/java/com/sinapuml/generation/spring/generated/**
+!backend/src/test/java/com/sinapuml/generation/spring/generated/
+!backend/src/test/java/com/sinapuml/generation/spring/generated/**
 
 # Environment / secrets
 .env
@@ -45,7 +45,18 @@ Thumbs.db
 
 # AWS demo deployment bundle
 .aws-deploy-bundle/
-classforge-aws-deploy-bundle.zip
+sinapuml-aws-deploy-bundle.zip
 
 # Local migration backups and reference copies; publish the adapted source only
 /artifacts/frontend-rebuild/
+
+# Local and temporary artifacts
+~$*
+*.rar
+*.tar.gz
+*.pem
+*.key
+
+# Editor recovery files
+*.bkp
+*.dtmp

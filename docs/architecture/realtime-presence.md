@@ -1,4 +1,4 @@
-# ClassForge — Presencia colaborativa efímera
+# SinapUML — Presencia colaborativa efímera
 
 ## Estado
 

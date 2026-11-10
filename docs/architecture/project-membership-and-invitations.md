@@ -18,7 +18,7 @@ Solo existen dos roles efectivos en CU-31: OWNER y EDITOR. No se introduce VIEWE
 
 ## Política central
 
-`com.classforge.project.access.ProjectAccessService` resuelve OWNER, EDITOR o NONE para `(userId, projectId)`.
+`com.sinapuml.project.access.ProjectAccessService` resuelve OWNER, EDITOR o NONE para `(userId, projectId)`.
 
 OWNER puede leer, editar, validar, guardar, renombrar y administrar invitaciones. EDITOR puede leer, editar, validar y guardar. NONE no obtiene acceso.
 

@@ -63,16 +63,16 @@ El backend informa un error recuperable si el proveedor no está disponible:
 no sustituye una respuesta real por contenido ficticio.
 
 También se admite Bedrock usando las variables existentes
-`CLASSFORGE_ASSISTANT_TEXT_PROVIDER=bedrock`, `CLASSFORGE_BEDROCK_ENABLED=true`,
+`SINAPUML_ASSISTANT_TEXT_PROVIDER=bedrock`, `SINAPUML_BEDROCK_ENABLED=true`,
 región, credenciales y modelo configurados. No se provisionan recursos AWS.
 
 Variables nuevas opcionales:
 
 | Variable | Predeterminado | Uso |
 | --- | --- | --- |
-| CLASSFORGE_ASSISTANT_CONVERSATION_TIMEOUT_MILLIS | 90000 | Tiempo máximo de consulta |
-| CLASSFORGE_ASSISTANT_CONVERSATION_MAX_CONTEXT_CHARS | 120000 | Límite de contexto serializado |
-| CLASSFORGE_ASSISTANT_CONVERSATION_MAX_TOKENS | 2048 | Tokens máximos de respuesta |
+| SINAPUML_ASSISTANT_CONVERSATION_TIMEOUT_MILLIS | 90000 | Tiempo máximo de consulta |
+| SINAPUML_ASSISTANT_CONVERSATION_MAX_CONTEXT_CHARS | 120000 | Límite de contexto serializado |
+| SINAPUML_ASSISTANT_CONVERSATION_MAX_TOKENS | 2048 | Tokens máximos de respuesta |
 
 Se envía el documento actual, miembros y como máximo 20 mensajes previos.
 Un contexto que excede el límite devuelve un error explícito; no se corta el
@@ -171,8 +171,8 @@ normal, que mantiene H2 en archivo y `ddl-auto=update`.
 .\backend\gradlew.bat -p backend bootRun --args="--spring.profiles.active=demo"
 ```
 
-Usuarios demo: `demo@classforge.local` y `colaborador@classforge.local`;
-contraseña local de ambos: `classforge-demo` (fixture del repositorio original).
+Usuarios demo: `demo@sinapuml.local` y `colaborador@sinapuml.local`;
+contraseña local de ambos: `sinapuml-demo` (fixture del repositorio original).
 Proyecto: `27000000-0000-0000-0000-000000000100`.
 
 1. Iniciar el proveedor IA y abrir dos navegadores con esos usuarios.

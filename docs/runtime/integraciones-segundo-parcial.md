@@ -85,7 +85,7 @@ Disponibilidad observada antes de reiniciar este incremento: llama.cpp, Whisper 
 - Suite específica final: 11 pruebas de routing, grounding, firmas ambiguas, preservación de datos, rechazo de cambios múltiples y tipos no solicitados.
 - Tests de gateway llama.cpp/Bedrock aprobados tras actualizar instrucciones y catálogos; utilizan transporte controlado, no inferencia real.
 - Smoke local real `scripts/smoke-methods-stomp.mjs`: autentica una cuenta QA, envía SET_CLASS_OPERATIONS, espera OPERATION_APPLIED, consulta MongoDB por la API y verifica creación/actualización/eliminación de un método temporal. Al terminar conserva los métodos originales; registra actividad normal de estas pruebas.
-- Credenciales del smoke se reciben por CLASSFORGE_TEST_EMAIL / CLASSFORGE_TEST_PASSWORD. No se guardan en el script. Requiere el proyecto aislado QA - Metodos UML y Node 24 con dependencias frontend instaladas.
+- Credenciales del smoke se reciben por SINAPUML_TEST_EMAIL / SINAPUML_TEST_PASSWORD. No se guardan en el script. Requiere el proyecto aislado QA - Metodos UML y Node 24 con dependencias frontend instaladas.
 - Backend actualizado activo y validación final por STOMP completada. Los runtimes locales siguen sin estar configurados/activos en esta sesión.
 
 ## Incremento: Web Push y continuidad del trabajo

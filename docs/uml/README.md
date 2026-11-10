@@ -1,4 +1,4 @@
-# UML académico de ClassForge
+# UML académico de SinapUML
 
 Esta carpeta contiene el catálogo de diagramas UML que se incorporarán a la documentación formal final.
 

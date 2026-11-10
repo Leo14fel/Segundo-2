@@ -2,7 +2,7 @@
 <xmi:XMI xmi:version="2.1"
          xmlns:xmi="http://schema.omg.org/spec/XMI/2.1"
          xmlns:uml="http://schema.omg.org/spec/UML/2.1">
-  <xmi:Documentation exporter="ClassForge CU-27" exporterVersion="1.0"/>
+  <xmi:Documentation exporter="SinapUML CU-27" exporterVersion="1.0"/>
   <uml:Model xmi:type="uml:Model" xmi:id="CF_27000000000000000000000000000001" name="Veterinaria_CU27" visibility="public">
     <packagedElement xmi:type="uml:Package" xmi:id="CF_27000000000000000000000000000002" name="Veterinaria" visibility="public">
       <packagedElement xmi:type="uml:PrimitiveType" xmi:id="CF_27000000000000000000000000000011" name="String" visibility="public"/>

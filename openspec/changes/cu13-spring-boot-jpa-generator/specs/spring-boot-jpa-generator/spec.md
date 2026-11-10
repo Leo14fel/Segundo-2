@@ -173,7 +173,7 @@ Generated configuration SHALL disable `spring.jpa.open-in-view`.
 ## Rendering
 
 ### R53 — FreeMarker
-Textual generated artifacts SHALL be rendered with version-controlled Apache FreeMarker templates owned by ClassForge.
+Textual generated artifacts SHALL be rendered with version-controlled Apache FreeMarker templates owned by SinapUML.
 
 ### R54 — Dumb templates
 Templates SHALL format a prepared Spring generation model and SHALL NOT decide relationship ownership, FK selection, inheritance topology, identifier strategy, or collision recovery.

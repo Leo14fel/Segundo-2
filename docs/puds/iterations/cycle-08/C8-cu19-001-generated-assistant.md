@@ -27,7 +27,7 @@ Implementa CU-19 como fusión de los antiguos CU-19..23.
 8. CU-13 Spring regression;
 9. full backend;
 10. frontend generation tests;
-11. ClassForge Angular build;
+11. SinapUML Angular build;
 12. `git diff --check`;
 13. OpenSpec/evidence audit.
 

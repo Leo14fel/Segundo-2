@@ -1,4 +1,4 @@
-# ClassForge — Validacion explicita del modelo UML
+# SinapUML — Validacion explicita del modelo UML
 
 ## Objetivo
 

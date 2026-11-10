@@ -81,10 +81,10 @@ El incremento C3-cu14-001 cerró esas políticas con defaults explícitos: `/api
 
 Existen dos dominios de autenticación distintos:
 
-- **ClassForge:** `CurrentUser`, OWNER/EDITOR/NONE decide quién puede abrir/generar el proyecto.
+- **SinapUML:** `CurrentUser`, OWNER/EDITOR/NONE decide quién puede abrir/generar el proyecto.
 - **Aplicación generada:** la tabla/entidad seleccionada y sus dos atributos deciden el login del sistema generado.
 
-No se reutiliza automáticamente la base de usuarios de ClassForge dentro del sistema generado.
+No se reutiliza automáticamente la base de usuarios de SinapUML dentro del sistema generado.
 
 ## No persistencia
 

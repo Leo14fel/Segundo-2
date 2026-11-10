@@ -1,6 +1,6 @@
 # Producto
 
-`product.md` es la especificación maestra del **producto objetivo** ClassForge.
+`product.md` es la especificación maestra del **producto objetivo** SinapUML.
 
 Una capacidad descrita en `product.md` no implica por sí sola que ya exista en el software.
 

@@ -52,7 +52,7 @@ Cerrar la generación web end-to-end sobre los contratos construidos en CU-12..1
 - [x] regresiones CU-13..16;
 - [x] full backend;
 - [x] frontend focal;
-- [x] Angular ClassForge build;
+- [x] Angular SinapUML build;
 - [x] documentación/evidencia.
 
 ## Resultado

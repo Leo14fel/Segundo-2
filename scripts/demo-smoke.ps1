@@ -4,8 +4,8 @@ param(
 )
 
 $ErrorActionPreference = "Stop"
-$ownerEmail = "demo@classforge.local"
-$password = "classforge-demo"
+$ownerEmail = "demo@sinapuml.local"
+$password = "sinapuml-demo"
 $projectId = "27000000-0000-0000-0000-000000000100"
 
 function Invoke-Json([string]$Method, [string]$Path, $Body = $null, [string]$Token = "") {

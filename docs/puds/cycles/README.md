@@ -1,6 +1,6 @@
 # Ciclos PUDS
 
-En ClassForge, **Ciclo = iteración PUDS**.
+En SinapUML, **Ciclo = iteración PUDS**.
 
 Cada archivo de esta carpeta resume una iteración desde el punto de vista del proceso:
 

@@ -2,7 +2,7 @@
 
 **Estado:** CU-10 y CU-11 implementados en Ciclo 9.
 
-ClassForge intercambia el subconjunto UML representable por `ProjectDocument` mediante XMI 2.1 canónico orientado a interoperabilidad con Sparx Systems Enterprise Architect.
+SinapUML intercambia el subconjunto UML representable por `ProjectDocument` mediante XMI 2.1 canónico orientado a interoperabilidad con Sparx Systems Enterprise Architect.
 
 ## Subconjunto soportado
 
@@ -60,9 +60,9 @@ ProjectDocument validado
   -> descarga *.xmi
 ```
 
-El archivo contiene un `uml:Model`, un `uml:Package`, tipos, clases, propiedades, generalizaciones y asociaciones. Los UUID canónicos se serializan como `EAID_<UUID sin guiones>` para que una reimportación ClassForge recupere exactamente los IDs originales.
+El archivo contiene un `uml:Model`, un `uml:Package`, tipos, clases, propiedades, generalizaciones y asociaciones. Los UUID canónicos se serializan como `EAID_<UUID sin guiones>` para que una reimportación SinapUML recupere exactamente los IDs originales.
 
-La exportación no incluye `DiagramLayout`: XMI estándar conserva la semántica UML y la disposición visual de JointJS sigue siendo una proyección local de ClassForge.
+La exportación no incluye `DiagramLayout`: XMI estándar conserva la semántica UML y la disposición visual de JointJS sigue siendo una proyección local de SinapUML.
 
 ## Round-trip
 
@@ -70,7 +70,7 @@ El acceptance exige:
 
 ```text
 EA-shaped XMI 2.1 fixture
-  -> ClassForge
+  -> SinapUML
   -> ProjectDocument válido
 
 ProjectDocument

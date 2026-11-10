@@ -1,8 +1,8 @@
-# ClassForge — Iconografia
+# SinapUML — Iconografia
 
 ## Decision
 
-ClassForge utiliza **Material Symbols Rounded**.
+SinapUML utiliza **Material Symbols Rounded**.
 
 Los iconos se instalan mediante el paquete npm `material-symbols` y se sirven desde el propio frontend.
 
@@ -27,7 +27,7 @@ Los iconos decorativos utilizan `aria-hidden="true"` y siempre se acompanan de t
 
 ## Ejes
 
-ClassForge usa por defecto:
+SinapUML usa por defecto:
 
 - FILL 0;
 - weight 500;

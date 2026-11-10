@@ -1,4 +1,4 @@
-# ClassForge — Sincronización cliente STOMP
+# SinapUML — Sincronización cliente STOMP
 
 ## Estado
 

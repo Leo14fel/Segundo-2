@@ -1,6 +1,6 @@
-# ClassForge Backend
+# SinapUML Backend
 
-Backend/orquestador de ClassForge.
+Backend/orquestador de SinapUML.
 
 ## Stack inicial
 
@@ -16,7 +16,7 @@ Backend/orquestador de ClassForge.
 
 ## Ejecutar
 
-Si IntelliJ administra Gradle, importa/abre esta carpeta como proyecto Gradle y ejecuta `ClassForgeApplication` o la tarea `bootRun`.
+Si IntelliJ administra Gradle, importa/abre esta carpeta como proyecto Gradle y ejecuta `SinapUMLApplication` o la tarea `bootRun`.
 
 Desde terminal con Gradle 9.1+:
 

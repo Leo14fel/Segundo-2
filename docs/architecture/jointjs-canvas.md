@@ -1,4 +1,4 @@
-# ClassForge — Canvas JointJS
+# SinapUML — Canvas JointJS
 
 ## Decision
 
@@ -31,7 +31,7 @@ No se persiste:
 
 ## Shape UML
 
-ClassForge define un shape SVG propio:
+SinapUML define un shape SVG propio:
 
 ```text
 +------------------------------+

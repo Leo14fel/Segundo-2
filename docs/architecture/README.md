@@ -1,4 +1,4 @@
-# Arquitectura de ClassForge
+# Arquitectura de SinapUML
 
 **Estado:** arquitectura funcional cerrada en fase de Transición; Ciclos 1–10 cerrados; CU-27 demo reproducible final cerrada.
 

@@ -43,7 +43,7 @@ Los template literals `${...}` dentro de `frontend/**/*.ts` se tratan como sinta
 
 Gate: `generatedAngularAcceptance`.
 
-Genera Simple y Auth y ejecuta `ng build --configuration production` sobre ambos reutilizando temporalmente el `node_modules` ya instalado de ClassForge.
+Genera Simple y Auth y ejecuta `ng build --configuration production` sobre ambos reutilizando temporalmente el `node_modules` ya instalado de SinapUML.
 
 ## Resultado
 

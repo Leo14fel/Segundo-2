@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='utf-8'?>
+<mxfile host="Electron" type="device">
+  <diagram id="CU-SP-01" name="CU-SP-01 · Consultar a la IA grupal">
+    <mxGraphModel dx="680" dy="480" grid="1" gridSize="10" guides="1" page="1" pageScale="1" pageWidth="680" pageHeight="480" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="CU-SP-01-1" value="" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#111111;strokeColor=#333333;strokeWidth=1;fillColor=#FFFFFF;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="135" y="10" width="530" height="460" as="geometry" />
+        </mxCell>
+        <mxCell id="CU-SP-01-2" value="SinapUML" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#111111;strokeColor=#333333;strokeWidth=1;fillColor=#FFFFFF;text;strokeColor=none;fillColor=#FFFFFF;align=left;spacing=0;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="150" y="14" width="480" height="24" as="geometry" />
+        </mxCell>
+        <mxCell id="CU-SP-01-3" value="Integrante" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#111111;strokeColor=#333333;strokeWidth=1;fillColor=#FFFFFF;shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;labelWidth=100;" vertex="1" parent="1">
+          <mxGeometry x="35" y="190" width="36" height="56" as="geometry" />
+        </mxCell>
+        <mxCell id="CU-SP-01-4" value="CU-SP-01&lt;br&gt;Consultar a la IA grupal" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#111111;strokeColor=#333333;strokeWidth=1;fillColor=#FFFFFF;ellipse;spacing=3;" vertex="1" parent="1">
+          <mxGeometry x="165" y="180" width="215" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="CU-SP-01-5" value="" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#111111;strokeColor=#333333;strokeWidth=1;fillColor=#FFFFFF;edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=open;endFill=0;labelBackgroundColor=#FFFFFF;endArrow=none;" edge="1" parent="1" source="CU-SP-01-3" target="CU-SP-01-4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="CU-SP-01-6" value="Verificar acceso al proyecto" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#111111;strokeColor=#333333;strokeWidth=1;fillColor=#FFFFFF;ellipse;spacing=3;" vertex="1" parent="1">
+          <mxGeometry x="445" y="65" width="200" height="52" as="geometry" />
+        </mxCell>
+        <mxCell id="CU-SP-01-7" value="«include»" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#111111;strokeColor=#333333;strokeWidth=1;fillColor=#FFFFFF;edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=open;endFill=0;labelBackgroundColor=#FFFFFF;dashed=1;edgeStyle=none;" edge="1" parent="1" source="CU-SP-01-4" target="CU-SP-01-6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="CU-SP-01-8" value="Construir contexto compartido" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#111111;strokeColor=#333333;strokeWidth=1;fillColor=#FFFFFF;ellipse;spacing=3;" vertex="1" parent="1">
+          <mxGeometry x="445" y="165" width="200" height="52" as="geometry" />
+        </mxCell>
+        <mxCell id="CU-SP-01-9" value="«include»" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#111111;strokeColor=#333333;strokeWidth=1;fillColor=#FFFFFF;edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=open;endFill=0;labelBackgroundColor=#FFFFFF;dashed=1;edgeStyle=none;" edge="1" parent="1" source="CU-SP-01-4" target="CU-SP-01-8">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="CU-SP-01-10" value="Registrar intercambio grupal" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#111111;strokeColor=#333333;strokeWidth=1;fillColor=#FFFFFF;ellipse;spacing=3;" vertex="1" parent="1">
+          <mxGeometry x="445" y="265" width="200" height="52" as="geometry" />
+        </mxCell>
+        <mxCell id="CU-SP-01-11" value="«include»" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#111111;strokeColor=#333333;strokeWidth=1;fillColor=#FFFFFF;edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=open;endFill=0;labelBackgroundColor=#FFFFFF;dashed=1;edgeStyle=none;" edge="1" parent="1" source="CU-SP-01-4" target="CU-SP-01-10">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

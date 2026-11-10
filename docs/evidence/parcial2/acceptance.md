@@ -22,8 +22,8 @@ en el importador offline y sus fixtures, y está ausente del JAR de ejecución.
 
 ## Migración real y persistencia
 
-Se ejecutó la tarea `migrateLegacyDatabase` sobre `backend/data/classforge.mv.db`, destino
-`classforge`. Resultado: 2 usuarios, 3 proyectos, 0 invitaciones y 0 membresías. La importación
+Se ejecutó la tarea `migrateLegacyDatabase` sobre `backend/data/sinapuml.mv.db`, destino
+`sinapuml`. Resultado: 2 usuarios, 3 proyectos, 0 invitaciones y 0 membresías. La importación
 leyó y verificó cada documento en una transacción antes de confirmar.
 
 SHA-256 de la fuente: `9c340a1bf4c2acb3d2bb545ddd57a83138525d507257269dd4dc3cc56aa8d80c`.
@@ -31,9 +31,9 @@ El archivo original sigue disponible y se creó su copia `.before-mongo.bak`. La
 ejecución devolvió `alreadyImported: true`, sin duplicar datos. No se incluyen credenciales
 ni contenido de proyectos en esta evidencia.
 
-Se reinició exclusivamente el contenedor `classforge-mongo`. Después de recuperar estado
-PRIMARY/healthy, la consulta a `classforge` confirmó de nuevo 2 usuarios, 3 proyectos y un
-marcador de importación. Se conservó el volumen `classforge_classforge_mongo_data`.
+Se reinició exclusivamente el contenedor `sinapuml-mongo`. Después de recuperar estado
+PRIMARY/healthy, la consulta a `sinapuml` confirmó de nuevo 2 usuarios, 3 proyectos y un
+marcador de importación. Se conservó el volumen `sinapuml_sinapuml_mongo_data`.
 
 ## Aceptación en navegador con dos usuarios
 

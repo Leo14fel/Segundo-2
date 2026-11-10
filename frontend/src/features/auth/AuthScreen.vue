@@ -23,7 +23,7 @@ async function submit(): Promise<void> {
     <v-main class="auth-main">
       <v-card class="auth-card" elevation="10">
         <v-card-text class="pa-8">
-          <div class="text-overline text-primary">FORGE STUDIO</div>
+          <div class="text-overline text-primary">SinapUML</div>
           <h1 class="text-h5 font-weight-bold mb-2">
             {{ registerMode ? "Crear cuenta" : "Iniciar sesión" }}
           </h1>

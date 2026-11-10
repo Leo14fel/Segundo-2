@@ -21,13 +21,13 @@ Desde la raíz del repositorio, con Node 24:
 node scripts/generate-push-keys.mjs
 ```
 
-Genera una pareja P-256 en `backend/data/push.local.env`, ignorado por Git; nunca imprime las claves ni sobrescribe un archivo existente. Cambiar `CLASSFORGE_PUSH_SUBJECT` por un contacto real `mailto:...`, y activar `CLASSFORGE_PUSH_ENABLED=true` al preparar la prueba. Mantener la clave privada únicamente en el backend. Conservar la misma pareja entre reinicios; si se rota, desactivar y volver a activar los dispositivos.
+Genera una pareja P-256 en `backend/data/push.local.env`, ignorado por Git; nunca imprime las claves ni sobrescribe un archivo existente. Cambiar `SINAPUML_PUSH_SUBJECT` por un contacto real `mailto:...`, y activar `SINAPUML_PUSH_ENABLED=true` al preparar la prueba. Mantener la clave privada únicamente en el backend. Conservar la misma pareja entre reinicios; si se rota, desactivar y volver a activar los dispositivos.
 
 En PowerShell, cargar esas variables **en la misma terminal que iniciará el backend**:
 
 ```powershell
 Get-Content -LiteralPath backend/data/push.local.env | ForEach-Object {
-    if ($_ -match '^(CLASSFORGE_PUSH_[A-Z_]+)=(.*)$') {
+    if ($_ -match '^(SINAPUML_PUSH_[A-Z_]+)=(.*)$') {
         [Environment]::SetEnvironmentVariable($Matches[1], $Matches[2], 'Process')
     }
 }
@@ -38,13 +38,13 @@ Set-Location backend
 
 Si el backend ya ocupa 8082, detener su proceso identificado antes de iniciar otro. No requiere reiniciar MongoDB ni borrar sus datos. El servidor rechaza una configuración habilitada sin claves/contacto.
 
-Para despliegue, pasar las cuatro variables `CLASSFORGE_PUSH_*` del ejemplo `deploy/aws/classforge.env.example` mediante la configuración privada del servidor. No incrustar la clave privada en variables `VITE_*`, JavaScript, ZIP público o documentación.
+Para despliegue, pasar las cuatro variables `SINAPUML_PUSH_*` del ejemplo `deploy/aws/sinapuml.env.example` mediante la configuración privada del servidor. No incrustar la clave privada en variables `VITE_*`, JavaScript, ZIP público o documentación.
 
 ## Condiciones de navegador y red
 
 - Web Push necesita un contexto seguro y soporte de Service Worker, PushManager y Notifications. `localhost` permite desarrollo de escritorio; entrar desde un teléfono mediante la IP LAN con HTTP no equivale a HTTPS.
 - El móvil necesita una URL HTTPS accesible, sesión iniciada y un navegador que admita esta función. La instalación como aplicación y el funcionamiento en segundo plano dependen de la plataforma; el manifiesto e iconos están incluidos.
-- Permitir salida HTTPS del backend hacia `fcm.googleapis.com`, `updates.push.services.mozilla.com` y `web.push.apple.com`. Solo se aceptan endpoints HTTPS de esos hosts exactos, sin credenciales ni redirecciones HTTP. Otros proveedores requerirán una configuración deliberada de `classforge.push.allowed-hosts`.
+- Permitir salida HTTPS del backend hacia `fcm.googleapis.com`, `updates.push.services.mozilla.com` y `web.push.apple.com`. Solo se aceptan endpoints HTTPS de esos hosts exactos, sin credenciales ni redirecciones HTTP. Otros proveedores requerirán una configuración deliberada de `sinapuml.push.allowed-hosts`.
 - No se almacenan JWT ni contenido privado en el service worker. El texto del aviso es siempre «Tienes novedades en un proyecto compartido». No se cachean APIs para acceso sin conexión.
 - El sistema no necesita Firebase Admin ni una cuenta de Firebase para este transporte VAPID. La infraestructura de entrega sigue siendo la del navegador; la aplicación y MongoDB todavía requieren su propia configuración de nube.
 

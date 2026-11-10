@@ -60,7 +60,7 @@ describe("push service worker", () => {
       },
     });
     expect(w.showNotification).toHaveBeenCalledWith(
-      "Forge Studio",
+      "SinapUML",
       expect.objectContaining({
         body: "Tienes novedades en un proyecto compartido.",
         tag: "notification-1",

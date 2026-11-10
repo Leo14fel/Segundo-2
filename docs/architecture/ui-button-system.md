@@ -1,8 +1,8 @@
-# ClassForge — Variantes de botones
+# SinapUML — Variantes de botones
 
 ## Objetivo
 
-Los fondos principales de ClassForge son claros, por lo que los botones de accion no deben depender del color por defecto de Angular Material.
+Los fondos principales de SinapUML son claros, por lo que los botones de accion no deben depender del color por defecto de Angular Material.
 
 Se definen dos variantes globales.
 

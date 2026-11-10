@@ -15,6 +15,6 @@ app:
     whisper-language: ${r'${WHISPER_LANGUAGE:es}'}
     api-base-url: ${r'${APP_API_BASE_URL:http://127.0.0.1:8080}'}
 <#if api.authEnabled()>  security:
-    jwt-secret: ${r'${JWT_SECRET:classforge-change-me-before-production}'}
+    jwt-secret: ${r'${JWT_SECRET:sinapuml-change-me-before-production}'}
     jwt-expiration-seconds: 3600
 </#if>

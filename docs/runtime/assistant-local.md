@@ -1,6 +1,6 @@
 # Runtime local del Asistente UML — CU08 cerrado
 
-ClassForge no embebe los modelos dentro de Spring. Usa dos procesos locales persistentes.
+SinapUML no embebe los modelos dentro de Spring. Usa dos procesos locales persistentes.
 
 ## llama.cpp
 
@@ -26,7 +26,7 @@ llama-server.exe `
 
 El modelo 3B Q4_K_M fue elegido porque entra cómodamente en la GTX 1660 SUPER de referencia y sostuvo ~50-56 tokens/s durante las pruebas, mientras Qwen 7B hacía spill de VRAM. `--jinja` es obligatorio para el contrato native tools.
 
-ClassForge verifica `/props` y exige `supports_tools=true` y `supports_tool_calls=true`.
+SinapUML verifica `/props` y exige `supports_tools=true` y `supports_tool_calls=true`.
 
 Health oficial:
 
@@ -55,7 +55,7 @@ whisper-server.exe `
   -nt
 ```
 
-`-nfa` evita la ruta Flash Attention problemática observada durante las pruebas en GTX 1660 SUPER. `-nt` evita trabajo de timestamps que ClassForge no consume.
+`-nfa` evita la ruta Flash Attention problemática observada durante las pruebas en GTX 1660 SUPER. `-nt` evita trabajo de timestamps que SinapUML no consume.
 
 Health oficial:
 
@@ -79,7 +79,7 @@ Texto requiere llama.cpp.
 Voz requiere llama.cpp + whisper.cpp.
 ## Diagnóstico de puertos
 
-El indicador verde ya no depende únicamente de `/health`. ClassForge verifica además la identidad del proceso esperado. Si otro proceso ocupa 8092, 8093 o 8094 y responde un health genérico, el panel mostrará `MISMATCH` en lugar de READY.
+El indicador verde ya no depende únicamente de `/health`. SinapUML verifica además la identidad del proceso esperado. Si otro proceso ocupa 8092, 8093 o 8094 y responde un health genérico, el panel mostrará `MISMATCH` en lugar de READY.
 
 En Windows, si aparece `MISMATCH`, conviene comprobar qué proceso escucha el puerto antes de iniciar los runtimes locales:
 
@@ -118,21 +118,21 @@ llama-server.exe `
 Variables principales:
 
 ```text
-CLASSFORGE_ASSISTANT_VISION_PROVIDER=llama-cpp
-CLASSFORGE_ASSISTANT_VISION_URL=http://127.0.0.1:8094
-CLASSFORGE_ASSISTANT_VISION_MODEL=vision-model
-CLASSFORGE_ASSISTANT_VISION_TIMEOUT_SECONDS=180
-CLASSFORGE_ASSISTANT_VISION_MAX_TOKENS=3200
+SINAPUML_ASSISTANT_VISION_PROVIDER=llama-cpp
+SINAPUML_ASSISTANT_VISION_URL=http://127.0.0.1:8094
+SINAPUML_ASSISTANT_VISION_MODEL=vision-model
+SINAPUML_ASSISTANT_VISION_TIMEOUT_SECONDS=180
+SINAPUML_ASSISTANT_VISION_MAX_TOKENS=3200
 
-CLASSFORGE_ASSISTANT_VISION_HYBRID=true
-CLASSFORGE_ASSISTANT_VISION_HYBRID_MIN_CLASSES=4
-CLASSFORGE_ASSISTANT_VISION_HYBRID_FALLBACK=false
-CLASSFORGE_ASSISTANT_VISION_HYBRID_LOCALIZATION_TOKENS=1200
-CLASSFORGE_ASSISTANT_VISION_HYBRID_RELATIONSHIP_TOKENS=512
-CLASSFORGE_ASSISTANT_VISION_HYBRID_MULTIPLICITY_TOKENS=128
+SINAPUML_ASSISTANT_VISION_HYBRID=true
+SINAPUML_ASSISTANT_VISION_HYBRID_MIN_CLASSES=4
+SINAPUML_ASSISTANT_VISION_HYBRID_FALLBACK=false
+SINAPUML_ASSISTANT_VISION_HYBRID_LOCALIZATION_TOKENS=1200
+SINAPUML_ASSISTANT_VISION_HYBRID_RELATIONSHIP_TOKENS=512
+SINAPUML_ASSISTANT_VISION_HYBRID_MULTIPLICITY_TOKENS=128
 ```
 
-`CLASSFORGE_ASSISTANT_VISION_HYBRID=false` fuerza semantic-only como kill switch. `CLASSFORGE_ASSISTANT_VISION_HYBRID_FALLBACK=true` reactiva temporalmente el fallback semántico para rollback/debug; no es el default de producto.
+`SINAPUML_ASSISTANT_VISION_HYBRID=false` fuerza semantic-only como kill switch. `SINAPUML_ASSISTANT_VISION_HYBRID_FALLBACK=true` reactiva temporalmente el fallback semántico para rollback/debug; no es el default de producto.
 
 ### Health
 

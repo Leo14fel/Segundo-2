@@ -1,0 +1,113 @@
+<?xml version='1.0' encoding='utf8'?>
+<mxfile host="Electron">
+  <diagram id="D17" name="D17 · Modelo lógico documental">
+    <mxGraphModel dx="1450" dy="960" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1450" pageHeight="960" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="D17-1" value="D17  /  Modelo lógico documental" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#111111;strokeColor=#333333;strokeWidth=1.3;fillColor=#FFFFFF;text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacing=0;fontSize=20;fontStyle=1;fontColor=#111111;" vertex="1" parent="1">
+          <mxGeometry x="30" y="20" width="1390" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="D17-2" value="Agregados y referencias por identificador · composición = embebido; flecha discontinua = referencia." style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#111111;strokeColor=#333333;strokeWidth=1.3;fillColor=#FFFFFF;text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacing=0;fontSize=13;fontStyle=0;fontColor=#111111;" vertex="1" parent="1">
+          <mxGeometry x="30" y="62" width="1390" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="D17-3" value="SinapUML  ·  PUDS  ·  9 de noviembre de 2026  |  Modelo documental basado en la implementación local" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#111111;strokeColor=#333333;strokeWidth=1.3;fillColor=#FFFFFF;text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacing=0;fontSize=11;fontStyle=0;fontColor=#111111;" vertex="1" parent="1">
+          <mxGeometry x="30" y="920" width="1390" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="D17-4" value="Proyecto · agregado raíz" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#111111;strokeColor=#333333;strokeWidth=1.3;fillColor=#FFFFFF;swimlane;startSize=36;horizontal=1;fillColor=#FFFFFF;swimlaneFillColor=#FFFFFF;align=center;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="520" y="150" width="360" height="98" as="geometry" />
+        </mxCell>
+        <mxCell id="D17-5" value="id, ownerId, nombre, revision&lt;br&gt;document: DocumentoProyecto" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#111111;strokeColor=#333333;strokeWidth=1.3;fillColor=#FFFFFF;text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacing=0;fontSize=13;fontStyle=0;fontColor=#111111;" vertex="1" parent="D17-4">
+          <mxGeometry x="10" y="42" width="340" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="D17-6" value="DocumentoProyecto · embebido" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#111111;strokeColor=#333333;strokeWidth=1.3;fillColor=#FFFFFF;swimlane;startSize=36;horizontal=1;fillColor=#FFFFFF;swimlaneFillColor=#FFFFFF;align=center;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="520" y="410" width="360" height="121" as="geometry" />
+        </mxCell>
+        <mxCell id="D17-7" value="schemaVersion&lt;br&gt;umlModel: clases y relaciones&lt;br&gt;layout: posiciones por ID" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#111111;strokeColor=#333333;strokeWidth=1.3;fillColor=#FFFFFF;text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacing=0;fontSize=13;fontStyle=0;fontColor=#111111;" vertex="1" parent="D17-6">
+          <mxGeometry x="10" y="42" width="340" height="73" as="geometry" />
+        </mxCell>
+        <mxCell id="D17-8" value="Identidad y acceso" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#111111;strokeColor=#333333;strokeWidth=1.3;fillColor=#FFFFFF;swimlane;startSize=36;horizontal=1;fillColor=#FFFFFF;swimlaneFillColor=#FFFFFF;align=center;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="45" y="150" width="340" height="121" as="geometry" />
+        </mxCell>
+        <mxCell id="D17-9" value="Usuario: id, email, passwordHash&lt;br&gt;Membresía: projectId, userId, rol&lt;br&gt;Invitación: projectId, destinatario" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#111111;strokeColor=#333333;strokeWidth=1.3;fillColor=#FFFFFF;text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacing=0;fontSize=13;fontStyle=0;fontColor=#111111;" vertex="1" parent="D17-8">
+          <mxGeometry x="10" y="42" width="320" height="73" as="geometry" />
+        </mxCell>
+        <mxCell id="D17-10" value="Conversación compartida" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#111111;strokeColor=#333333;strokeWidth=1.3;fillColor=#FFFFFF;swimlane;startSize=36;horizontal=1;fillColor=#FFFFFF;swimlaneFillColor=#FFFFFF;align=center;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="1045" y="150" width="360" height="121" as="geometry" />
+        </mxCell>
+        <mxCell id="D17-11" value="Mensaje: projectId, requestId, sequence&lt;br&gt;autor, tipo, contenido, projectRevision&lt;br&gt;review / plan opcionales" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#111111;strokeColor=#333333;strokeWidth=1.3;fillColor=#FFFFFF;text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacing=0;fontSize=13;fontStyle=0;fontColor=#111111;" vertex="1" parent="D17-10">
+          <mxGeometry x="10" y="42" width="340" height="73" as="geometry" />
+        </mxCell>
+        <mxCell id="D17-12" value="Continuidad de trabajo" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#111111;strokeColor=#333333;strokeWidth=1.3;fillColor=#FFFFFF;swimlane;startSize=36;horizontal=1;fillColor=#FFFFFF;swimlaneFillColor=#FFFFFF;align=center;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="45" y="440" width="340" height="121" as="geometry" />
+        </mxCell>
+        <mxCell id="D17-13" value="Actividad: projectId, sessionId, revisión&lt;br&gt;Sesión: inicio, fin, estado&lt;br&gt;Visita: projectId, userId, revisión vista" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#111111;strokeColor=#333333;strokeWidth=1.3;fillColor=#FFFFFF;text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacing=0;fontSize=13;fontStyle=0;fontColor=#111111;" vertex="1" parent="D17-12">
+          <mxGeometry x="10" y="42" width="320" height="73" as="geometry" />
+        </mxCell>
+        <mxCell id="D17-14" value="Avisos y entrega" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#111111;strokeColor=#333333;strokeWidth=1.3;fillColor=#FFFFFF;swimlane;startSize=36;horizontal=1;fillColor=#FFFFFF;swimlaneFillColor=#FFFFFF;align=center;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="1045" y="440" width="360" height="121" as="geometry" />
+        </mxCell>
+        <mxCell id="D17-15" value="Aviso: destinatario, projectId, dedupKey&lt;br&gt;Suscripción: userId, endpoint, claves&lt;br&gt;Trabajo: notificationId, subscriptionId" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#111111;strokeColor=#333333;strokeWidth=1.3;fillColor=#FFFFFF;text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacing=0;fontSize=13;fontStyle=0;fontColor=#111111;" vertex="1" parent="D17-14">
+          <mxGeometry x="10" y="42" width="340" height="73" as="geometry" />
+        </mxCell>
+        <mxCell id="D17-16" value="" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#111111;strokeColor=#333333;strokeWidth=1.3;whiteSpace=nowrap;edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=open;endFill=0;labelBackgroundColor=#FFFFFF;fontSize=12;endArrow=none;startArrow=diamond;startFill=1;edgeStyle=none;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="D17-4" target="D17-6">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="700.0" y="266.0" />
+              <mxPoint x="700.0" y="392.0" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="D17-17" value="1" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;fontFamily=Arial;fontSize=12;fontColor=#111111;labelBackgroundColor=#FFFFFF;" vertex="1" connectable="0" parent="D17-16">
+          <mxGeometry x="-0.78" y="-1" relative="1" as="geometry">
+            <mxPoint x="0" y="-10" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="D17-18" value="1" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;fontFamily=Arial;fontSize=12;fontColor=#111111;labelBackgroundColor=#FFFFFF;" vertex="1" connectable="0" parent="D17-16">
+          <mxGeometry x="0.78" y="-1" relative="1" as="geometry">
+            <mxPoint x="0" y="-10" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="D17-19" value="ownerId / projectId" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#111111;strokeColor=#333333;strokeWidth=1.3;whiteSpace=nowrap;edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=open;endFill=0;labelBackgroundColor=#FFFFFF;fontSize=12;dashed=1;edgeStyle=none;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" edge="1" parent="1" source="D17-8" target="D17-4">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="403.0" y="210.5" />
+              <mxPoint x="403.0" y="199.0" />
+              <mxPoint x="502.0" y="199.0" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="D17-20" value="projectId" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#111111;strokeColor=#333333;strokeWidth=1.3;whiteSpace=nowrap;edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=open;endFill=0;labelBackgroundColor=#FFFFFF;fontSize=12;dashed=1;edgeStyle=none;exitX=0;exitY=0.5;entryX=1;entryY=0.5;" edge="1" parent="1" source="D17-10" target="D17-4">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1027.0" y="210.5" />
+              <mxPoint x="1027.0" y="199.0" />
+              <mxPoint x="898.0" y="199.0" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="D17-21" value="projectId" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#111111;strokeColor=#333333;strokeWidth=1.3;whiteSpace=nowrap;edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=open;endFill=0;labelBackgroundColor=#FFFFFF;fontSize=12;dashed=1;edgeStyle=none;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" edge="1" parent="1" source="D17-12" target="D17-4">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="403.0" y="500.5" />
+              <mxPoint x="403.0" y="199.0" />
+              <mxPoint x="502.0" y="199.0" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="D17-22" value="projectId" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#111111;strokeColor=#333333;strokeWidth=1.3;whiteSpace=nowrap;edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=open;endFill=0;labelBackgroundColor=#FFFFFF;fontSize=12;dashed=1;edgeStyle=none;exitX=0;exitY=0.5;entryX=1;entryY=0.5;" edge="1" parent="1" source="D17-14" target="D17-4">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1027.0" y="500.5" />
+              <mxPoint x="1027.0" y="199.0" />
+              <mxPoint x="898.0" y="199.0" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="D17-23" value="NoSQL no significa una colección por clase del diagrama diseñado. ClaseUML, AtributoUML, OperaciónUML, ParámetroUML y RelaciónUML están dentro de document.umlModel. La actividad y las conversaciones son registros separados. Las escrituras relacionadas usan transacciones MongoDB." style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#111111;strokeColor=#333333;strokeWidth=1.3;fillColor=#FFFFFF;shape=note;size=16;fillColor=#FFFFFF;spacing=10;align=left;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="45" y="730" width="1350" height="115" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

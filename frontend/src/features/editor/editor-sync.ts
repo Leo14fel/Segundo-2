@@ -9,6 +9,10 @@ import type {
 } from "./types";
 import type { SessionPage } from "./group-session-api";
 
+const WS_URL =
+  import.meta.env.VITE_WS_URL ??
+  `${location.protocol === "https:" ? "wss:" : "ws:"}//${location.host}/ws`;
+
 export type SyncStatus =
   "connecting" | "connected" | "reconnecting" | "unavailable";
 export interface DocumentChange {
@@ -200,7 +204,7 @@ export function connectProjectSync(options: {
     }
   }
   const client = new Client({
-    brokerURL: `${location.protocol === "https:" ? "wss:" : "ws:"}//${location.host}/ws`,
+    brokerURL: WS_URL,
     connectHeaders: { Authorization: `Bearer ${options.token}` },
     reconnectDelay: 3000,
     heartbeatIncoming: 10000,

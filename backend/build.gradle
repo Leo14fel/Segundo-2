@@ -3,9 +3,9 @@ plugins {
     id 'org.springframework.boot' version '4.0.8'
 }
 
-group = 'com.classforge'
+group = 'com.sinapuml'
 version = '0.1.0-SNAPSHOT'
-description = 'Backend and orchestration layer for ClassForge'
+description = 'Backend and orchestration layer for SinapUML'
 
 repositories {
     mavenCentral()
@@ -50,11 +50,11 @@ tasks.register('migrateLegacyDatabase', JavaExec) {
     description = 'Imports an existing H2 database read-only into MongoDB, preserving IDs and verifying every document.'
     dependsOn classes
     classpath = sourceSets.main.runtimeClasspath + configurations.legacyMigration
-    mainClass = 'com.classforge.migration.LegacyH2MigrationCli'
+    mainClass = 'com.sinapuml.migration.LegacyH2MigrationCli'
     def source = providers.gradleProperty('legacySource')
-    def target = providers.gradleProperty('mongoDatabase').orElse('classforge')
+    def target = providers.gradleProperty('mongoDatabase').orElse('sinapuml')
     doFirst {
-        if (!source.isPresent()) throw new GradleException('Use -PlegacySource=<absolute path to classforge.mv.db>')
+        if (!source.isPresent()) throw new GradleException('Use -PlegacySource=<absolute path to sinapuml.mv.db>')
         args '--source=' + source.get(), '--database=' + target.get()
     }
 }
@@ -97,7 +97,7 @@ tasks.register('assistantE2EReliability', Test) {
     outputs.cacheIf { false }
     useJUnitPlatform()
     filter {
-        includeTestsMatching 'com.classforge.assistant.AssistantE2EReliabilityIntegrationTest'
+        includeTestsMatching 'com.sinapuml.assistant.AssistantE2EReliabilityIntegrationTest'
     }
 
     def option = { String name, String defaultValue ->
@@ -108,8 +108,8 @@ tasks.register('assistantE2EReliability', Test) {
     systemProperty 'assistant.benchmark.attempts', option('attempts', '5')
     systemProperty 'assistant.benchmark.errorFailurePercent', option('errorFailurePercent', '60')
     systemProperty 'assistant.benchmark.verbose', option('verbose', 'false')
-    systemProperty 'classforge.assistant.llama-url', option('llamaUrl', 'http://127.0.0.1:8092')
-    systemProperty 'classforge.assistant.llama-model', option('model', 'local-model')
+    systemProperty 'sinapuml.assistant.llama-url', option('llamaUrl', 'http://127.0.0.1:8092')
+    systemProperty 'sinapuml.assistant.llama-model', option('model', 'local-model')
 
     // CU08-FIX-014-NATIVE-TOOLS-CUTOVER
     systemProperty 'assistant.benchmark.suite', option('suite', 'regression')
@@ -139,7 +139,7 @@ tasks.register('assistantVisionBenchmark', Test) {
     outputs.cacheIf { false }
     useJUnitPlatform()
     filter {
-        includeTestsMatching 'com.classforge.assistant.vision.AssistantVisionBenchmarkIntegrationTest'
+        includeTestsMatching 'com.sinapuml.assistant.vision.AssistantVisionBenchmarkIntegrationTest'
     }
 
     def option = { String name, String defaultValue ->
@@ -165,8 +165,8 @@ tasks.register('assistantVisionBenchmark', Test) {
     systemProperty 'assistant.vision.benchmark.hybridMultiplicityTokens', option('hybridMultiplicityTokens', '128')
     systemProperty 'assistant.vision.benchmark.caseFilter', option('visionCase', '')
     systemProperty 'assistant.vision.benchmark.modelLabel', option('modelLabel', option('visionModel', 'vision-model'))
-    systemProperty 'classforge.assistant.vision.url', option('visionUrl', 'http://127.0.0.1:8094')
-    systemProperty 'classforge.assistant.vision.model', option('visionModel', 'vision-model')
+    systemProperty 'sinapuml.assistant.vision.url', option('visionUrl', 'http://127.0.0.1:8094')
+    systemProperty 'sinapuml.assistant.vision.model', option('visionModel', 'vision-model')
 
     def reportFile = option('reportFile', '')
     if (reportFile) {
@@ -193,7 +193,7 @@ tasks.register('assistantVisionAcceptance', Test) {
     outputs.cacheIf { false }
     useJUnitPlatform()
     filter {
-        includeTestsMatching 'com.classforge.assistant.vision.AssistantVisionAcceptanceIntegrationTest'
+        includeTestsMatching 'com.sinapuml.assistant.vision.AssistantVisionAcceptanceIntegrationTest'
     }
 
     def option = { String name, String defaultValue ->
@@ -201,8 +201,8 @@ tasks.register('assistantVisionAcceptance', Test) {
     }
 
     systemProperty 'assistant.vision.acceptance.enabled', 'true'
-    systemProperty 'classforge.assistant.vision.url', option('visionUrl', 'http://127.0.0.1:8094')
-    systemProperty 'classforge.assistant.vision.model', option('visionModel', 'vision-model')
+    systemProperty 'sinapuml.assistant.vision.url', option('visionUrl', 'http://127.0.0.1:8094')
+    systemProperty 'sinapuml.assistant.vision.model', option('visionModel', 'vision-model')
 
     testLogging {
         events 'passed', 'failed', 'skipped'
@@ -225,7 +225,7 @@ tasks.register('springGenerationAcceptance', Test) {
     useJUnitPlatform()
     maxParallelForks = 1
     filter {
-        includeTestsMatching 'com.classforge.generation.spring.acceptance.SpringGenerationAcceptanceIntegrationTest'
+        includeTestsMatching 'com.sinapuml.generation.spring.acceptance.SpringGenerationAcceptanceIntegrationTest'
     }
 
     systemProperty 'spring.generation.acceptance.enabled', 'true'
@@ -258,7 +258,7 @@ tasks.register('springCrudGenerationAcceptance', Test) {
     useJUnitPlatform()
     maxParallelForks = 1
     filter {
-        includeTestsMatching 'com.classforge.generation.spring.acceptance.SpringCrudGenerationAcceptanceIntegrationTest'
+        includeTestsMatching 'com.sinapuml.generation.spring.acceptance.SpringCrudGenerationAcceptanceIntegrationTest'
     }
 
     systemProperty 'spring.crud.acceptance.enabled', 'true'
@@ -289,7 +289,7 @@ tasks.register('springApiArtifactsAcceptance', Test) {
     useJUnitPlatform()
     maxParallelForks = 1
     filter {
-        includeTestsMatching 'com.classforge.generation.spring.acceptance.SpringApiArtifactsAcceptanceIntegrationTest'
+        includeTestsMatching 'com.sinapuml.generation.spring.acceptance.SpringApiArtifactsAcceptanceIntegrationTest'
     }
 
     systemProperty 'spring.api.artifacts.acceptance.enabled', 'true'
@@ -320,7 +320,7 @@ tasks.register('domainManifestAcceptance', Test) {
     useJUnitPlatform()
     maxParallelForks = 1
     filter {
-        includeTestsMatching 'com.classforge.generation.spring.acceptance.DomainManifestAcceptanceIntegrationTest'
+        includeTestsMatching 'com.sinapuml.generation.spring.acceptance.DomainManifestAcceptanceIntegrationTest'
     }
 
     systemProperty 'spring.domain.manifest.acceptance.enabled', 'true'
@@ -352,7 +352,7 @@ tasks.register('generatedAngularAcceptance', Test) {
     useJUnitPlatform()
     maxParallelForks = 1
     filter {
-        includeTestsMatching 'com.classforge.generation.spring.acceptance.GeneratedAngularAcceptanceIntegrationTest'
+        includeTestsMatching 'com.sinapuml.generation.spring.acceptance.GeneratedAngularAcceptanceIntegrationTest'
     }
 
     systemProperty 'spring.angular.acceptance.enabled', 'true'
@@ -378,7 +378,7 @@ tasks.register('generatedFlutterAcceptance', Test) {
     useJUnitPlatform()
     maxParallelForks = 1
     filter {
-        includeTestsMatching 'com.classforge.generation.spring.acceptance.GeneratedFlutterAcceptanceIntegrationTest'
+        includeTestsMatching 'com.sinapuml.generation.spring.acceptance.GeneratedFlutterAcceptanceIntegrationTest'
     }
 
     systemProperty 'spring.flutter.acceptance.enabled', 'true'
@@ -414,7 +414,7 @@ tasks.register('generatedAssistantAcceptance', Test) {
     useJUnitPlatform()
     maxParallelForks = 1
     filter {
-        includeTestsMatching 'com.classforge.generation.spring.acceptance.GeneratedAssistantAcceptanceIntegrationTest'
+        includeTestsMatching 'com.sinapuml.generation.spring.acceptance.GeneratedAssistantAcceptanceIntegrationTest'
     }
 
     systemProperty 'spring.generated.assistant.acceptance.enabled', 'true'
@@ -445,7 +445,7 @@ tasks.register('xmiEnterpriseArchitectAcceptance', Test) {
     useJUnitPlatform()
     maxParallelForks = 1
     filter {
-        includeTestsMatching 'com.classforge.integration.xmi.*'
+        includeTestsMatching 'com.sinapuml.integration.xmi.*'
     }
 
     testLogging {
@@ -468,7 +468,7 @@ tasks.register('demoScenarioAcceptance', Test) {
     useJUnitPlatform()
     maxParallelForks = 1
     filter {
-        includeTestsMatching 'com.classforge.demo.DemoScenarioAcceptanceIntegrationTest'
+        includeTestsMatching 'com.sinapuml.demo.DemoScenarioAcceptanceIntegrationTest'
     }
 
     testLogging {

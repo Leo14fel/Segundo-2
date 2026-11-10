@@ -1,8 +1,8 @@
-# ClassForge — Autenticación, ownership y membresía
+# SinapUML — Autenticación, ownership y membresía
 
 ## Decisión
 
-ClassForge utiliza autenticación local con JWT.
+SinapUML utiliza autenticación local con JWT.
 
 ### Backend
 
@@ -51,14 +51,14 @@ ProjectInvitation PENDING por invitedEmail
     -> ProjectMembership EDITOR
 ```
 
-No existe envío real de email, link público ni token de invitación. Esto conserva el funcionamiento local/offline de ClassForge.
+No existe envío real de email, link público ni token de invitación. Esto conserva el funcionamiento local/offline de SinapUML.
 
 ## Seguridad
 
 - correo de usuario único y normalizado;
 - password hash BCrypt;
 - JWT con expiración;
-- secret configurable por `CLASSFORGE_JWT_SECRET`;
+- secret configurable por `SINAPUML_JWT_SECRET`;
 - endpoints de proyecto autenticados;
 - acceso a proyecto resuelto por política central OWNER/EDITOR/NONE;
 - renombrar e invitar requieren OWNER;

@@ -1,0 +1,178 @@
+<?xml version='1.0' encoding='utf-8'?>
+<mxfile host="Electron" type="device">
+  <diagram id="D15" name="D15 · Arquitectura lógica">
+    <mxGraphModel dx="1450" dy="990" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1450" pageHeight="990" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="D15-1" value="D15  /  Arquitectura lógica" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#243746;strokeColor=#657581;strokeWidth=1.3;fillColor=#FFFFFF;text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacing=0;fontSize=24;fontStyle=1;fontColor=#243746;" vertex="1" parent="1">
+          <mxGeometry x="30" y="20" width="1390" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="D15-2" value="Componentes de implementación · REST y STOMP tienen funciones distintas." style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#243746;strokeColor=#657581;strokeWidth=1.3;fillColor=#FFFFFF;text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacing=0;fontSize=13;fontStyle=0;fontColor=#526570;" vertex="1" parent="1">
+          <mxGeometry x="30" y="62" width="1390" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="D15-3" value="SinapUML  ·  PUDS  ·  9 de noviembre de 2026  |  Modelo documental basado en la implementación local" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#243746;strokeColor=#657581;strokeWidth=1.3;fillColor=#FFFFFF;text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacing=0;fontSize=11;fontStyle=0;fontColor=#6A7881;" vertex="1" parent="1">
+          <mxGeometry x="30" y="950" width="1390" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="D15-4" value="«frontend»  Vue 3 + TypeScript" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#243746;strokeColor=#657581;strokeWidth=1.3;fillColor=#FFFFFF;fillColor=#F4F5F6;verticalAlign=top;spacing=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="35" y="125" width="610" height="485" as="geometry" />
+        </mxCell>
+        <mxCell id="D15-5" value="«backend»  Spring Boot · autoridad del proyecto" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#243746;strokeColor=#657581;strokeWidth=1.3;fillColor=#FFFFFF;fillColor=#F4F5F6;verticalAlign=top;spacing=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="730" y="125" width="680" height="485" as="geometry" />
+        </mxCell>
+        <mxCell id="D15-6" value="Pizarra Vue Flow&lt;br&gt;Pinia + adaptador UML" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#243746;strokeColor=#657581;strokeWidth=1.3;fillColor=#FFFFFF;rounded=0;fillColor=#EAF1F7;spacing=8;" vertex="1" parent="1">
+          <mxGeometry x="75" y="200" width="240" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="D15-7" value="Chat común&lt;br&gt;Herramientas de voz" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#243746;strokeColor=#657581;strokeWidth=1.3;fillColor=#FFFFFF;rounded=0;fillColor=#EAF1F7;spacing=8;" vertex="1" parent="1">
+          <mxGeometry x="365" y="200" width="240" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="D15-8" value="Actividad y sesiones&lt;br&gt;Modo móvil / PushPanel" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#243746;strokeColor=#657581;strokeWidth=1.3;fillColor=#FFFFFF;rounded=0;fillColor=#EAF1F7;spacing=8;" vertex="1" parent="1">
+          <mxGeometry x="75" y="390" width="240" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="D15-9" value="Cliente REST / STOMP&lt;br&gt;Reconciliación cada 2,5 s" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#243746;strokeColor=#657581;strokeWidth=1.3;fillColor=#FFFFFF;rounded=0;fillColor=#EAF1F7;spacing=8;" vertex="1" parent="1">
+          <mxGeometry x="365" y="390" width="240" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="D15-10" value="JWT + permisos&lt;br&gt;OWNER / EDITOR" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#243746;strokeColor=#657581;strokeWidth=1.3;fillColor=#FFFFFF;rounded=0;fillColor=#EAF1F7;spacing=8;" vertex="1" parent="1">
+          <mxGeometry x="770" y="200" width="250" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="D15-11" value="Proyecto + validación&lt;br&gt;Revisión y comandos UML" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#243746;strokeColor=#657581;strokeWidth=1.3;fillColor=#FFFFFF;rounded=0;fillColor=#EAF1F7;spacing=8;" vertex="1" parent="1">
+          <mxGeometry x="1115" y="200" width="250" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="D15-12" value="Asistente + contexto&lt;br&gt;Voz y planner" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#243746;strokeColor=#657581;strokeWidth=1.3;fillColor=#FFFFFF;rounded=0;fillColor=#EAF1F7;spacing=8;" vertex="1" parent="1">
+          <mxGeometry x="770" y="390" width="250" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="D15-13" value="Actividad / sesiones&lt;br&gt;Avisos y cola push" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#243746;strokeColor=#657581;strokeWidth=1.3;fillColor=#FFFFFF;rounded=0;fillColor=#EAF1F7;spacing=8;" vertex="1" parent="1">
+          <mxGeometry x="1115" y="390" width="250" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="D15-14" value="MongoDB replica set&lt;br&gt;Documento + registros" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#243746;strokeColor=#657581;strokeWidth=1.3;fillColor=#FFFFFF;shape=cylinder3;size=15;fillColor=#EDF7F4;" vertex="1" parent="1">
+          <mxGeometry x="1090" y="710" width="290" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="D15-15" value="«externo» Proveedor IA&lt;br&gt;llama.cpp / Bedrock" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#243746;strokeColor=#657581;strokeWidth=1.3;fillColor=#FFFFFF;rounded=0;fillColor=#EDF7F4;spacing=8;" vertex="1" parent="1">
+          <mxGeometry x="415" y="715" width="260" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="D15-16" value="«externo» Whisper&lt;br&gt;Transcripción de voz" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#243746;strokeColor=#657581;strokeWidth=1.3;fillColor=#FFFFFF;rounded=0;fillColor=#EDF7F4;spacing=8;" vertex="1" parent="1">
+          <mxGeometry x="80" y="715" width="260" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="D15-17" value="Worker push&lt;br&gt;Lease, VAPID y reintentos" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#243746;strokeColor=#657581;strokeWidth=1.3;fillColor=#FFFFFF;rounded=0;fillColor=#EDF7F4;spacing=8;" vertex="1" parent="1">
+          <mxGeometry x="755" y="715" width="260" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="D15-18" value="" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#243746;strokeColor=#657581;strokeWidth=1.3;whiteSpace=nowrap;edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=open;endFill=0;labelBackgroundColor=#FFFFFF;fontSize=12;edgeStyle=none;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" edge="1" parent="1" source="D15-6" target="D15-9">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="333.0" y="245.0" />
+              <mxPoint x="333.0" y="435.0" />
+              <mxPoint x="347.0" y="435.0" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="D15-19" value="" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#243746;strokeColor=#657581;strokeWidth=1.3;whiteSpace=nowrap;edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=open;endFill=0;labelBackgroundColor=#FFFFFF;fontSize=12;edgeStyle=none;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="D15-7" target="D15-9">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="485.0" y="308.0" />
+              <mxPoint x="485.0" y="372.0" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="D15-20" value="" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#243746;strokeColor=#657581;strokeWidth=1.3;whiteSpace=nowrap;edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=open;endFill=0;labelBackgroundColor=#FFFFFF;fontSize=12;edgeStyle=none;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" edge="1" parent="1" source="D15-8" target="D15-9">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="333.0" y="435.0" />
+              <mxPoint x="347.0" y="435.0" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="D15-21" value="REST /api · JWT" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#243746;strokeColor=#657581;strokeWidth=1.3;whiteSpace=nowrap;edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=open;endFill=0;labelBackgroundColor=#FFFFFF;fontSize=12;edgeStyle=none;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" edge="1" parent="1" source="D15-9" target="D15-10">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="623.0" y="435.0" />
+              <mxPoint x="623.0" y="245.0" />
+              <mxPoint x="752.0" y="245.0" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="D15-22" value="STOMP /ws · operaciones" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#243746;strokeColor=#657581;strokeWidth=1.3;whiteSpace=nowrap;edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=open;endFill=0;labelBackgroundColor=#FFFFFF;fontSize=12;edgeStyle=none;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" edge="1" parent="1" source="D15-9" target="D15-11">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="623.0" y="435.0" />
+              <mxPoint x="623.0" y="308.0" />
+              <mxPoint x="1097.0" y="308.0" />
+              <mxPoint x="1097.0" y="245.0" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="D15-23" value="autorización" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#243746;strokeColor=#657581;strokeWidth=1.3;whiteSpace=nowrap;edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=open;endFill=0;labelBackgroundColor=#FFFFFF;fontSize=12;edgeStyle=none;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" edge="1" parent="1" source="D15-10" target="D15-11">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1038.0" y="245.0" />
+              <mxPoint x="1097.0" y="245.0" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="D15-24" value="" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#243746;strokeColor=#657581;strokeWidth=1.3;whiteSpace=nowrap;edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=open;endFill=0;labelBackgroundColor=#FFFFFF;fontSize=12;edgeStyle=none;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="D15-10" target="D15-12">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="895.0" y="308.0" />
+              <mxPoint x="895.0" y="372.0" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="D15-25" value="cambio confirmado" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#243746;strokeColor=#657581;strokeWidth=1.3;whiteSpace=nowrap;edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=open;endFill=0;labelBackgroundColor=#FFFFFF;fontSize=12;edgeStyle=none;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="D15-11" target="D15-13">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1240.0" y="308.0" />
+              <mxPoint x="1240.0" y="372.0" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="D15-26" value="inferencia" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#243746;strokeColor=#657581;strokeWidth=1.3;whiteSpace=nowrap;edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=open;endFill=0;labelBackgroundColor=#FFFFFF;fontSize=12;edgeStyle=none;exitX=0;exitY=0.5;entryX=1;entryY=0.5;" edge="1" parent="1" source="D15-12" target="D15-15">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="752.0" y="435.0" />
+              <mxPoint x="693.0" y="435.0" />
+              <mxPoint x="693.0" y="765.0" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="D15-27" value="audio → texto" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#243746;strokeColor=#657581;strokeWidth=1.3;whiteSpace=nowrap;edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=open;endFill=0;labelBackgroundColor=#FFFFFF;fontSize=12;edgeStyle=none;exitX=0;exitY=0.5;entryX=1;entryY=0.5;" edge="1" parent="1" source="D15-12" target="D15-16">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="752.0" y="435.0" />
+              <mxPoint x="752.0" y="697.0" />
+              <mxPoint x="358.0" y="697.0" />
+              <mxPoint x="358.0" y="765.0" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="D15-28" value="persistir" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#243746;strokeColor=#657581;strokeWidth=1.3;whiteSpace=nowrap;edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=open;endFill=0;labelBackgroundColor=#FFFFFF;fontSize=12;edgeStyle=none;exitX=1;exitY=0.5;entryX=1;entryY=0.5;" edge="1" parent="1" source="D15-11" target="D15-14">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1383.0" y="245.0" />
+              <mxPoint x="1398.0" y="245.0" />
+              <mxPoint x="1398.0" y="765.0" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="D15-29" value="misma transacción" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#243746;strokeColor=#657581;strokeWidth=1.3;whiteSpace=nowrap;edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=open;endFill=0;labelBackgroundColor=#FFFFFF;fontSize=12;edgeStyle=none;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="D15-13" target="D15-14">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1240.0" y="498.0" />
+              <mxPoint x="1240.0" y="692.0" />
+              <mxPoint x="1235.0" y="692.0" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="D15-30" value="reclamar y actualizar" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#243746;strokeColor=#657581;strokeWidth=1.3;whiteSpace=nowrap;edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=open;endFill=0;labelBackgroundColor=#FFFFFF;fontSize=12;edgeStyle=none;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" edge="1" parent="1" source="D15-17" target="D15-14">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1033.0" y="765.0" />
+              <mxPoint x="1072.0" y="765.0" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="D15-31" value="Las propuestas no escriben el canvas. Una confirmación explícita pasa por validación autoritativa. XMI/generación usa el servicio de proyecto. El proveedor push entrega al service worker del navegador; se detalla en D25." style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#243746;strokeColor=#657581;strokeWidth=1.3;fillColor=#FFFFFF;shape=note;size=16;fillColor=#FFF5DE;spacing=10;align=left;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="45" y="855" width="1335" height="70" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

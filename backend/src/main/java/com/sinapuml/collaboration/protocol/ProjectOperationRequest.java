@@ -1,0 +1,21 @@
+package com.sinapuml.collaboration.protocol;
+
+import com.sinapuml.activity.ActivitySource;
+import java.util.UUID;
+
+public record ProjectOperationRequest(
+        UUID operationId,
+        UUID projectId,
+        UUID clientId,
+        long baseRevision,
+        UmlCommandPayload command,
+        ActivitySource source
+) {
+    public ProjectOperationRequest {
+        source = ActivitySource.orManual(source);
+    }
+    public ProjectOperationRequest(UUID operationId, UUID projectId, UUID clientId,
+            long baseRevision, UmlCommandPayload command) {
+        this(operationId, projectId, clientId, baseRevision, command, ActivitySource.MANUAL);
+    }
+}

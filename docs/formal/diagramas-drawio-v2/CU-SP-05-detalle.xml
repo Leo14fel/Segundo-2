@@ -1,0 +1,83 @@
+<?xml version='1.0' encoding='utf-8'?>
+<mxfile host="Electron" type="device">
+  <diagram id="UC5" name="CU-SP-05 · Detalle del caso de uso">
+    <mxGraphModel dx="1380" dy="830" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1380" pageHeight="830" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="D105-1" value="CU-SP-05  /  Detalle · CU-SP-05" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#111111;strokeColor=#333333;strokeWidth=1.3;fillColor=#FFFFFF;text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacing=0;fontSize=20;fontStyle=1;fontColor=#111111;" vertex="1" parent="1">
+          <mxGeometry x="30" y="20" width="1320" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="D105-2" value="Retomar una sesión registrada · relaciones de inclusión y extensión justificadas." style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#111111;strokeColor=#333333;strokeWidth=1.3;fillColor=#FFFFFF;text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacing=0;fontSize=13;fontStyle=0;fontColor=#111111;" vertex="1" parent="1">
+          <mxGeometry x="30" y="62" width="1320" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="D105-3" value="SinapUML  ·  PUDS  ·  9 de noviembre de 2026  |  Modelo documental basado en la implementación local" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#111111;strokeColor=#333333;strokeWidth=1.3;fillColor=#FFFFFF;text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacing=0;fontSize=11;fontStyle=0;fontColor=#111111;" vertex="1" parent="1">
+          <mxGeometry x="30" y="790" width="1320" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="D105-4" value="" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#111111;strokeColor=#333333;strokeWidth=1.3;fillColor=#FFFFFF;fillColor=none;strokeColor=#333333;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="25" y="120" width="1330" height="560" as="geometry" />
+        </mxCell>
+        <mxCell id="D105-5" value="CU-SP-05 · SinapUML" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#111111;strokeColor=#333333;strokeWidth=1.3;fillColor=#FFFFFF;text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacing=0;fontSize=13;fontStyle=1;fontColor=#111111;" vertex="1" parent="1">
+          <mxGeometry x="35" y="122" width="145" height="24" as="geometry" />
+        </mxCell>
+        <mxCell id="D105-6" value="" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#111111;strokeColor=#333333;strokeWidth=1.3;whiteSpace=nowrap;edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=open;endFill=0;labelBackgroundColor=#FFFFFF;fontSize=12;edgeStyle=none;endArrow=none;strokeColor=#333333;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="25" y="148" as="sourcePoint" />
+            <mxPoint x="173" y="148" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="D105-7" value="" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#111111;strokeColor=#333333;strokeWidth=1.3;whiteSpace=nowrap;edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=open;endFill=0;labelBackgroundColor=#FFFFFF;fontSize=12;edgeStyle=none;endArrow=none;strokeColor=#333333;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="173" y="148" as="sourcePoint" />
+            <mxPoint x="185" y="136" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="D105-8" value="" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#111111;strokeColor=#333333;strokeWidth=1.3;whiteSpace=nowrap;edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=open;endFill=0;labelBackgroundColor=#FFFFFF;fontSize=12;edgeStyle=none;endArrow=none;strokeColor=#333333;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="185" y="136" as="sourcePoint" />
+            <mxPoint x="185" y="120" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="D105-9" value="Integrante autorizado" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#111111;strokeColor=#333333;strokeWidth=1.3;fillColor=#FFFFFF;shape=umlActor;labelWidth=160;verticalLabelPosition=bottom;verticalAlign=top;fillColor=#FFFFFF;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="110" y="335" width="48" height="72" as="geometry" />
+        </mxCell>
+        <mxCell id="D105-10" value="CU-SP-05&lt;br&gt;Retomar una sesión registrada" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#111111;strokeColor=#333333;strokeWidth=1.3;fillColor=#FFFFFF;ellipse;fillColor=#FFFFFF;spacing=8;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="425" y="330" width="340" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="D105-11" value="" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#111111;strokeColor=#333333;strokeWidth=1.3;whiteSpace=nowrap;edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=open;endFill=0;labelBackgroundColor=#FFFFFF;fontSize=12;endArrow=none;edgeStyle=none;" edge="1" parent="1" source="D105-9" target="D105-10">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="D105-12" value="Verificar acceso al proyecto" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#111111;strokeColor=#333333;strokeWidth=1.3;fillColor=#FFFFFF;ellipse;fillColor=#FFFFFF;spacing=8;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="975" y="170" width="310" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="D105-13" value="«include»" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#111111;strokeColor=#333333;strokeWidth=1.3;whiteSpace=nowrap;edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=open;endFill=0;labelBackgroundColor=#FFFFFF;fontSize=12;dashed=1;edgeStyle=none;exitX=1;exitY=.5;entryX=0;entryY=.5;" edge="1" parent="1" source="D105-10" target="D105-12">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="D105-14" value="Recuperar documento vigente" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#111111;strokeColor=#333333;strokeWidth=1.3;fillColor=#FFFFFF;ellipse;fillColor=#FFFFFF;spacing=8;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="975" y="315" width="310" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="D105-15" value="«include»" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#111111;strokeColor=#333333;strokeWidth=1.3;whiteSpace=nowrap;edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=open;endFill=0;labelBackgroundColor=#FFFFFF;fontSize=12;dashed=1;edgeStyle=none;exitX=1;exitY=.5;entryX=0;entryY=.5;" edge="1" parent="1" source="D105-10" target="D105-14">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="D105-16" value="Consultar novedades de sesión" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#111111;strokeColor=#333333;strokeWidth=1.3;fillColor=#FFFFFF;ellipse;fillColor=#FFFFFF;spacing=8;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="975" y="460" width="310" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="D105-17" value="«include»" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#111111;strokeColor=#333333;strokeWidth=1.3;whiteSpace=nowrap;edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=open;endFill=0;labelBackgroundColor=#FFFFFF;fontSize=12;dashed=1;edgeStyle=none;exitX=1;exitY=.5;entryX=0;entryY=.5;" edge="1" parent="1" source="D105-10" target="D105-16">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="D105-18" value="Solicitar resumen a la IA" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#111111;strokeColor=#333333;strokeWidth=1.3;fillColor=#FFFFFF;ellipse;fillColor=#FFFFFF;spacing=8;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="425" y="540" width="340" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="D105-19" value="«extend»" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#111111;strokeColor=#333333;strokeWidth=1.3;whiteSpace=nowrap;edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=open;endFill=0;labelBackgroundColor=#FFFFFF;fontSize=12;dashed=1;edgeStyle=none;exitX=.5;exitY=0;entryX=.5;entryY=1;" edge="1" parent="1" source="D105-18" target="D105-10">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="D105-20" value="Punto de extensión: el integrante pide resumen. La flecha extend apunta al caso base." style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#111111;strokeColor=#333333;strokeWidth=1.3;fillColor=#FFFFFF;text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacing=0;fontSize=13;fontStyle=0;fontColor=#111111;" vertex="1" parent="1">
+          <mxGeometry x="55" y="710" width="1250" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="D105-21" value="Retomar usa el documento vigente; no reproduce un Undo/Redo persistente. La recuperación entre dispositivos con MongoDB remoto sigue pendiente." style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#111111;strokeColor=#333333;strokeWidth=1.3;fillColor=#FFFFFF;text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacing=0;fontSize=12;fontStyle=0;fontColor=#111111;" vertex="1" parent="1">
+          <mxGeometry x="55" y="755" width="1250" height="35" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

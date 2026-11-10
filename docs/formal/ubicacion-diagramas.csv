@@ -1,0 +1,40 @@
+﻿Código,Diagrama,Ubicación en Word V4,XML editable,PNG,SVG
+D01,D01 · Actividad del modelado colaborativo,3.2 Proceso de trabajo colaborativo,diagramas/D01-actividad-modelo-negocio.xml,diagramas/png/D01-actividad-modelo-negocio.png,diagramas/svg/D01-actividad-modelo-negocio.svg
+D02,D02 · Actores de SinapUML,4.1 Encontrar actores y casos de uso,diagramas/D02-actores.xml,diagramas/png/D02-actores.png,diagramas/svg/D02-actores.svg
+D03,D03 · Modelo general de casos de uso,4.4 Estructurar el modelo de casos de uso,diagramas/D03-casos-uso-general.xml,diagramas/png/D03-casos-uso-general.png,diagramas/svg/D03-casos-uso-general.svg
+D04,D04 · Paquetes de análisis,5.1.1 Identificar paquetes,diagramas/D04-paquetes-analisis.xml,diagramas/png/D04-paquetes-analisis.png,diagramas/svg/D04-paquetes-analisis.svg
+D05,D05 · Dependencias entre paquetes,5.1.2 Relaciones entre paquetes,diagramas/D05-relaciones-paquetes.xml,diagramas/png/D05-relaciones-paquetes.png,diagramas/svg/D05-relaciones-paquetes.svg
+D06,D06 · Casos de uso y responsabilidades,5.2 Relacionar paquetes con casos de uso,diagramas/D06-encapsulamiento-casos.xml,diagramas/png/D06-encapsulamiento-casos.png,diagramas/svg/D06-encapsulamiento-casos.svg
+D07,D07 · Comunicación · CU-SP-01,5.3.1 Comunicación de CU-SP-01,diagramas/D07-comunicacion-SP01.xml,diagramas/png/D07-comunicacion-SP01.png,diagramas/svg/D07-comunicacion-SP01.svg
+D08,D08 · Comunicación · CU-SP-02,5.3.2 Comunicación de CU-SP-02,diagramas/D08-comunicacion-SP02.xml,diagramas/png/D08-comunicacion-SP02.png,diagramas/svg/D08-comunicacion-SP02.svg
+D09,D09 · Comunicación · CU-SP-03,5.3.3 Comunicación de CU-SP-03,diagramas/D09-comunicacion-SP03.xml,diagramas/png/D09-comunicacion-SP03.png,diagramas/svg/D09-comunicacion-SP03.svg
+D10,D10 · Comunicación · CU-SP-04,5.3.4 Comunicación de CU-SP-04,diagramas/D10-comunicacion-SP04.xml,diagramas/png/D10-comunicacion-SP04.png,diagramas/svg/D10-comunicacion-SP04.svg
+D11,D11 · Comunicación · CU-SP-05,5.3.5 Comunicación de CU-SP-05,diagramas/D11-comunicacion-SP05.xml,diagramas/png/D11-comunicacion-SP05.png,diagramas/svg/D11-comunicacion-SP05.svg
+D12,D12 · Comunicación · CU-SP-06,5.3.6 Comunicación de CU-SP-06,diagramas/D12-comunicacion-SP06.xml,diagramas/png/D12-comunicacion-SP06.png,diagramas/svg/D12-comunicacion-SP06.svg
+D13,D13 · Comunicación · CU-SP-07,5.3.7 Comunicación de CU-SP-07,diagramas/D13-comunicacion-SP07.xml,diagramas/png/D13-comunicacion-SP07.png,diagramas/svg/D13-comunicacion-SP07.svg
+D14,D14 · Modelo de dominio,5.4 Modelo de dominio,diagramas/D14-modelo-dominio.xml,diagramas/png/D14-modelo-dominio.png,diagramas/svg/D14-modelo-dominio.svg
+D15,D15 · Diseño lógico · arquitectura por capas,6.1.1 Arquitectura lógica,diagramas/D15-arquitectura-logica.xml,diagramas/png/D15-arquitectura-logica.png,diagramas/svg/D15-arquitectura-logica.svg
+D16,D16 · Diseño físico · diagrama de despliegue,6.1.2 Arquitectura física,diagramas/D16-arquitectura-fisica.xml,diagramas/png/D16-arquitectura-fisica.png,diagramas/svg/D16-arquitectura-fisica.svg
+D17,D17 · Modelo lógico documental,6.2.1 Diseño lógico,diagramas/D17-datos-logico.xml,diagramas/png/D17-datos-logico.png,diagramas/svg/D17-datos-logico.svg
+D18,D18 · Persistencia física MongoDB,6.2.2 Diseño físico MongoDB,diagramas/D18-datos-fisico-mongodb.xml,diagramas/png/D18-datos-fisico-mongodb.png,diagramas/svg/D18-datos-fisico-mongodb.svg
+D19,D19 · Secuencia · CU-SP-01,6.3.1 Secuencia de CU-SP-01,diagramas/D19-secuencia-SP01.xml,diagramas/png/D19-secuencia-SP01.png,diagramas/svg/D19-secuencia-SP01.svg
+D20,D20 · Secuencia · CU-SP-02,6.3.2 Secuencia de CU-SP-02,diagramas/D20-secuencia-SP02.xml,diagramas/png/D20-secuencia-SP02.png,diagramas/svg/D20-secuencia-SP02.svg
+D21,D21 · Secuencia · CU-SP-03,6.3.3 Secuencia de CU-SP-03,diagramas/D21-secuencia-SP03.xml,diagramas/png/D21-secuencia-SP03.png,diagramas/svg/D21-secuencia-SP03.svg
+D22,D22 · Secuencia · CU-SP-04,6.3.4 Secuencia de CU-SP-04,diagramas/D22-secuencia-SP04.xml,diagramas/png/D22-secuencia-SP04.png,diagramas/svg/D22-secuencia-SP04.svg
+D23,D23 · Secuencia · CU-SP-05,6.3.5 Secuencia de CU-SP-05,diagramas/D23-secuencia-SP05.xml,diagramas/png/D23-secuencia-SP05.png,diagramas/svg/D23-secuencia-SP05.svg
+D24,D24 · Secuencia · CU-SP-06,6.3.6 Secuencia de CU-SP-06,diagramas/D24-secuencia-SP06.xml,diagramas/png/D24-secuencia-SP06.png,diagramas/svg/D24-secuencia-SP06.svg
+D25,D25 · Secuencia · CU-SP-07,6.3.7 Secuencia de CU-SP-07,diagramas/D25-secuencia-SP07.xml,diagramas/png/D25-secuencia-SP07.png,diagramas/svg/D25-secuencia-SP07.svg
+CU-SP-01,CU-SP-01 · Detalle del caso de uso,4.3: debajo de la ficha CU-SP-01; agregar espacio nuevo,diagramas/CU-SP-01-detalle.xml,diagramas/png/CU-SP-01-detalle.png,diagramas/svg/CU-SP-01-detalle.svg
+CU-SP-02,CU-SP-02 · Detalle del caso de uso,4.3: debajo de la ficha CU-SP-02; agregar espacio nuevo,diagramas/CU-SP-02-detalle.xml,diagramas/png/CU-SP-02-detalle.png,diagramas/svg/CU-SP-02-detalle.svg
+CU-SP-03,CU-SP-03 · Detalle del caso de uso,4.3: debajo de la ficha CU-SP-03; agregar espacio nuevo,diagramas/CU-SP-03-detalle.xml,diagramas/png/CU-SP-03-detalle.png,diagramas/svg/CU-SP-03-detalle.svg
+CU-SP-04,CU-SP-04 · Detalle del caso de uso,4.3: debajo de la ficha CU-SP-04; agregar espacio nuevo,diagramas/CU-SP-04-detalle.xml,diagramas/png/CU-SP-04-detalle.png,diagramas/svg/CU-SP-04-detalle.svg
+CU-SP-05,CU-SP-05 · Detalle del caso de uso,4.3: debajo de la ficha CU-SP-05; agregar espacio nuevo,diagramas/CU-SP-05-detalle.xml,diagramas/png/CU-SP-05-detalle.png,diagramas/svg/CU-SP-05-detalle.svg
+CU-SP-06,CU-SP-06 · Detalle del caso de uso,4.3: debajo de la ficha CU-SP-06; agregar espacio nuevo,diagramas/CU-SP-06-detalle.xml,diagramas/png/CU-SP-06-detalle.png,diagramas/svg/CU-SP-06-detalle.svg
+CU-SP-07,CU-SP-07 · Detalle del caso de uso,4.3: debajo de la ficha CU-SP-07; agregar espacio nuevo,diagramas/CU-SP-07-detalle.xml,diagramas/png/CU-SP-07-detalle.png,diagramas/svg/CU-SP-07-detalle.svg
+AC-SP-01,CU-SP-01 · Realización de análisis,5.3: antes de D07; agregar espacio nuevo,diagramas/AC-SP-01-realizacion.xml,diagramas/png/AC-SP-01-realizacion.png,diagramas/svg/AC-SP-01-realizacion.svg
+AC-SP-02,CU-SP-02 · Realización de análisis,5.3: antes de D08; agregar espacio nuevo,diagramas/AC-SP-02-realizacion.xml,diagramas/png/AC-SP-02-realizacion.png,diagramas/svg/AC-SP-02-realizacion.svg
+AC-SP-03,CU-SP-03 · Realización de análisis,5.3: antes de D09; agregar espacio nuevo,diagramas/AC-SP-03-realizacion.xml,diagramas/png/AC-SP-03-realizacion.png,diagramas/svg/AC-SP-03-realizacion.svg
+AC-SP-04,CU-SP-04 · Realización de análisis,5.3: antes de D10; agregar espacio nuevo,diagramas/AC-SP-04-realizacion.xml,diagramas/png/AC-SP-04-realizacion.png,diagramas/svg/AC-SP-04-realizacion.svg
+AC-SP-05,CU-SP-05 · Realización de análisis,5.3: antes de D11; agregar espacio nuevo,diagramas/AC-SP-05-realizacion.xml,diagramas/png/AC-SP-05-realizacion.png,diagramas/svg/AC-SP-05-realizacion.svg
+AC-SP-06,CU-SP-06 · Realización de análisis,5.3: antes de D12; agregar espacio nuevo,diagramas/AC-SP-06-realizacion.xml,diagramas/png/AC-SP-06-realizacion.png,diagramas/svg/AC-SP-06-realizacion.svg
+AC-SP-07,CU-SP-07 · Realización de análisis,5.3: antes de D13; agregar espacio nuevo,diagramas/AC-SP-07-realizacion.xml,diagramas/png/AC-SP-07-realizacion.png,diagramas/svg/AC-SP-07-realizacion.svg

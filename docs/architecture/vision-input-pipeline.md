@@ -9,7 +9,7 @@ CU-09 permite interpretar una imagen/fotografía de un diagrama de clases UML si
 
 La regla principal es:
 
-> La imagen y el VLM sólo producen evidencia y propuesta. El proyecto cambia únicamente después de compilar esa propuesta a comandos canónicos, previsualizarlos y aplicarlos por la misma autoridad colaborativa que usa el resto de ClassForge.
+> La imagen y el VLM sólo producen evidencia y propuesta. El proyecto cambia únicamente después de compilar esa propuesta a comandos canónicos, previsualizarlos y aplicarlos por la misma autoridad colaborativa que usa el resto de SinapUML.
 
 ## 2. Flujo completo
 
@@ -150,8 +150,8 @@ No recibe autoridad para generar UUID ni mutar el proyecto.
 El routing productivo usa:
 
 ```text
-CLASSFORGE_ASSISTANT_VISION_HYBRID=true
-CLASSFORGE_ASSISTANT_VISION_HYBRID_MIN_CLASSES=4
+SINAPUML_ASSISTANT_VISION_HYBRID=true
+SINAPUML_ASSISTANT_VISION_HYBRID_MIN_CLASSES=4
 ```
 
 - menos de 4 clases semánticas: semantic-only;
@@ -306,7 +306,7 @@ conflicto revisión           -> revision conflict, no Apply
 Default productivo:
 
 ```text
-CLASSFORGE_ASSISTANT_VISION_HYBRID_FALLBACK=false
+SINAPUML_ASSISTANT_VISION_HYBRID_FALLBACK=false
 ```
 
 Si el routing ya seleccionó hybrid-CV:
@@ -319,7 +319,7 @@ Si el routing ya seleccionó hybrid-CV:
 Rollback/debug explícito:
 
 ```text
-CLASSFORGE_ASSISTANT_VISION_HYBRID_FALLBACK=true
+SINAPUML_ASSISTANT_VISION_HYBRID_FALLBACK=true
 ```
 
 ## 13. Concurrencia

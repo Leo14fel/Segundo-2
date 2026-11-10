@@ -2,9 +2,9 @@ import assert from 'node:assert/strict';
 import {createRequire} from 'node:module';
 const {Client}=createRequire(import.meta.url)('../frontend/node_modules/@stomp/stompjs');
 
-const base=process.env.CLASSFORGE_TEST_BASE_URL??'http://127.0.0.1:4200';
-const email=process.env.CLASSFORGE_TEST_EMAIL,password=process.env.CLASSFORGE_TEST_PASSWORD;
-if(!email||!password)throw new Error('Define CLASSFORGE_TEST_EMAIL y CLASSFORGE_TEST_PASSWORD para la cuenta QA local.');
+const base=process.env.SINAPUML_TEST_BASE_URL??'http://127.0.0.1:4200';
+const email=process.env.SINAPUML_TEST_EMAIL,password=process.env.SINAPUML_TEST_PASSWORD;
+if(!email||!password)throw new Error('Define SINAPUML_TEST_EMAIL y SINAPUML_TEST_PASSWORD para la cuenta QA local.');
 let token;
 async function request(path,body){const response=await fetch(base+'/api'+path,{method:body?'POST':'GET',headers:{...(token?{Authorization:`Bearer ${token}`}:{}) ,...(body?{'Content-Type':'application/json'}:{})},...(body?{body:JSON.stringify(body)}:{})});if(!response.ok)throw new Error(`HTTP ${response.status}: ${await response.text()}`);return response.json();}
 token=(await request('/auth/login',{email,password})).accessToken;

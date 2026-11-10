@@ -7,7 +7,7 @@ Implementación de CU-27.
 - `DemoScenarioSeeder` bajo perfil `demo`;
 - XMI canónico `veterinaria-cu27.xmi`;
 - OWNER/EDITOR y Project ID deterministas;
-- base H2 separada `classforge-demo`;
+- base H2 separada `sinapuml-demo`;
 - `demo-reset.ps1` para limpiar sólo el estado demo, `demo-start.ps1` para validar/mostrar comandos manuales, `demo-stop.ps1` como recordatorio sin kill y `demo-smoke.ps1` para verificar una instancia ya levantada;
 - `demo-acceptance.ps1` como agregador de regresiones finales;
 - `demo-ea-smoke.ps1` para round-trip real mediante Enterprise Architect Automation;

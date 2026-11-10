@@ -1,6 +1,6 @@
 # whisper.cpp local para CU08-002
 
-ClassForge usa `whisper-server` como runtime STT persistente.
+SinapUML usa `whisper-server` como runtime STT persistente.
 
 ## Puerto esperado
 
@@ -44,6 +44,6 @@ whisper-server.exe `
   -nt
 ```
 
-El frontend ya envia WAV PCM. No se requiere `--convert` ni ffmpeg para el flujo normal de ClassForge.
+El frontend ya envia WAV PCM. No se requiere `--convert` ni ffmpeg para el flujo normal de SinapUML.
 
 El puerto 8093 es independiente del `llama-server` de CU08-001, que permanece en 8092.

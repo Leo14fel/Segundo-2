@@ -136,19 +136,19 @@ Build                 Gradle Groovy DSL
 Persistence           Spring Data JPA / Hibernate
 Default database      H2
 Optional profile      PostgreSQL
-Template engine       FreeMarker (inside ClassForge only)
+Template engine       FreeMarker (inside SinapUML only)
 ```
 
 No generated project SHALL use a floating `latest`, `4.x`, or equivalent version.
 
-FreeMarker is a ClassForge generator implementation dependency. It is not added to generated projects.
+FreeMarker is a SinapUML generator implementation dependency. It is not added to generated projects.
 
 ## 5. Backend package boundary
 
 Production generation code lives under:
 
 ```text
-com.classforge.generation.spring
+com.sinapuml.generation.spring
 ├── application/
 ├── model/
 ├── planning/
@@ -529,7 +529,7 @@ Tests use isolated H2 and may use `create-drop` independently of the runtime pro
 
 Apache FreeMarker is mandatory for text generation.
 
-Templates live under a versioned ClassForge resource tree, conceptually:
+Templates live under a versioned SinapUML resource tree, conceptually:
 
 ```text
 generation/spring/
@@ -658,7 +658,7 @@ Content-Disposition: attachment; filename="biblioteca-backend.zip"
 
 The body is the deterministic ZIP bytes.
 
-The exact controller class may follow existing ClassForge web package conventions, but the generation logic must remain outside the controller.
+The exact controller class may follow existing SinapUML web package conventions, but the generation logic must remain outside the controller.
 
 ## 30. Generation diagnostics
 
@@ -710,7 +710,7 @@ On a generation-readiness error the UI shows a concise actionable message, prese
 
 ## 32. Compilation policy
 
-ClassForge SHALL NOT compile the generated backend synchronously on every user export.
+SinapUML SHALL NOT compile the generated backend synchronously on every user export.
 
 Runtime export is:
 

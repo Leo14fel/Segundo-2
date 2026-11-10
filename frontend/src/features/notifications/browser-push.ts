@@ -1,5 +1,5 @@
 import { API_BASE_URL } from "../../services/api";
-const OWNER = "forge-studio.push-owner";
+const OWNER = "sinapuml.push-owner";
 let tail: Promise<unknown> = Promise.resolve();
 function serial<T>(operation: () => Promise<T>): Promise<T> {
   const result = tail.then(operation);
@@ -100,7 +100,7 @@ export function enablePush(userId: string, token: string, publicKey: string) {
       throw new Error(
         "No se concedió permiso para notificaciones. Puedes seguir consultando Avisos dentro de la aplicación.",
       );
-    if (localStorage.getItem("forge-studio.access-token") !== token)
+    if (localStorage.getItem("sinapuml.access-token") !== token)
       throw new Error("La cuenta cambió; inicia la activación de nuevo.");
     await navigator.serviceWorker.register("/push-sw.js");
     const registration = await navigator.serviceWorker.ready;
@@ -115,7 +115,7 @@ export function enablePush(userId: string, token: string, publicKey: string) {
       applicationServerKey: decodeApplicationKey(publicKey),
     });
     try {
-      if (localStorage.getItem("forge-studio.access-token") !== token)
+      if (localStorage.getItem("sinapuml.access-token") !== token)
         throw new Error("La cuenta cambió durante la activación.");
       await api(token, "/subscriptions", "POST", subscription.toJSON());
       await bind(registration, userId);

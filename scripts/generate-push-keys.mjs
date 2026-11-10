@@ -12,10 +12,10 @@ const encoded = Buffer.concat([Buffer.from([4]), Buffer.from(pub.x, 'base64url')
 mkdirSync(directory, { recursive: true });
 try {
   writeFileSync(target, [
-    'CLASSFORGE_PUSH_ENABLED=false',
-    `CLASSFORGE_PUSH_PUBLIC_KEY=${encoded}`,
-    `CLASSFORGE_PUSH_PRIVATE_KEY=${priv.d}`,
-    'CLASSFORGE_PUSH_SUBJECT=mailto:CHANGE_ME@example.invalid',
+    'SINAPUML_PUSH_ENABLED=false',
+    `SINAPUML_PUSH_PUBLIC_KEY=${encoded}`,
+    `SINAPUML_PUSH_PRIVATE_KEY=${priv.d}`,
+    'SINAPUML_PUSH_SUBJECT=mailto:CHANGE_ME@example.invalid',
     '',
   ].join('\n'), { flag: 'wx', mode: 0o600 });
   console.log(`Claves guardadas en ${target}. Configura subject y activa push cuando vayas a probarlo.`);

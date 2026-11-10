@@ -1,0 +1,65 @@
+<?xml version='1.0' encoding='utf-8'?>
+<mxfile host="Electron" type="device">
+  <diagram id="D03-2" name="D03 · Casos de uso segundo parcial · 2">
+    <mxGraphModel dx="680" dy="480" grid="1" gridSize="10" guides="1" page="1" pageScale="1" pageWidth="680" pageHeight="480" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="D03-2-1" value="" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#111111;strokeColor=#333333;strokeWidth=1;fillColor=#FFFFFF;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="160" y="15" width="385" height="450" as="geometry" />
+        </mxCell>
+        <mxCell id="D03-2-2" value="SinapUML" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#111111;strokeColor=#333333;strokeWidth=1;fillColor=#FFFFFF;text;strokeColor=none;fillColor=#FFFFFF;align=left;spacing=0;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="175" y="17" width="340" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="D03-2-3" value="Integrante" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#111111;strokeColor=#333333;strokeWidth=1;fillColor=#FFFFFF;shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;labelWidth=100;" vertex="1" parent="1">
+          <mxGeometry x="60" y="210" width="36" height="56" as="geometry" />
+        </mxCell>
+        <mxCell id="D03-2-4" value="CU-SP-01&lt;br&gt;Consultar a la IA grupal" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#111111;strokeColor=#333333;strokeWidth=1;fillColor=#FFFFFF;ellipse;spacing=3;" vertex="1" parent="1">
+          <mxGeometry x="230" y="62" width="265" height="52" as="geometry" />
+        </mxCell>
+        <mxCell id="D03-2-5" value="" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#111111;strokeColor=#333333;strokeWidth=1;fillColor=#FFFFFF;edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=open;endFill=0;labelBackgroundColor=#FFFFFF;edgeStyle=none;endArrow=none;exitX=1;exitY=.5;entryX=0;entryY=.5;" edge="1" parent="1" source="D03-2-3" target="D03-2-4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="D03-2-6" value="CU-SP-02&lt;br&gt;Revisar el diagrama" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#111111;strokeColor=#333333;strokeWidth=1;fillColor=#FFFFFF;ellipse;spacing=3;" vertex="1" parent="1">
+          <mxGeometry x="230" y="119" width="265" height="52" as="geometry" />
+        </mxCell>
+        <mxCell id="D03-2-7" value="" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#111111;strokeColor=#333333;strokeWidth=1;fillColor=#FFFFFF;edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=open;endFill=0;labelBackgroundColor=#FFFFFF;edgeStyle=none;endArrow=none;exitX=1;exitY=.5;entryX=0;entryY=.5;" edge="1" parent="1" source="D03-2-3" target="D03-2-6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="D03-2-8" value="CU-SP-03&lt;br&gt;Resumir lo avanzado" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#111111;strokeColor=#333333;strokeWidth=1;fillColor=#FFFFFF;ellipse;spacing=3;" vertex="1" parent="1">
+          <mxGeometry x="230" y="176" width="265" height="52" as="geometry" />
+        </mxCell>
+        <mxCell id="D03-2-9" value="" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#111111;strokeColor=#333333;strokeWidth=1;fillColor=#FFFFFF;edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=open;endFill=0;labelBackgroundColor=#FFFFFF;edgeStyle=none;endArrow=none;exitX=1;exitY=.5;entryX=0;entryY=.5;" edge="1" parent="1" source="D03-2-3" target="D03-2-8">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="D03-2-10" value="CU-SP-04&lt;br&gt;Solicitar y confirmar edición por voz" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#111111;strokeColor=#333333;strokeWidth=1;fillColor=#FFFFFF;ellipse;spacing=3;" vertex="1" parent="1">
+          <mxGeometry x="230" y="233" width="265" height="52" as="geometry" />
+        </mxCell>
+        <mxCell id="D03-2-11" value="" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#111111;strokeColor=#333333;strokeWidth=1;fillColor=#FFFFFF;edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=open;endFill=0;labelBackgroundColor=#FFFFFF;edgeStyle=none;endArrow=none;exitX=1;exitY=.5;entryX=0;entryY=.5;" edge="1" parent="1" source="D03-2-3" target="D03-2-10">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="D03-2-12" value="CU-SP-05&lt;br&gt;Retomar una sesión registrada" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#111111;strokeColor=#333333;strokeWidth=1;fillColor=#FFFFFF;ellipse;spacing=3;" vertex="1" parent="1">
+          <mxGeometry x="230" y="290" width="265" height="52" as="geometry" />
+        </mxCell>
+        <mxCell id="D03-2-13" value="" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#111111;strokeColor=#333333;strokeWidth=1;fillColor=#FFFFFF;edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=open;endFill=0;labelBackgroundColor=#FFFFFF;edgeStyle=none;endArrow=none;exitX=1;exitY=.5;entryX=0;entryY=.5;" edge="1" parent="1" source="D03-2-3" target="D03-2-12">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="D03-2-14" value="CU-SP-06&lt;br&gt;Observar el proyecto desde un móvil" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#111111;strokeColor=#333333;strokeWidth=1;fillColor=#FFFFFF;ellipse;spacing=3;" vertex="1" parent="1">
+          <mxGeometry x="230" y="347" width="265" height="52" as="geometry" />
+        </mxCell>
+        <mxCell id="D03-2-15" value="" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#111111;strokeColor=#333333;strokeWidth=1;fillColor=#FFFFFF;edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=open;endFill=0;labelBackgroundColor=#FFFFFF;edgeStyle=none;endArrow=none;exitX=1;exitY=.5;entryX=0;entryY=.5;" edge="1" parent="1" source="D03-2-3" target="D03-2-14">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="D03-2-16" value="CU-SP-07&lt;br&gt;Activar y recibir avisos push" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#111111;strokeColor=#333333;strokeWidth=1;fillColor=#FFFFFF;ellipse;spacing=3;" vertex="1" parent="1">
+          <mxGeometry x="230" y="404" width="265" height="52" as="geometry" />
+        </mxCell>
+        <mxCell id="D03-2-17" value="" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#111111;strokeColor=#333333;strokeWidth=1;fillColor=#FFFFFF;edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=open;endFill=0;labelBackgroundColor=#FFFFFF;edgeStyle=none;endArrow=none;exitX=1;exitY=.5;entryX=0;entryY=.5;" edge="1" parent="1" source="D03-2-3" target="D03-2-16">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="D03-2-18" value="IA: SP-01 a 04&lt;br&gt;&lt;br&gt;Voz: SP-04&lt;br&gt;&lt;br&gt;Móvil: SP-06&lt;br&gt;&lt;br&gt;Push: SP-07" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#111111;strokeColor=#333333;strokeWidth=1;fillColor=#FFFFFF;text;strokeColor=none;fillColor=#FFFFFF;align=left;spacing=0;" vertex="1" parent="1">
+          <mxGeometry x="550" y="55" width="115" height="370" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

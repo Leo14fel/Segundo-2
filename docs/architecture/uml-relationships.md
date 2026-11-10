@@ -1,4 +1,4 @@
-# ClassForge — Relaciones UML
+# SinapUML — Relaciones UML
 
 ## Alcance CU03-003
 
@@ -33,7 +33,7 @@ La flecha triangular apunta al destino.
 
 ## Multiplicidad
 
-ClassForge representa multiplicidad de forma estructurada:
+SinapUML representa multiplicidad de forma estructurada:
 
 ```text
 lower: int

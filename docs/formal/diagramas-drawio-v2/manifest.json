@@ -1,0 +1,275 @@
+[
+  {
+    "codigo": "D01",
+    "titulo": "D01 · Actividad del modelado colaborativo",
+    "archivo": "D01-actividad-modelo-negocio.xml",
+    "width": 1120,
+    "height": 1270
+  },
+  {
+    "codigo": "D02",
+    "titulo": "D02 · Actores de SinapUML",
+    "archivo": "D02-actores.xml",
+    "width": 1150,
+    "height": 750
+  },
+  {
+    "codigo": "D03",
+    "titulo": "D03 · Modelo general de casos de uso",
+    "archivo": "D03-casos-uso-general.xml",
+    "width": 1450,
+    "height": 1080
+  },
+  {
+    "codigo": "D04",
+    "titulo": "D04 · Paquetes de análisis",
+    "archivo": "D04-paquetes-analisis.xml",
+    "width": 1200,
+    "height": 850
+  },
+  {
+    "codigo": "D05",
+    "titulo": "D05 · Dependencias entre paquetes",
+    "archivo": "D05-relaciones-paquetes.xml",
+    "width": 1250,
+    "height": 880
+  },
+  {
+    "codigo": "D06",
+    "titulo": "D06 · Casos de uso y responsabilidades",
+    "archivo": "D06-encapsulamiento-casos.xml",
+    "width": 1250,
+    "height": 900
+  },
+  {
+    "codigo": "D07",
+    "titulo": "D07 · Comunicación · CU-SP-01",
+    "archivo": "D07-comunicacion-SP01.xml",
+    "width": 1570,
+    "height": 900
+  },
+  {
+    "codigo": "D08",
+    "titulo": "D08 · Comunicación · CU-SP-02",
+    "archivo": "D08-comunicacion-SP02.xml",
+    "width": 1570,
+    "height": 900
+  },
+  {
+    "codigo": "D09",
+    "titulo": "D09 · Comunicación · CU-SP-03",
+    "archivo": "D09-comunicacion-SP03.xml",
+    "width": 1570,
+    "height": 900
+  },
+  {
+    "codigo": "D10",
+    "titulo": "D10 · Comunicación · CU-SP-04",
+    "archivo": "D10-comunicacion-SP04.xml",
+    "width": 1570,
+    "height": 900
+  },
+  {
+    "codigo": "D11",
+    "titulo": "D11 · Comunicación · CU-SP-05",
+    "archivo": "D11-comunicacion-SP05.xml",
+    "width": 1570,
+    "height": 900
+  },
+  {
+    "codigo": "D12",
+    "titulo": "D12 · Comunicación · CU-SP-06",
+    "archivo": "D12-comunicacion-SP06.xml",
+    "width": 1570,
+    "height": 900
+  },
+  {
+    "codigo": "D13",
+    "titulo": "D13 · Comunicación · CU-SP-07",
+    "archivo": "D13-comunicacion-SP07.xml",
+    "width": 1570,
+    "height": 900
+  },
+  {
+    "codigo": "D14",
+    "titulo": "D14 · Modelo de dominio",
+    "archivo": "D14-modelo-dominio.xml",
+    "width": 1500,
+    "height": 1120
+  },
+  {
+    "codigo": "D15",
+    "titulo": "D15 · Diseño lógico · arquitectura por capas",
+    "archivo": "D15-arquitectura-logica.xml",
+    "width": 1660,
+    "height": 1120
+  },
+  {
+    "codigo": "D16",
+    "titulo": "D16 · Diseño físico · diagrama de despliegue",
+    "archivo": "D16-arquitectura-fisica.xml",
+    "width": 1700,
+    "height": 1150
+  },
+  {
+    "codigo": "D17",
+    "titulo": "D17 · Modelo lógico documental",
+    "archivo": "D17-datos-logico.xml",
+    "width": 1450,
+    "height": 960
+  },
+  {
+    "codigo": "D18",
+    "titulo": "D18 · Persistencia física MongoDB",
+    "archivo": "D18-datos-fisico-mongodb.xml",
+    "width": 1650,
+    "height": 1300
+  },
+  {
+    "codigo": "D19",
+    "titulo": "D19 · Secuencia · CU-SP-01",
+    "archivo": "D19-secuencia-SP01.xml",
+    "width": 1330,
+    "height": 1247
+  },
+  {
+    "codigo": "D20",
+    "titulo": "D20 · Secuencia · CU-SP-02",
+    "archivo": "D20-secuencia-SP02.xml",
+    "width": 1330,
+    "height": 1189
+  },
+  {
+    "codigo": "D21",
+    "titulo": "D21 · Secuencia · CU-SP-03",
+    "archivo": "D21-secuencia-SP03.xml",
+    "width": 1330,
+    "height": 1363
+  },
+  {
+    "codigo": "D22",
+    "titulo": "D22 · Secuencia · CU-SP-04",
+    "archivo": "D22-secuencia-SP04.xml",
+    "width": 1535,
+    "height": 1595
+  },
+  {
+    "codigo": "D23",
+    "titulo": "D23 · Secuencia · CU-SP-05",
+    "archivo": "D23-secuencia-SP05.xml",
+    "width": 1330,
+    "height": 1189
+  },
+  {
+    "codigo": "D24",
+    "titulo": "D24 · Secuencia · CU-SP-06",
+    "archivo": "D24-secuencia-SP06.xml",
+    "width": 1200,
+    "height": 1305
+  },
+  {
+    "codigo": "D25",
+    "titulo": "D25 · Secuencia · CU-SP-07",
+    "archivo": "D25-secuencia-SP07.xml",
+    "width": 1330,
+    "height": 1479
+  },
+  {
+    "codigo": "CU-SP-01",
+    "titulo": "CU-SP-01 · Detalle del caso de uso",
+    "archivo": "CU-SP-01-detalle.xml",
+    "width": 1380,
+    "height": 830
+  },
+  {
+    "codigo": "CU-SP-02",
+    "titulo": "CU-SP-02 · Detalle del caso de uso",
+    "archivo": "CU-SP-02-detalle.xml",
+    "width": 1380,
+    "height": 830
+  },
+  {
+    "codigo": "CU-SP-03",
+    "titulo": "CU-SP-03 · Detalle del caso de uso",
+    "archivo": "CU-SP-03-detalle.xml",
+    "width": 1380,
+    "height": 830
+  },
+  {
+    "codigo": "CU-SP-04",
+    "titulo": "CU-SP-04 · Detalle del caso de uso",
+    "archivo": "CU-SP-04-detalle.xml",
+    "width": 1380,
+    "height": 830
+  },
+  {
+    "codigo": "CU-SP-05",
+    "titulo": "CU-SP-05 · Detalle del caso de uso",
+    "archivo": "CU-SP-05-detalle.xml",
+    "width": 1380,
+    "height": 830
+  },
+  {
+    "codigo": "CU-SP-06",
+    "titulo": "CU-SP-06 · Detalle del caso de uso",
+    "archivo": "CU-SP-06-detalle.xml",
+    "width": 1380,
+    "height": 830
+  },
+  {
+    "codigo": "CU-SP-07",
+    "titulo": "CU-SP-07 · Detalle del caso de uso",
+    "archivo": "CU-SP-07-detalle.xml",
+    "width": 1380,
+    "height": 830
+  },
+  {
+    "codigo": "AC-SP-01",
+    "titulo": "CU-SP-01 · Realización de análisis",
+    "archivo": "AC-SP-01-realizacion.xml",
+    "width": 1500,
+    "height": 1000
+  },
+  {
+    "codigo": "AC-SP-02",
+    "titulo": "CU-SP-02 · Realización de análisis",
+    "archivo": "AC-SP-02-realizacion.xml",
+    "width": 1500,
+    "height": 1000
+  },
+  {
+    "codigo": "AC-SP-03",
+    "titulo": "CU-SP-03 · Realización de análisis",
+    "archivo": "AC-SP-03-realizacion.xml",
+    "width": 1500,
+    "height": 1000
+  },
+  {
+    "codigo": "AC-SP-04",
+    "titulo": "CU-SP-04 · Realización de análisis",
+    "archivo": "AC-SP-04-realizacion.xml",
+    "width": 1500,
+    "height": 1000
+  },
+  {
+    "codigo": "AC-SP-05",
+    "titulo": "CU-SP-05 · Realización de análisis",
+    "archivo": "AC-SP-05-realizacion.xml",
+    "width": 1500,
+    "height": 1000
+  },
+  {
+    "codigo": "AC-SP-06",
+    "titulo": "CU-SP-06 · Realización de análisis",
+    "archivo": "AC-SP-06-realizacion.xml",
+    "width": 1500,
+    "height": 1000
+  },
+  {
+    "codigo": "AC-SP-07",
+    "titulo": "CU-SP-07 · Realización de análisis",
+    "archivo": "AC-SP-07-realizacion.xml",
+    "width": 1500,
+    "height": 1000
+  }
+]

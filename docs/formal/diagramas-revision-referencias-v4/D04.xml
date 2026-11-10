@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='utf8'?>
+<mxfile host="Electron">
+  <diagram id="D04" name="D04 · Paquetes de análisis">
+    <mxGraphModel dx="1200" dy="850" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1200" pageHeight="850" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="D04-1" value="D04  /  Paquetes de análisis" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#111111;strokeColor=#333333;strokeWidth=1.3;fillColor=#FFFFFF;text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacing=0;fontSize=20;fontStyle=1;fontColor=#111111;" vertex="1" parent="1">
+          <mxGeometry x="30" y="20" width="1140" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="D04-2" value="Agrupación lógica de responsabilidades · no representa servidores ni una colección por paquete." style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#111111;strokeColor=#333333;strokeWidth=1.3;fillColor=#FFFFFF;text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacing=0;fontSize=13;fontStyle=0;fontColor=#111111;" vertex="1" parent="1">
+          <mxGeometry x="30" y="62" width="1140" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="D04-3" value="SinapUML  ·  PUDS  ·  9 de noviembre de 2026  |  Modelo documental basado en la implementación local" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#111111;strokeColor=#333333;strokeWidth=1.3;fillColor=#FFFFFF;text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacing=0;fontSize=11;fontStyle=0;fontColor=#111111;" vertex="1" parent="1">
+          <mxGeometry x="30" y="810" width="1140" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="D04-4" value="Identidad y acceso&lt;br&gt;&lt;br&gt;Autenticación JWT; permisos por proyecto." style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#111111;strokeColor=#333333;strokeWidth=1.3;fillColor=#FFFFFF;shape=folder;tabWidth=90;tabHeight=20;fillColor=#FFFFFF;align=left;verticalAlign=top;spacingTop=28;spacingLeft=15;spacingRight=12;" vertex="1" parent="1">
+          <mxGeometry x="45" y="130" width="350" height="155" as="geometry" />
+        </mxCell>
+        <mxCell id="D04-5" value="Proyecto y validación&lt;br&gt;&lt;br&gt;Documento UML; reglas; control de revisión." style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#111111;strokeColor=#333333;strokeWidth=1.3;fillColor=#FFFFFF;shape=folder;tabWidth=90;tabHeight=20;fillColor=#FFFFFF;align=left;verticalAlign=top;spacingTop=28;spacingLeft=15;spacingRight=12;" vertex="1" parent="1">
+          <mxGeometry x="435" y="130" width="350" height="155" as="geometry" />
+        </mxCell>
+        <mxCell id="D04-6" value="Colaboración&lt;br&gt;&lt;br&gt;Presencia; operaciones confirmadas STOMP." style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#111111;strokeColor=#333333;strokeWidth=1.3;fillColor=#FFFFFF;shape=folder;tabWidth=90;tabHeight=20;fillColor=#FFFFFF;align=left;verticalAlign=top;spacingTop=28;spacingLeft=15;spacingRight=12;" vertex="1" parent="1">
+          <mxGeometry x="825" y="130" width="350" height="155" as="geometry" />
+        </mxCell>
+        <mxCell id="D04-7" value="Asistente&lt;br&gt;&lt;br&gt;Contexto; consulta; revisión; propuesta de edición." style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#111111;strokeColor=#333333;strokeWidth=1.3;fillColor=#FFFFFF;shape=folder;tabWidth=90;tabHeight=20;fillColor=#FFFFFF;align=left;verticalAlign=top;spacingTop=28;spacingLeft=15;spacingRight=12;" vertex="1" parent="1">
+          <mxGeometry x="45" y="340" width="350" height="155" as="geometry" />
+        </mxCell>
+        <mxCell id="D04-8" value="Actividad y sesiones&lt;br&gt;&lt;br&gt;Hechos, sesiones, visitas y avisos internos." style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#111111;strokeColor=#333333;strokeWidth=1.3;fillColor=#FFFFFF;shape=folder;tabWidth=90;tabHeight=20;fillColor=#FFFFFF;align=left;verticalAlign=top;spacingTop=28;spacingLeft=15;spacingRight=12;" vertex="1" parent="1">
+          <mxGeometry x="435" y="340" width="350" height="155" as="geometry" />
+        </mxCell>
+        <mxCell id="D04-9" value="Interoperabilidad y generación&lt;br&gt;&lt;br&gt;XMI y generación de aplicaciones." style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#111111;strokeColor=#333333;strokeWidth=1.3;fillColor=#FFFFFF;shape=folder;tabWidth=90;tabHeight=20;fillColor=#FFFFFF;align=left;verticalAlign=top;spacingTop=28;spacingLeft=15;spacingRight=12;" vertex="1" parent="1">
+          <mxGeometry x="825" y="340" width="350" height="155" as="geometry" />
+        </mxCell>
+        <mxCell id="D04-10" value="Push&lt;br&gt;&lt;br&gt;Suscripciones; cola; envío y reintentos." style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#111111;strokeColor=#333333;strokeWidth=1.3;fillColor=#FFFFFF;shape=folder;tabWidth=90;tabHeight=20;fillColor=#FFFFFF;align=left;verticalAlign=top;spacingTop=28;spacingLeft=15;spacingRight=12;" vertex="1" parent="1">
+          <mxGeometry x="45" y="550" width="350" height="155" as="geometry" />
+        </mxCell>
+        <mxCell id="D04-11" value="Separación de responsabilidades: las interfaces solicitan acciones; el backend valida el acceso y el modelo. Los proveedores de IA y voz son externos al dominio. Las propuestas de IA requieren confirmación humana." style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#111111;strokeColor=#333333;strokeWidth=1.3;fillColor=#FFFFFF;shape=note;size=16;fillColor=#FFFFFF;spacing=10;align=left;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="445" y="570" width="700" height="140" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -7,7 +7,7 @@
 
 ## Problema
 
-CU-14 ya genera una API real, pero el consumidor humano/automatizado todavía no recibe un contrato OpenAPI ni una colección Postman reproducible. Generarlos mediante introspección runtime o conversores externos introduciría pasos no deterministas y una dependencia innecesaria de procesos fuera del pipeline de ClassForge.
+CU-14 ya genera una API real, pero el consumidor humano/automatizado todavía no recibe un contrato OpenAPI ni una colección Postman reproducible. Generarlos mediante introspección runtime o conversores externos introduciría pasos no deterministas y una dependencia innecesaria de procesos fuera del pipeline de SinapUML.
 
 ## Decisión
 

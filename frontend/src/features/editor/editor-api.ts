@@ -132,7 +132,7 @@ export function projectView(n: NativeProject): ProjectDocument {
     }));
   let ownerId = "";
   try {
-    const token = localStorage.getItem("forge-studio.access-token");
+    const token = localStorage.getItem("sinapuml.access-token");
     if (n.accessRole === "OWNER" && token)
       ownerId = JSON.parse(atob(token.split(".")[1]!)).sub;
   } catch {

@@ -8,7 +8,7 @@ Implementación conjunta de CU-10 y CU-11.
 - mapeo `Package/Class/Property/DataType/Association/Generalization`;
 - agregación/composición y multiplicidades;
 - UUID determinista para XMI externo;
-- IDs ClassForge recuperables en round-trip;
+- IDs SinapUML recuperables en round-trip;
 - preview token de 10 minutos, one-shot y ligado a revisión;
 - export XMI determinista;
 - diálogo Angular de import/export;
@@ -30,4 +30,4 @@ Implementación conjunta de CU-10 y CU-11.
 
 ## Riesgo residual explícito
 
-Enterprise Architect añade extensiones propietarias para diagramas y metadatos avanzados. CU-10/11 soportan deliberadamente el subconjunto UML canónico de ClassForge; no se afirma round-trip total de toda metadata propietaria de EA. El smoke manual con la instalación usada en el examen se ejecutará como parte de CU-27.
+Enterprise Architect añade extensiones propietarias para diagramas y metadatos avanzados. CU-10/11 soportan deliberadamente el subconjunto UML canónico de SinapUML; no se afirma round-trip total de toda metadata propietaria de EA. El smoke manual con la instalación usada en el examen se ejecutará como parte de CU-27.

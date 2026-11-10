@@ -238,4 +238,4 @@ Para construir el artefacto reproducible que se instala en EC2:
 .\scripts\aws-build-deploy-bundle.ps1
 ```
 
-Ejecuta tests backend, characterization tests frontend, `bootJar` y `ng build`, y empaqueta JAR + Angular + Nginx/systemd/IAM/env templates en `classforge-aws-deploy-bundle.zip`. `-SkipTests` existe solo para reconstrucciones posteriores a un gate ya validado. Ver `docs/runtime/aws-demo-deployment.md`.
+Ejecuta tests backend, characterization tests frontend, `bootJar` y `ng build`, y empaqueta JAR + Angular + Nginx/systemd/IAM/env templates en `sinapuml-aws-deploy-bundle.zip`. `-SkipTests` existe solo para reconstrucciones posteriores a un gate ya validado. Ver `docs/runtime/aws-demo-deployment.md`.

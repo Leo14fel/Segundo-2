@@ -117,9 +117,9 @@ El color se aplica a navegación, acciones principales, foco y acentos.
 - `SIMPLE_CRUD`;
 - `AUTH_INFORMATION_SYSTEM`.
 
-Los frontends se construyen con el mismo toolchain Angular instalado en ClassForge mediante un enlace temporal de `node_modules`, evitando descargas durante el acceptance.
+Los frontends se construyen con el mismo toolchain Angular instalado en SinapUML mediante un enlace temporal de `node_modules`, evitando descargas durante el acceptance.
 
-Además se ejecutan regresiones CU-13/CU-14/CU-15/CU-16, suite backend completa, tests focales frontend, build Angular de ClassForge y `git diff --check`.
+Además se ejecutan regresiones CU-13/CU-14/CU-15/CU-16, suite backend completa, tests focales frontend, build Angular de SinapUML y `git diff --check`.
 
 ## Fuera de alcance
 

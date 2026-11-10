@@ -23,4 +23,4 @@ El parche de cierre ejecuta además full backend, build Angular y regresiones de
 
 ## Transición
 
-CU-27 incorporará el smoke manual de abrir el XMI exportado por ClassForge en la instalación de Enterprise Architect usada para la demostración y el sentido inverso con un XMI exportado desde esa instalación.
+CU-27 incorporará el smoke manual de abrir el XMI exportado por SinapUML en la instalación de Enterprise Architect usada para la demostración y el sentido inverso con un XMI exportado desde esa instalación.

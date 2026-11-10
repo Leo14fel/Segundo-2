@@ -24,7 +24,7 @@ CU-03 completo:
 6. Backend devuelve HTTP 200 con errores, warnings e infos.
 7. Frontend muestra el resumen.
 8. Usuario pulsa un diagnostico navegable.
-9. ClassForge selecciona la clase o relacion afectada en JointJS.
+9. SinapUML selecciona la clase o relacion afectada en JointJS.
 10. La revision del proyecto permanece sin cambios.
 
 ## Flujo de guardado

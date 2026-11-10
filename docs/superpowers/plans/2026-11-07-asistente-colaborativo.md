@@ -25,7 +25,7 @@
 
 ## Contrato compartido
 
-Paquete Java base `com.classforge.projectassistant`; DTOs públicos en archivos
+Paquete Java base `com.sinapuml.projectassistant`; DTOs públicos en archivos
 independientes. `AssistantMode`: ASK, REVIEW, EDIT, SUMMARY_CURRENT.
 `ProjectAiMessage`: `(UUID id, long sequence, UUID projectId, UUID requestId,
 UUID authorUserId, String authorDisplayName, String role, AssistantMode type,
@@ -55,8 +55,8 @@ ASSISTANT_REVIEW_COMPLETED. Ningún cliente invoca directamente al LLM.
 
 ### Task 1: Backend de conversación, contexto, permisos y EDIT
 
-**Files:** Crear `backend/src/main/java/com/classforge/projectassistant/*.java`,
-`persistence/*.java`, `backend/src/test/java/com/classforge/projectassistant/ProjectAssistantIntegrationTests.java`.
+**Files:** Crear `backend/src/main/java/com/sinapuml/projectassistant/*.java`,
+`persistence/*.java`, `backend/src/test/java/com/sinapuml/projectassistant/ProjectAssistantIntegrationTests.java`.
 **Interfaces:** Produce el contrato compartido y API; consume ProjectService,
 ProjectAccessService, membresías, usuarios y AssistantPlanService existentes.
 
@@ -71,7 +71,7 @@ ProjectAccessService, membresías, usuarios y AssistantPlanService existentes.
 
 **Files:** Crear `projectassistant/llm/*.java` y pruebas correspondientes.
 **Interfaces:** Consume el contrato compartido; produce implementaciones del
-gateway seleccionadas por `classforge.assistant.text.provider`.
+gateway seleccionadas por `sinapuml.assistant.text.provider`.
 
 - [x] Escribir pruebas con servidor HTTP local sobre payload conversacional,
   contexto, historial, respuesta vacía y errores; comprobar RED.

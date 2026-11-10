@@ -1,0 +1,139 @@
+<?xml version='1.0' encoding='utf-8'?>
+<mxfile host="Electron" type="device">
+  <diagram id="D17" name="D17 · Modelo lógico documental">
+    <mxGraphModel dx="680" dy="480" grid="1" gridSize="10" guides="1" page="1" pageScale="1" pageWidth="680" pageHeight="480" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="D17-1" value="" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#111111;strokeColor=#333333;strokeWidth=1;fillColor=#FFFFFF;" vertex="1" parent="1">
+          <mxGeometry x="245" y="20" width="200" height="74" as="geometry" />
+        </mxCell>
+        <mxCell id="D17-2" value="Proyecto" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#111111;strokeColor=#333333;strokeWidth=1;fillColor=#FFFFFF;text;strokeColor=none;fillColor=#FFFFFF;align=left;spacing=0;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="249" y="22" width="192" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="D17-3" value="" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#111111;strokeColor=#333333;strokeWidth=1;fillColor=#FFFFFF;edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=open;endFill=0;labelBackgroundColor=#FFFFFF;edgeStyle=none;endArrow=none;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="245" y="64" as="sourcePoint" />
+            <mxPoint x="445" y="64" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="D17-4" value="id, ownerId, revision" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#111111;strokeColor=#333333;strokeWidth=1;fillColor=#FFFFFF;text;strokeColor=none;fillColor=#FFFFFF;align=left;spacing=0;" vertex="1" parent="1">
+          <mxGeometry x="252" y="68" width="186" height="22" as="geometry" />
+        </mxCell>
+        <mxCell id="D17-5" value="" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#111111;strokeColor=#333333;strokeWidth=1;fillColor=#FFFFFF;" vertex="1" parent="1">
+          <mxGeometry x="245" y="195" width="200" height="74" as="geometry" />
+        </mxCell>
+        <mxCell id="D17-6" value="Documento embebido" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#111111;strokeColor=#333333;strokeWidth=1;fillColor=#FFFFFF;text;strokeColor=none;fillColor=#FFFFFF;align=left;spacing=0;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="249" y="197" width="192" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="D17-7" value="" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#111111;strokeColor=#333333;strokeWidth=1;fillColor=#FFFFFF;edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=open;endFill=0;labelBackgroundColor=#FFFFFF;edgeStyle=none;endArrow=none;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="245" y="239" as="sourcePoint" />
+            <mxPoint x="445" y="239" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="D17-8" value="umlModel, layout" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#111111;strokeColor=#333333;strokeWidth=1;fillColor=#FFFFFF;text;strokeColor=none;fillColor=#FFFFFF;align=left;spacing=0;" vertex="1" parent="1">
+          <mxGeometry x="252" y="243" width="186" height="22" as="geometry" />
+        </mxCell>
+        <mxCell id="D17-9" value="" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#111111;strokeColor=#333333;strokeWidth=1;fillColor=#FFFFFF;edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=open;endFill=0;labelBackgroundColor=#FFFFFF;startArrow=diamond;startFill=1;endArrow=none;" edge="1" parent="1" source="D17-1" target="D17-5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="D17-10" value="1" style="edgeLabel;html=1;align=center;fontFamily=Arial;fontSize=14;labelBackgroundColor=#FFFFFF;" vertex="1" connectable="0" parent="D17-9">
+          <mxGeometry x="-0.65" y="-1" width="28" height="20" relative="1" as="geometry">
+            <mxPoint x="0" y="-12" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="D17-11" value="1" style="edgeLabel;html=1;align=center;fontFamily=Arial;fontSize=14;labelBackgroundColor=#FFFFFF;" vertex="1" connectable="0" parent="D17-9">
+          <mxGeometry x="0.65" y="-1" width="28" height="20" relative="1" as="geometry">
+            <mxPoint x="0" y="-12" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="D17-12" value="" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#111111;strokeColor=#333333;strokeWidth=1;fillColor=#FFFFFF;" vertex="1" parent="1">
+          <mxGeometry x="20" y="20" width="190" height="74" as="geometry" />
+        </mxCell>
+        <mxCell id="D17-13" value="Identidad" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#111111;strokeColor=#333333;strokeWidth=1;fillColor=#FFFFFF;text;strokeColor=none;fillColor=#FFFFFF;align=left;spacing=0;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="24" y="22" width="182" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="D17-14" value="" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#111111;strokeColor=#333333;strokeWidth=1;fillColor=#FFFFFF;edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=open;endFill=0;labelBackgroundColor=#FFFFFF;edgeStyle=none;endArrow=none;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="20" y="64" as="sourcePoint" />
+            <mxPoint x="210" y="64" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="D17-15" value="Usuario, membresía" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#111111;strokeColor=#333333;strokeWidth=1;fillColor=#FFFFFF;text;strokeColor=none;fillColor=#FFFFFF;align=left;spacing=0;" vertex="1" parent="1">
+          <mxGeometry x="27" y="68" width="176" height="22" as="geometry" />
+        </mxCell>
+        <mxCell id="D17-16" value="" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#111111;strokeColor=#333333;strokeWidth=1;fillColor=#FFFFFF;edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=open;endFill=0;labelBackgroundColor=#FFFFFF;edgeStyle=none;dashed=1;exitX=1;exitY=.5;entryX=0;entryY=.5;" edge="1" parent="1" source="D17-12" target="D17-1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="D17-17" value="" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#111111;strokeColor=#333333;strokeWidth=1;fillColor=#FFFFFF;" vertex="1" parent="1">
+          <mxGeometry x="470" y="20" width="190" height="74" as="geometry" />
+        </mxCell>
+        <mxCell id="D17-18" value="Conversación" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#111111;strokeColor=#333333;strokeWidth=1;fillColor=#FFFFFF;text;strokeColor=none;fillColor=#FFFFFF;align=left;spacing=0;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="474" y="22" width="182" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="D17-19" value="" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#111111;strokeColor=#333333;strokeWidth=1;fillColor=#FFFFFF;edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=open;endFill=0;labelBackgroundColor=#FFFFFF;edgeStyle=none;endArrow=none;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="470" y="64" as="sourcePoint" />
+            <mxPoint x="660" y="64" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="D17-20" value="Mensajes IA" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#111111;strokeColor=#333333;strokeWidth=1;fillColor=#FFFFFF;text;strokeColor=none;fillColor=#FFFFFF;align=left;spacing=0;" vertex="1" parent="1">
+          <mxGeometry x="477" y="68" width="176" height="22" as="geometry" />
+        </mxCell>
+        <mxCell id="D17-21" value="" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#111111;strokeColor=#333333;strokeWidth=1;fillColor=#FFFFFF;edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=open;endFill=0;labelBackgroundColor=#FFFFFF;edgeStyle=none;dashed=1;exitX=0;exitY=.5;entryX=1;entryY=.5;" edge="1" parent="1" source="D17-17" target="D17-1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="D17-22" value="" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#111111;strokeColor=#333333;strokeWidth=1;fillColor=#FFFFFF;" vertex="1" parent="1">
+          <mxGeometry x="20" y="345" width="190" height="74" as="geometry" />
+        </mxCell>
+        <mxCell id="D17-23" value="Continuidad" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#111111;strokeColor=#333333;strokeWidth=1;fillColor=#FFFFFF;text;strokeColor=none;fillColor=#FFFFFF;align=left;spacing=0;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="24" y="347" width="182" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="D17-24" value="" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#111111;strokeColor=#333333;strokeWidth=1;fillColor=#FFFFFF;edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=open;endFill=0;labelBackgroundColor=#FFFFFF;edgeStyle=none;endArrow=none;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="20" y="389" as="sourcePoint" />
+            <mxPoint x="210" y="389" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="D17-25" value="Actividad, sesión, visita" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#111111;strokeColor=#333333;strokeWidth=1;fillColor=#FFFFFF;text;strokeColor=none;fillColor=#FFFFFF;align=left;spacing=0;" vertex="1" parent="1">
+          <mxGeometry x="27" y="393" width="176" height="22" as="geometry" />
+        </mxCell>
+        <mxCell id="D17-26" value="" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#111111;strokeColor=#333333;strokeWidth=1;fillColor=#FFFFFF;edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=open;endFill=0;labelBackgroundColor=#FFFFFF;edgeStyle=none;dashed=1;exitX=1;exitY=.5;entryX=0;entryY=.5;" edge="1" parent="1" source="D17-22" target="D17-1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="230" y="382" />
+              <mxPoint x="230" y="57" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="D17-27" value="" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#111111;strokeColor=#333333;strokeWidth=1;fillColor=#FFFFFF;" vertex="1" parent="1">
+          <mxGeometry x="470" y="345" width="190" height="74" as="geometry" />
+        </mxCell>
+        <mxCell id="D17-28" value="Notificaciones" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#111111;strokeColor=#333333;strokeWidth=1;fillColor=#FFFFFF;text;strokeColor=none;fillColor=#FFFFFF;align=left;spacing=0;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="474" y="347" width="182" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="D17-29" value="" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#111111;strokeColor=#333333;strokeWidth=1;fillColor=#FFFFFF;edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=open;endFill=0;labelBackgroundColor=#FFFFFF;edgeStyle=none;endArrow=none;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="470" y="389" as="sourcePoint" />
+            <mxPoint x="660" y="389" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="D17-30" value="Aviso, suscripción, trabajo" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#111111;strokeColor=#333333;strokeWidth=1;fillColor=#FFFFFF;text;strokeColor=none;fillColor=#FFFFFF;align=left;spacing=0;" vertex="1" parent="1">
+          <mxGeometry x="477" y="393" width="176" height="22" as="geometry" />
+        </mxCell>
+        <mxCell id="D17-31" value="" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#111111;strokeColor=#333333;strokeWidth=1;fillColor=#FFFFFF;edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=open;endFill=0;labelBackgroundColor=#FFFFFF;edgeStyle=none;dashed=1;exitX=0;exitY=.5;entryX=1;entryY=.5;" edge="1" parent="1" source="D17-27" target="D17-1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="460" y="382" />
+              <mxPoint x="460" y="57" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="D17-32" value="Referencias por projectId" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#111111;strokeColor=#333333;strokeWidth=1;fillColor=#FFFFFF;text;strokeColor=none;fillColor=#FFFFFF;align=left;spacing=0;" vertex="1" parent="1">
+          <mxGeometry x="15" y="135" width="200" height="32" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -19,7 +19,7 @@ Durante este refactor se mantuvieron congelados endpoints, contratos JSON, opera
 | 6. Command executor frontend | dispatcher pequeño + ejecutores por clases, atributos, relaciones y layout. |
 | 7. `ProjectDocumentValidator` | fachada + validadores por clases, relaciones, generalización, layout y calidad. |
 | 8. `ProjectCommandExecutor` | fachada + handlers por clases, atributos, relaciones y layout. |
-| 9. Assistant | evaluado. Se refactorizó únicamente el renderer de la aplicación generada en el paso 3. Los resolvers semánticos de ClassForge se conservaron byte a byte por ser reglas sensibles ya cerradas y bien cubiertas. |
+| 9. Assistant | evaluado. Se refactorizó únicamente el renderer de la aplicación generada en el paso 3. Los resolvers semánticos de SinapUML se conservaron byte a byte por ser reglas sensibles ya cerradas y bien cubiertas. |
 | 10. Vision | no se modificó ningún archivo del pipeline Vision. El árbol `assistant/vision` conserva exactamente el mismo SHA-256 que el baseline (`04c28f3e6521ac204295ac16307e5e7549bb10050a00cf7590795390c75ef8d4`). |
 
 ## Reducción de hotspots (fachadas)

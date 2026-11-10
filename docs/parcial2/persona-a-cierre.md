@@ -49,12 +49,12 @@ npm ci
 npm start
 ```
 
-El backend utiliza `mongodb://localhost:27017/classforge?replicaSet=rs0`. La URI se cambia con
-`CLASSFORGE_MONGODB_URI`; puede contener credenciales de Atlas y debe mantenerse fuera del repositorio.
-MongoDB conserva sus datos en el volumen Docker `classforge_classforge_mongo_data`. La publicación
+El backend utiliza `mongodb://localhost:27017/sinapuml?replicaSet=rs0`. La URI se cambia con
+`SINAPUML_MONGODB_URI`; puede contener credenciales de Atlas y debe mantenerse fuera del repositorio.
+MongoDB conserva sus datos en el volumen Docker `sinapuml_sinapuml_mongo_data`. La publicación
 local del puerto está limitada a `127.0.0.1`. `docker compose down` conserva el volumen.
 
-La demo usa la base independiente `classforge_demo`, los usuarios del fixture existente y el perfil
+La demo usa la base independiente `sinapuml_demo`, los usuarios del fixture existente y el perfil
 `demo`. Al iniciar ese perfil se reconstruyen únicamente las filas/documentos de su fixture;
 el perfil normal conserva los proyectos habituales. `scripts/demo-reset.ps1` reinicia exclusivamente
 la base demo local y exige detener previamente el backend.
@@ -69,8 +69,8 @@ y en sus pruebas; no forma parte del JAR de la aplicación.
 ```powershell
 docker compose -f compose.mongo.yml up -d --wait
 .\backend\gradlew.bat -p backend migrateLegacyDatabase `
-  "-PlegacySource=F:/ruta/classforge.mv.db" `
-  "-PmongoDatabase=classforge"
+  "-PlegacySource=F:/ruta/sinapuml.mv.db" `
+  "-PmongoDatabase=sinapuml"
 ```
 
 Se importan las tablas existentes de usuarios, proyectos, membresías, invitaciones, chat, actividad,

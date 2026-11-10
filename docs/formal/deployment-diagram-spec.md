@@ -1,4 +1,4 @@
-# Especificación para los diagramas de despliegue de ClassForge
+# Especificación para los diagramas de despliegue de SinapUML
 
 Fecha de corte: **19-09-2026**.
 
@@ -6,10 +6,10 @@ Este documento contiene la información que debe trasladarse a Enterprise Archit
 
 ## 1. Mensaje arquitectónico que debe comunicar el diagrama
 
-ClassForge tiene **un solo producto y una sola arquitectura de dominio** desplegados con tres capacidades físicas distintas:
+SinapUML tiene **un solo producto y una sola arquitectura de dominio** desplegados con tres capacidades físicas distintas:
 
 ```text
-                         MISMO CLASSFORGE
+                         MISMO SINAPUML
                                │
              ┌─────────────────┼─────────────────┐
              ▼                 ▼                 ▼
@@ -90,7 +90,7 @@ CloudFront --HTTP :80--> Nginx / EC2 origin
 
 ```text
 <<AWS EC2>>
-ClassForge Server
+SinapUML Server
 m7i-flex.large
 Ubuntu 24.04 LTS x86-64
 us-east-1
@@ -101,7 +101,7 @@ Adjuntar/relacionar:
 
 ```text
 <<volume>> EBS gp3 · 30 GiB
-<<IAM Role>> ClassForgeDemoRole
+<<IAM Role>> SinapUMLDemoRole
 ```
 
 No dibujar llaves AWS dentro del nodo.
@@ -119,8 +119,8 @@ Contiene el artefacto:
 
 ```text
 <<artifact>>
-ClassForge Angular SPA
-/var/www/classforge
+SinapUML Angular SPA
+/var/www/sinapuml
 ```
 
 Rutas:
@@ -148,7 +148,7 @@ Artefacto:
 
 ```text
 <<artifact>>
-classforge.jar
+sinapuml.jar
 ```
 
 Responsabilidades que pueden anotarse:
@@ -173,7 +173,7 @@ Dentro/asociado a EC2:
 ```text
 <<database>>
 H2
-/opt/classforge/data/classforge-aws.mv.db
+/opt/sinapuml/data/sinapuml-aws.mv.db
 ```
 
 Desplegado sobre:
@@ -229,8 +229,8 @@ Converse API
 Modelo por configuración, no por código:
 
 ```text
-CLASSFORGE_BEDROCK_TEXT_MODEL
-CLASSFORGE_BEDROCK_VISION_MODEL
+SINAPUML_BEDROCK_TEXT_MODEL
+SINAPUML_BEDROCK_VISION_MODEL
 ```
 
 Baseline 19-09-2026:
@@ -272,7 +272,7 @@ Elemento conceptual asociado a EC2:
 
 ```text
 <<IAM Role>>
-ClassForgeDemoRole
+SinapUMLDemoRole
 ```
 
 Permisos de aplicación:
@@ -451,8 +451,8 @@ DPL-01 debería incluir como mínimo:
 
 ```text
 <<artifact>> Angular SPA
-<<artifact>> classforge.jar
-<<artifact>> classforge-aws.mv.db
+<<artifact>> sinapuml.jar
+<<artifact>> sinapuml-aws.mv.db
 <<artifact>> whisper-server
 <<artifact>> ggml-base.bin
 ```
@@ -468,7 +468,7 @@ No es necesario representar `.env`, Nginx config o unit files como artefactos de
 <<database>>              H2
 <<volume>>                EBS gp3
 <<AWS managed service>>   CloudFront, Bedrock
-<<IAM Role>>              ClassForgeDemoRole
+<<IAM Role>>              SinapUMLDemoRole
 ```
 
 Si EA no permite stereotypes personalizados de forma cómoda, usar `Node` + notas; mantener los nombres y protocolos de este documento como autoridad.
@@ -490,7 +490,7 @@ Si EA no permite stereotypes personalizados de forma cómoda, usar `Node` + nota
              │ HTTP :80
              ▼
 ┌───────────────────────────────────────────────────────┐
-│ <<AWS EC2>> ClassForge Server                        │
+│ <<AWS EC2>> SinapUML Server                        │
 │ m7i-flex.large · Ubuntu 24.04 · 2 vCPU · 8 GiB      │
 │                                                       │
 │  ┌──────────────────────┐                            │

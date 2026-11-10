@@ -46,7 +46,7 @@ El exportador permite seleccionar `primaryColor` en formato `#RRGGBB`.
 6. CU-13 Spring generation regression.
 7. full backend.
 8. frontend generation tests.
-9. Angular ClassForge production build.
+9. Angular SinapUML production build.
 10. `git diff --check`.
 11. OpenSpec/evidence audit.
 

@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='utf-8'?>
+<mxfile host="Electron" type="device">
+  <diagram id="D03" name="D03 · Casos de uso base">
+    <mxGraphModel dx="680" dy="480" grid="1" gridSize="10" guides="1" page="1" pageScale="1" pageWidth="680" pageHeight="480" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="D03-1" value="" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#111111;strokeColor=#333333;strokeWidth=1;fillColor=#FFFFFF;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="160" y="15" width="385" height="450" as="geometry" />
+        </mxCell>
+        <mxCell id="D03-2" value="SinapUML" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#111111;strokeColor=#333333;strokeWidth=1;fillColor=#FFFFFF;text;strokeColor=none;fillColor=#FFFFFF;align=left;spacing=0;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="175" y="17" width="340" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="D03-3" value="Usuario" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#111111;strokeColor=#333333;strokeWidth=1;fillColor=#FFFFFF;shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;labelWidth=100;" vertex="1" parent="1">
+          <mxGeometry x="60" y="210" width="36" height="56" as="geometry" />
+        </mxCell>
+        <mxCell id="D03-4" value="Registrarse e iniciar sesión" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#111111;strokeColor=#333333;strokeWidth=1;fillColor=#FFFFFF;ellipse;spacing=3;" vertex="1" parent="1">
+          <mxGeometry x="230" y="62" width="265" height="52" as="geometry" />
+        </mxCell>
+        <mxCell id="D03-5" value="" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#111111;strokeColor=#333333;strokeWidth=1;fillColor=#FFFFFF;edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=open;endFill=0;labelBackgroundColor=#FFFFFF;edgeStyle=none;endArrow=none;exitX=1;exitY=.5;entryX=0;entryY=.5;" edge="1" parent="1" source="D03-3" target="D03-4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="D03-6" value="Gestionar proyectos y acceso" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#111111;strokeColor=#333333;strokeWidth=1;fillColor=#FFFFFF;ellipse;spacing=3;" vertex="1" parent="1">
+          <mxGeometry x="230" y="134" width="265" height="52" as="geometry" />
+        </mxCell>
+        <mxCell id="D03-7" value="" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#111111;strokeColor=#333333;strokeWidth=1;fillColor=#FFFFFF;edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=open;endFill=0;labelBackgroundColor=#FFFFFF;edgeStyle=none;endArrow=none;exitX=1;exitY=.5;entryX=0;entryY=.5;" edge="1" parent="1" source="D03-3" target="D03-6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="D03-8" value="Modelar guardar y validar" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#111111;strokeColor=#333333;strokeWidth=1;fillColor=#FFFFFF;ellipse;spacing=3;" vertex="1" parent="1">
+          <mxGeometry x="230" y="206" width="265" height="52" as="geometry" />
+        </mxCell>
+        <mxCell id="D03-9" value="" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#111111;strokeColor=#333333;strokeWidth=1;fillColor=#FFFFFF;edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=open;endFill=0;labelBackgroundColor=#FFFFFF;edgeStyle=none;endArrow=none;exitX=1;exitY=.5;entryX=0;entryY=.5;" edge="1" parent="1" source="D03-3" target="D03-8">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="D03-10" value="Colaborar y ver presencia" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#111111;strokeColor=#333333;strokeWidth=1;fillColor=#FFFFFF;ellipse;spacing=3;" vertex="1" parent="1">
+          <mxGeometry x="230" y="278" width="265" height="52" as="geometry" />
+        </mxCell>
+        <mxCell id="D03-11" value="" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#111111;strokeColor=#333333;strokeWidth=1;fillColor=#FFFFFF;edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=open;endFill=0;labelBackgroundColor=#FFFFFF;edgeStyle=none;endArrow=none;exitX=1;exitY=.5;entryX=0;entryY=.5;" edge="1" parent="1" source="D03-3" target="D03-10">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="D03-12" value="Importar exportar y generar" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#111111;strokeColor=#333333;strokeWidth=1;fillColor=#FFFFFF;ellipse;spacing=3;" vertex="1" parent="1">
+          <mxGeometry x="230" y="350" width="265" height="52" as="geometry" />
+        </mxCell>
+        <mxCell id="D03-13" value="" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#111111;strokeColor=#333333;strokeWidth=1;fillColor=#FFFFFF;edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=open;endFill=0;labelBackgroundColor=#FFFFFF;edgeStyle=none;endArrow=none;exitX=1;exitY=.5;entryX=0;entryY=.5;" edge="1" parent="1" source="D03-3" target="D03-12">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="D03-14" value="Vista de alcance.&lt;br&gt;&lt;br&gt;Los actores técnicos se detallan por caso.&lt;br&gt;&lt;br&gt;El visitante participa en registro e inicio; el propietario administra acceso." style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#111111;strokeColor=#333333;strokeWidth=1;fillColor=#FFFFFF;text;strokeColor=none;fillColor=#FFFFFF;align=left;spacing=0;" vertex="1" parent="1">
+          <mxGeometry x="550" y="55" width="115" height="370" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

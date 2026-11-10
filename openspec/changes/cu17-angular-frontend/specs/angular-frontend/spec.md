@@ -33,4 +33,4 @@ The export request MUST accept a `#RRGGBB` primary color. The generated frontend
 Equal canonical input + generation options MUST produce byte-identical generated frontend files.
 
 ### Acceptance
-Representative Simple and Auth generated frontends MUST pass Angular production build using the supported ClassForge Angular toolchain.
+Representative Simple and Auth generated frontends MUST pass Angular production build using the supported SinapUML Angular toolchain.

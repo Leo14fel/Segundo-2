@@ -1,4 +1,4 @@
-# ClassForge — Command Bus y Undo/Redo
+# SinapUML — Command Bus y Undo/Redo
 
 ## Objetivo
 
@@ -129,4 +129,4 @@ No transporta el `ProjectDocument` completo.
 
 Si llega una operación perteneciente a otro cliente, el historial local se limpia.
 
-Esta regla evita aplicar una intención histórica sobre cambios remotos posteriores mientras ClassForge no utiliza OT/CRDT.
+Esta regla evita aplicar una intención histórica sobre cambios remotos posteriores mientras SinapUML no utiliza OT/CRDT.

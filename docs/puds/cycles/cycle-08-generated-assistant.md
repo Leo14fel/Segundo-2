@@ -6,7 +6,7 @@
 
 ## Objetivo
 
-Cerrar en una sola capacidad las consultas y mutaciones mediante chat/voz de la aplicación generada, reutilizando Whisper/Qwen locales y el patrón native-tools + grounding + preview/apply ya validado en ClassForge.
+Cerrar en una sola capacidad las consultas y mutaciones mediante chat/voz de la aplicación generada, reutilizando Whisper/Qwen locales y el patrón native-tools + grounding + preview/apply ya validado en SinapUML.
 
 ## Decisiones
 

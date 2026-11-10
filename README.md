@@ -1,10 +1,10 @@
-# ClassForge
+# SinapUML
 
 > Model it. Generate it. Talk to it.
 
 > **Continuar el trabajo actual:** leer [CONTINUAR.md](CONTINUAR.md). La migración Vue y el segundo parcial se evalúan en [la matriz vigente](docs/runtime/evaluacion-requisitos-segundo-parcial.md); los cierres históricos siguientes no certifican esta versión. Web Push está implementado y desactivado hasta configurar claves/HTTPS y aceptar la recepción en un teléfono: [guía](docs/runtime/web-push.md).
 
-ClassForge es una herramienta CASE web, colaborativa y offline-first para modelar diagramas de clases UML y utilizarlos como fuente de verdad para futuras transformaciones y generación de aplicaciones.
+SinapUML es una herramienta CASE web, colaborativa y offline-first para modelar diagramas de clases UML y utilizarlos como fuente de verdad para futuras transformaciones y generación de aplicaciones.
 
 La visión completa del producto está en `docs/product/product.md`. El estado realmente implementado está en `docs/puds/current-status.md`.
 
@@ -12,7 +12,7 @@ La visión completa del producto está en `docs/product/product.md`. El estado r
 
 **Fase de Transición — Ciclos 1–10 CERRADOS; CU-27 demo reproducible final CERRADO.**
 
-En ClassForge llamamos **Ciclo** a una **iteración PUDS**.
+En SinapUML llamamos **Ciclo** a una **iteración PUDS**.
 
 El incremento ejecutable actual incluye:
 
@@ -153,7 +153,7 @@ Consultar `docs/runtime/assistant-local.md`.
 
 ## Persistencia
 
-- MongoDB con Spring Data MongoDB para toda la base propia de ClassForge;
+- MongoDB con Spring Data MongoDB para toda la base propia de SinapUML;
 - replica set y transacciones para documento, auditoría, sesiones y notificaciones;
 - volumen persistente local con Docker; las pruebas usan bases aisladas sobre MongoDB real.
 
@@ -163,14 +163,14 @@ Antes de iniciar el backend o ejecutar sus pruebas:
 docker compose -f compose.mongo.yml up -d --wait
 ```
 
-`CLASSFORGE_MONGODB_URI` permite usar otro replica set o MongoDB Atlas.
+`SINAPUML_MONGODB_URI` permite usar otro replica set o MongoDB Atlas.
 La migración preserva usuarios, IDs, contraseñas cifradas, proyectos, membresías,
 invitaciones, chat e historial de una base H2 anterior. Ver
 [cierre de Persona A y migración NoSQL](docs/parcial2/persona-a-cierre.md).
 Los generadores del primer parcial conservan su salida Spring/JPA; esa salida
-no es la base de datos interna de ClassForge.
+no es la base de datos interna de SinapUML.
 
-Un posible archivo `*.classforge` continúa siendo un formato portable futuro, no la persistencia primaria.
+Un posible archivo `*.sinapuml` continúa siendo un formato portable futuro, no la persistencia primaria.
 
 ## Documentación
 

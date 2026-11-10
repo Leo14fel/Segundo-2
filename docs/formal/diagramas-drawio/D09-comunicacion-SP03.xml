@@ -1,0 +1,90 @@
+<?xml version='1.0' encoding='utf-8'?>
+<mxfile host="Electron" type="device">
+  <diagram id="D09" name="D09 · Comunicación · CU-SP-03">
+    <mxGraphModel dx="1350" dy="950" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1350" pageHeight="950" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="D09-1" value="D09  /  Comunicación · CU-SP-03" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#243746;strokeColor=#657581;strokeWidth=1.3;fillColor=#FFFFFF;text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacing=0;fontSize=24;fontStyle=1;fontColor=#243746;" vertex="1" parent="1">
+          <mxGeometry x="30" y="20" width="1290" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="D09-2" value="Resumir lo avanzado · objetos de análisis y mensajes numerados." style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#243746;strokeColor=#657581;strokeWidth=1.3;fillColor=#FFFFFF;text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacing=0;fontSize=13;fontStyle=0;fontColor=#526570;" vertex="1" parent="1">
+          <mxGeometry x="30" y="62" width="1290" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="D09-3" value="SinapUML  ·  PUDS  ·  9 de noviembre de 2026  |  Modelo documental basado en la implementación local" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#243746;strokeColor=#657581;strokeWidth=1.3;fillColor=#FFFFFF;text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacing=0;fontSize=11;fontStyle=0;fontColor=#6A7881;" vertex="1" parent="1">
+          <mxGeometry x="30" y="910" width="1290" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="D09-4" value="Integrante tardío" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#243746;strokeColor=#657581;strokeWidth=1.3;fillColor=#FFFFFF;shape=umlActor;labelWidth=160;verticalLabelPosition=bottom;verticalAlign=top;fillColor=#FFFFFF;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="120" y="170" width="48" height="72" as="geometry" />
+        </mxCell>
+        <mxCell id="D09-5" value="«boundary»&lt;br&gt;:Chat común Vue" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#243746;strokeColor=#657581;strokeWidth=1.3;fillColor=#FFFFFF;rounded=0;fillColor=#EAF1F7;spacing=8;" vertex="1" parent="1">
+          <mxGeometry x="350" y="165" width="205" height="88" as="geometry" />
+        </mxCell>
+        <mxCell id="D09-6" value="«control»&lt;br&gt;:Asistente grupal" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#243746;strokeColor=#657581;strokeWidth=1.3;fillColor=#FFFFFF;rounded=0;fillColor=#EAF1F7;spacing=8;" vertex="1" parent="1">
+          <mxGeometry x="770" y="165" width="205" height="88" as="geometry" />
+        </mxCell>
+        <mxCell id="D09-7" value="«entity»&lt;br&gt;:Proyecto y registros" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#243746;strokeColor=#657581;strokeWidth=1.3;fillColor=#FFFFFF;rounded=0;fillColor=#EDF7F4;spacing=8;" vertex="1" parent="1">
+          <mxGeometry x="770" y="445" width="205" height="88" as="geometry" />
+        </mxCell>
+        <mxCell id="D09-8" value="«external»&lt;br&gt;:Proveedor IA" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#243746;strokeColor=#657581;strokeWidth=1.3;fillColor=#FFFFFF;rounded=0;fillColor=#EDF7F4;spacing=8;" vertex="1" parent="1">
+          <mxGeometry x="350" y="445" width="205" height="88" as="geometry" />
+        </mxCell>
+        <mxCell id="D09-9" value="«boundary»&lt;br&gt;:Otros clientes" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#243746;strokeColor=#657581;strokeWidth=1.3;fillColor=#FFFFFF;rounded=0;fillColor=#EDF7F4;spacing=8;" vertex="1" parent="1">
+          <mxGeometry x="1060" y="445" width="205" height="88" as="geometry" />
+        </mxCell>
+        <mxCell id="D09-10" value="1" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#243746;strokeColor=#657581;strokeWidth=1.3;whiteSpace=nowrap;edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=open;endFill=0;labelBackgroundColor=#FFFFFF;fontSize=12;fontSize=12;endArrow=none;edgeStyle=none;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" edge="1" parent="1" source="D09-4" target="D09-5">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="186.0" y="206.0" />
+              <mxPoint x="186.0" y="209.0" />
+              <mxPoint x="332.0" y="209.0" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="D09-11" value="2, 9, A5" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#243746;strokeColor=#657581;strokeWidth=1.3;whiteSpace=nowrap;edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=open;endFill=0;labelBackgroundColor=#FFFFFF;fontSize=12;fontSize=12;endArrow=none;edgeStyle=none;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" edge="1" parent="1" source="D09-5" target="D09-6">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="573.0" y="209.0" />
+              <mxPoint x="752.0" y="209.0" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="D09-12" value="3, 4, 7, A3" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#243746;strokeColor=#657581;strokeWidth=1.3;whiteSpace=nowrap;edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=open;endFill=0;labelBackgroundColor=#FFFFFF;fontSize=12;fontSize=12;endArrow=none;edgeStyle=none;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="D09-6" target="D09-7">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="872.5" y="271.0" />
+              <mxPoint x="872.5" y="427.0" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="D09-13" value="5, 6, A1, A2" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#243746;strokeColor=#657581;strokeWidth=1.3;whiteSpace=nowrap;edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=open;endFill=0;labelBackgroundColor=#FFFFFF;fontSize=12;fontSize=12;endArrow=none;edgeStyle=none;exitX=0;exitY=0.5;entryX=1;entryY=0.5;" edge="1" parent="1" source="D09-6" target="D09-8">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="752.0" y="209.0" />
+              <mxPoint x="752.0" y="489.0" />
+              <mxPoint x="573.0" y="489.0" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="D09-14" value="8, A4" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#243746;strokeColor=#657581;strokeWidth=1.3;whiteSpace=nowrap;edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=open;endFill=0;labelBackgroundColor=#FFFFFF;fontSize=12;fontSize=12;endArrow=none;edgeStyle=none;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" edge="1" parent="1" source="D09-6" target="D09-9">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="993.0" y="209.0" />
+              <mxPoint x="993.0" y="489.0" />
+              <mxPoint x="1042.0" y="489.0" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="D09-15" value="1. Integrante tardío → Chat común Vue: Pedir resumen del proyecto&lt;br&gt;2. Chat común Vue → Asistente grupal: SUMMARY_CURRENT + requestId&lt;br&gt;3. Asistente grupal → Proyecto y registros: Autorizar y recuperar snapshot&lt;br&gt;4. Asistente grupal → Proyecto y registros: Leer miembros, mensajes y actividad reciente&lt;br&gt;5. Asistente grupal → Proveedor IA: Contexto disponible y petición&lt;br&gt;6. Proveedor IA → Asistente grupal: Resumen con límites de contexto&lt;br&gt;7. Asistente grupal → Proyecto y registros: Persistir respuesta y autoría" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#243746;strokeColor=#657581;strokeWidth=1.3;fillColor=#FFFFFF;text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacing=0;fontSize=13;fontStyle=0;fontColor=#243746;" vertex="1" parent="1">
+          <mxGeometry x="45" y="585" width="620" height="265" as="geometry" />
+        </mxCell>
+        <mxCell id="D09-16" value="8. Asistente grupal → Otros clientes: Publicar resumen para el grupo&lt;br&gt;9. Asistente grupal → Chat común Vue: Mostrar resumen&lt;br&gt;A1. Asistente grupal → Proveedor IA: Indicar ausencia de hechos registrados&lt;br&gt;A2. Proveedor IA → Asistente grupal: Explicar el estado disponible&lt;br&gt;A3. Asistente grupal → Proyecto y registros: Persistir el resumen del estado disponible&lt;br&gt;A4. Asistente grupal → Otros clientes: Publicar resumen para el grupo&lt;br&gt;A5. Asistente grupal → Chat común Vue: Mostrar resumen sin inventar avances" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#243746;strokeColor=#657581;strokeWidth=1.3;fillColor=#FFFFFF;text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacing=0;fontSize=13;fontStyle=0;fontColor=#243746;" vertex="1" parent="1">
+          <mxGeometry x="700" y="585" width="620" height="265" as="geometry" />
+        </mxCell>
+        <mxCell id="D09-17" value="Excepción / límite: sin actividad previa. No se modifica el diagrama. El resumen se contrasta con actividad registrada; no se presenta el contexto acotado como historia completa." style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#243746;strokeColor=#657581;strokeWidth=1.3;fillColor=#FFFFFF;shape=note;size=16;fillColor=#FFF5DE;spacing=10;align=left;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="45" y="845" width="1260" height="57" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

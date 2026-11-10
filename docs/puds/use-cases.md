@@ -1,4 +1,4 @@
-# Casos de uso de ClassForge — especificación vigente
+# Casos de uso de SinapUML — especificación vigente
 
 **Corte:** 13 de septiembre de 2026.
 
@@ -8,7 +8,7 @@ La bitácora acumulativa anterior se conserva en `history/use-cases-pre-cycle1-n
 
 ## 1. Convención PUDS
 
-En ClassForge llamamos **Ciclo** a una **iteración PUDS**.
+En SinapUML llamamos **Ciclo** a una **iteración PUDS**.
 
 ```text
 Fase: Transición
@@ -39,7 +39,7 @@ Usuario autenticado cuyo `User.id` coincide con `Project.ownerId`. Conserva admi
 Usuario autenticado con `ProjectMembership` EDITOR aceptada. Puede abrir, editar, guardar y validar proyectos compartidos; no administra ownership ni invitaciones.
 
 ### Usuario de aplicación generada
-Actor de CU-19. Interactúa con el sistema generado por formulario, chat o voz; no debe confundirse con el usuario del CASE ClassForge.
+Actor de CU-19. Interactúa con el sistema generado por formulario, chat o voz; no debe confundirse con el usuario del CASE SinapUML.
 
 ### Sistema
 Participa en validación, persistencia, auditoría y generación.
@@ -127,7 +127,7 @@ Guardado:
 
 Permite crear/renombrar/eliminar clases, editar atributos, mover elementos y modelar Association, Aggregation, Composition, Generalization y multiplicidades.
 
-`identifier` y `nullable` son perfil ClassForge, no propiedades UML puras.
+`identifier` y `nullable` son perfil SinapUML, no propiedades UML puras.
 
 **Regla:** JointJS es una proyección del `ProjectDocument`.
 
@@ -244,7 +244,7 @@ Backend deriva usuario actual del token y solo devuelve proyectos cuyo `ownerId`
 
 **Estado:** CERRADO.
 **Actor principal:** Modelador con permiso de edición (`OWNER` o `EDITOR`).
-**Actor de soporte:** Sistema local de visión (`llama.cpp` + Qwen3-VL), backend ClassForge y servicios de colaboración.
+**Actor de soporte:** Sistema local de visión (`llama.cpp` + Qwen3-VL), backend SinapUML y servicios de colaboración.
 
 #### Propósito
 
@@ -267,7 +267,7 @@ El caso de uso no convierte la imagen ni el VLM en fuente de verdad. La salida v
 3. Frontend envía la imagen junto con `baseRevision`.
 4. Backend valida firma, formato, tamaño y dimensiones; normaliza orientación y representación cuando corresponde.
 5. Qwen3-VL ejecuta una primera lectura semántica de clases y atributos visibles.
-6. Si se detectan menos de cuatro clases, ClassForge conserva la estrategia semantic-only.
+6. Si se detectan menos de cuatro clases, SinapUML conserva la estrategia semantic-only.
 7. Si se detectan cuatro o más clases, entra `hybrid-cv`:
    - OpenCV detecta regiones físicas de clases `B1..Bn`;
    - Qwen realiza un mapping cerrado `Bx -> classRef`;
@@ -325,7 +325,7 @@ La generalización estadística con dos pizarras adicionales y la ejecución arc
 **Estado: CERRADO.** Importa XMI 2.1 al `ProjectDocument` canónico mediante parser XML seguro, UUIDs deterministas, validación, preview token y `Apply` protegido por revisión. El subconjunto incluye Package (aplanado), Class, Property/DataType, Association, Aggregation, Composition, Generalization y Multiplicity. DTD/XXE y payloads mayores a 5 MiB fallan cerrados.
 
 ### CU-11 — Exportar XMI
-**Estado: CERRADO.** Exporta el mismo subconjunto como XMI 2.1 UTF-8 determinista. Los UUID de ClassForge se serializan en IDs XMI recuperables; el acceptance exige igualdad byte a byte para entradas iguales y round-trip semántico `ProjectDocument -> XMI -> ProjectDocument`. La metadata propietaria de diagramas/perfiles de EA queda fuera del alcance; CU-27 incorpora un smoke de transición automatizable mediante la Automation Interface de la instalación local de EA.
+**Estado: CERRADO.** Exporta el mismo subconjunto como XMI 2.1 UTF-8 determinista. Los UUID de SinapUML se serializan en IDs XMI recuperables; el acceptance exige igualdad byte a byte para entradas iguales y round-trip semántico `ProjectDocument -> XMI -> ProjectDocument`. La metadata propietaria de diagramas/perfiles de EA queda fuera del alcance; CU-27 incorpora un smoke de transición automatizable mediante la Automation Interface de la instalación local de EA.
 
 ### CU-12 — UML a modelo relacional
 **Estado: CERRADO.** Transformación determinista e interna de `UmlModel` a `RelationalModel`. La IR no es visible al usuario, no se persiste y es consumida por CU-13.
@@ -337,7 +337,7 @@ La generalización estadística con dos pizarras adicionales y la ejecución arc
 
 **Estado:** CERRADO — C3-cu14-001.
 
-**Actor principal:** Modelador / Usuario autenticado de ClassForge.
+**Actor principal:** Modelador / Usuario autenticado de SinapUML.
 
 **Objetivo:** extender el backend generado por CU-13 con controllers, services, DTOs/mapping y una API CRUD expresiva, permitiendo elegir explícitamente entre dos modos de aplicación generada.
 
@@ -356,7 +356,7 @@ Este modo **no** agrega Spring Security, endpoint de login, JWT, `PasswordEncode
 
 #### Modo B — Sistema de Información con Auth
 
-Genera las mismas capacidades CRUD y además un perfil de autenticación de aplicación. Antes de exportar, ClassForge debe pedir al usuario seleccionar:
+Genera las mismas capacidades CRUD y además un perfil de autenticación de aplicación. Antes de exportar, SinapUML debe pedir al usuario seleccionar:
 
 1. **tabla/entidad de autenticación**: una tabla de `RelationalModel` cuyo origen sea una clase UML, no una tabla de unión;
 2. **atributo de usuario/login**: un atributo escalar perteneciente a la tabla/entidad seleccionada;
@@ -515,7 +515,7 @@ En `SIMPLE_CRUD` no se genera Auth. En `AUTH_INFORMATION_SYSTEM` se añaden boot
 
 **Estado: CERRADO.**
 
-**Objetivo:** permitir que el usuario de la aplicación generada consulte y modifique datos mediante chat o voz reutilizando los mismos runtimes locales de ClassForge: whisper.cpp para STT y Qwen/llama.cpp con native tool calling para planificación.
+**Objetivo:** permitir que el usuario de la aplicación generada consulte y modifique datos mediante chat o voz reutilizando los mismos runtimes locales de SinapUML: whisper.cpp para STT y Qwen/llama.cpp con native tool calling para planificación.
 
 Texto y voz convergen en el mismo planner. El Spring generado es la única capa que contacta `127.0.0.1:8092`/`:8093`; Angular y Flutter consumen `/api/assistant/plan`, `/voice` y `/apply`. Java mantiene la autoridad mediante metadata derivada del Domain Manifest, validación de entidades/campos/tipos/relaciones/capacidades y resolución fail-closed.
 
@@ -556,9 +556,9 @@ Scripts oficiales:
 - `demo-stop.ps1`: recordatorio de apagado manual con `Ctrl+C`, sin terminar procesos;
 - `demo-smoke.ps1`: login, proyecto, UML y estado de runtimes;
 - `demo-acceptance.ps1`: regresión final agregada;
-- `demo-ea-smoke.ps1`: import/export real mediante la Automation Interface de Enterprise Architect y revalidación por preview en ClassForge.
+- `demo-ea-smoke.ps1`: import/export real mediante la Automation Interface de Enterprise Architect y revalidación por preview en SinapUML.
 
-**Postcondición:** el examen puede comenzar desde un estado conocido sin modificar `data/classforge`, y todas las capacidades deterministas del pipeline disponen de gates reproducibles.
+**Postcondición:** el examen puede comenzar desde un estado conocido sin modificar `data/sinapuml`, y todas las capacidades deterministas del pipeline disponen de gates reproducibles.
 
 ### CU-31 — Invitar colaborador
 

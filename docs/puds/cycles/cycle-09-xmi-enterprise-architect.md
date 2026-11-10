@@ -5,7 +5,7 @@
 
 ## Objetivo
 
-Cerrar la interoperabilidad bidireccional entre el modelo canónico de ClassForge y XMI 2.1 compatible con el subconjunto de clases usado por Enterprise Architect.
+Cerrar la interoperabilidad bidireccional entre el modelo canónico de SinapUML y XMI 2.1 compatible con el subconjunto de clases usado por Enterprise Architect.
 
 ## Casos de uso
 
@@ -22,7 +22,7 @@ Ambos se implementan en el mismo ciclo porque comparten identidad, tipos, asocia
 - Package se acepta y se aplana.
 - importación con preview + apply y `baseRevision`.
 - exportación read-only y determinista.
-- UUIDs ClassForge se preservan al exportar/reimportar.
+- UUIDs SinapUML se preservan al exportar/reimportar.
 - XXE/DTD externos se rechazan.
 - elementos no representables quedan fuera del subconjunto y se diagnostican.
 - smoke visual/manual dentro de EA se integra en CU-27 de Transición.

@@ -6,7 +6,7 @@ Este archivo conserva, sin reinterpretar, las actualizaciones históricas que an
 
 ## Identidad de usuario
 
-ClassForge incorpora cuentas locales de usuario mediante registro e inicio de sesion.
+SinapUML incorpora cuentas locales de usuario mediante registro e inicio de sesion.
 
 Cada cuenta posee UUID, nombre visible, correo unico, hash de contrasena y fecha de creacion.
 
@@ -30,7 +30,7 @@ El UUID por sí solo no concede acceso: la política central resuelve OWNER, EDI
 
 ## Membresías e invitaciones — Ciclo 2
 
-ClassForge conserva `Project.ownerId` como ownership explícito e incorpora `ProjectMembership` para colaboradores EDITOR.
+SinapUML conserva `Project.ownerId` como ownership explícito e incorpora `ProjectMembership` para colaboradores EDITOR.
 
 Las invitaciones son internas y persistentes por correo normalizado; no se envían emails reales y no existen links/tokens públicos.
 
@@ -72,12 +72,12 @@ C2-cu31-003 valida OWNER/EDITOR/NONE en STOMP operations, presence y Assistant, 
 
 ## Landing publica
 
-La ruta raiz de ClassForge es publica y presenta las capacidades centrales del producto y enlaza a registro e inicio de sesion.
+La ruta raiz de SinapUML es publica y presenta las capacidades centrales del producto y enlaza a registro e inicio de sesion.
 
 <!-- PROJECT-DOCUMENT-V1 -->
 # Actualizacion de producto — Documento de proyecto
 
-ClassForge persiste cada proyecto como un `ProjectDocument` versionado.
+SinapUML persiste cada proyecto como un `ProjectDocument` versionado.
 
 El documento contiene dos partes independientes:
 
@@ -94,12 +94,12 @@ Esta separacion garantiza que:
 
 Cada guardado del documento utiliza revision optimista y puede detectar modificaciones concurrentes.
 
-La iconografia de ClassForge utiliza Material Symbols Rounded self-hosted mediante npm para mantener disponibilidad offline.
+La iconografia de SinapUML utiliza Material Symbols Rounded self-hosted mediante npm para mantener disponibilidad offline.
 
 <!-- TYPED-UML-DOMAIN-V1 -->
 # Actualizacion de producto — Modelo UML tipado
 
-ClassForge deja de representar clases y atributos como objetos JSON genericos.
+SinapUML deja de representar clases y atributos como objetos JSON genericos.
 
 El modelo canonico incorpora tipos explicitos para clases, atributos, tipos de datos, visibilidad, identificadores, relaciones, multiplicidades y layout.
 
@@ -131,7 +131,7 @@ JointJS nunca sustituye a ProjectDocument como fuente de verdad.
 <!-- UML-RELATIONSHIPS-INSPECTOR-V1 -->
 # Actualizacion de producto — Relaciones UML manuales
 
-ClassForge completa el editor manual de diagramas con:
+SinapUML completa el editor manual de diagramas con:
 
 - asociaciones;
 - agregaciones;
@@ -149,7 +149,7 @@ El backend protege la integridad del modelo, incluyendo deteccion de ciclos de g
 <!-- EXPLICIT-UML-VALIDATION-V1 -->
 # Actualizacion de producto — Validacion UML
 
-ClassForge incorpora validacion explicita del modelo sin persistencia.
+SinapUML incorpora validacion explicita del modelo sin persistencia.
 
 El usuario puede validar el draft actual y recibir:
 
@@ -202,7 +202,7 @@ La deuda arquitectonica detectada despues de CU-04 queda resuelta en CU-05.
 
 El historial before/after pertenece a Undo/Redo; `UmlCommand` es el contrato reutilizable.
 
-## Perfil ClassForge
+## Perfil SinapUML
 
 `nullable` e `identifier` son metadatos de generacion asociados al atributo.
 
@@ -226,7 +226,7 @@ Operaciones, enums y packages siguen pendientes.
 <!-- REALTIME-COLLABORATION-CU06-001-V1 -->
 # Actualizacion de producto — CU06-001
 
-ClassForge incorpora el servidor de colaboración STOMP.
+SinapUML incorpora el servidor de colaboración STOMP.
 
 Las operaciones remotas reutilizan conceptualmente el contrato Command de CU-05 y se aplican sobre el mismo `ProjectDocument` canónico.
 
@@ -269,7 +269,7 @@ Undo/Redo colaborativo permanece para CU06-003.
 <!-- REALTIME-COLLABORATION-CU06-CLOSED-V1 -->
 # Actualización de producto — CU-06 cerrado
 
-ClassForge dispone de colaboración realtime autoritativa sobre STOMP.
+SinapUML dispone de colaboración realtime autoritativa sobre STOMP.
 
 El editor sincroniza operaciones `UmlCommand`, persiste cada operación aceptada y usa revisión explícita.
 
@@ -284,7 +284,7 @@ CU-07 agregará presencia efímera; la presencia no modificará la revisión ni 
 <!-- REALTIME-PRESENCE-CU07-CLOSED-V1 -->
 # Actualización de producto — CU-07 cerrado
 
-ClassForge diferencia colaboración persistente de presencia efímera.
+SinapUML diferencia colaboración persistente de presencia efímera.
 
 Las operaciones UML siguen Command Bus → Spring → revisión → JPA.
 
@@ -324,7 +324,7 @@ MCP no forma parte de CU08-001.
 
 <!-- CU08-FIX-014 -->
 ### Assistant local — contrato definitivo
-El Assistant usa Qwen2.5-3B-Instruct Q4_K_M mediante native function calling de llama.cpp. El modelo selecciona tools UML semánticas; ClassForge resuelve elementos existentes a UUID, preserva literales nuevos y genera preview/BATCH. Texto y voz convergen en el mismo planner y las peticiones compuestas se planifican sobre un documento efímero antes de Apply.
+El Assistant usa Qwen2.5-3B-Instruct Q4_K_M mediante native function calling de llama.cpp. El modelo selecciona tools UML semánticas; SinapUML resuelve elementos existentes a UUID, preserva literales nuevos y genera preview/BATCH. Texto y voz convergen en el mismo planner y las peticiones compuestas se planifican sobre un documento efímero antes de Apply.
 
 <!-- C2-CU09-001-IMAGE-VISION-CONTRACT -->
 ## Addendum CU-09 — contrato visual

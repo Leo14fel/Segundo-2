@@ -1,6 +1,6 @@
 # Veterinaria CU-27
 
-Fixture canónico de la demo reproducible final de ClassForge.
+Fixture canónico de la demo reproducible final de SinapUML.
 
 ## Modelo
 
@@ -13,13 +13,13 @@ Fixture canónico de la demo reproducible final de ClassForge.
 
 Relaciones: agregación Propietario→Animal, composición Animal→Cita, asociación Veterinario→Cita, Cita→Tratamiento y Usuario→Veterinario.
 
-`veterinaria-cu27.xmi` es XMI 2.1 con UUIDs canónicos de ClassForge y es el mismo recurso utilizado por el perfil Spring `demo`.
+`veterinaria-cu27.xmi` es XMI 2.1 con UUIDs canónicos de SinapUML y es el mismo recurso utilizado por el perfil Spring `demo`.
 
 ## Credenciales del perfil demo
 
 ```text
-OWNER : demo@classforge.local / classforge-demo
-EDITOR: colaborador@classforge.local / classforge-demo
+OWNER : demo@sinapuml.local / sinapuml-demo
+EDITOR: colaborador@sinapuml.local / sinapuml-demo
 ```
 
 Proyecto determinista:

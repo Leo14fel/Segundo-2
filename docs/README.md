@@ -1,4 +1,4 @@
-# Documentación de ClassForge
+# Documentación de SinapUML
 
 Esta carpeta contiene las fuentes Markdown que alimentarán la documentación oficial de presentación.
 
@@ -136,7 +136,7 @@ CU-19 unifica la interacción de consulta/creación/relaciones/actualización/el
 4. Alcance y requisitos.
 5. Proceso Unificado de Desarrollo de Software.
 6. Casos de uso y trazabilidad.
-7. Arquitectura de ClassForge.
+7. Arquitectura de SinapUML.
 8. Modelos y diagramas UML.
 9. Implementación por ciclos.
 10. Pruebas, benchmarks y evidencias.

@@ -1,6 +1,6 @@
 # Guion de prompts — Veterinaria CU-27
 
-## Assistant UML de ClassForge
+## Assistant UML de SinapUML
 
 - `Agrega el atributo telefono STRING a Propietario.`
 - `Crea una clase Medicamento con id UUID y nombre STRING.`

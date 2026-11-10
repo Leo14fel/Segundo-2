@@ -14,7 +14,7 @@ public class JwtService {
     private final long expirationSeconds;
 
     public JwtService(
-            @Value("${r'${app.security.jwt-secret:classforge-change-me-before-production}'}") String secret,
+            @Value("${r'${app.security.jwt-secret:sinapuml-change-me-before-production}'}") String secret,
             @Value("${r'${app.security.jwt-expiration-seconds:3600}'}") long expirationSeconds
     ) {
         if (secret == null || secret.isBlank()) {

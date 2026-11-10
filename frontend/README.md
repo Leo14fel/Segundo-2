@@ -18,6 +18,28 @@ npm run build
 npm test
 ```
 
+## Publicar en Vercel
+
+En Vercel importa el repositorio y configura:
+
+- **Root Directory:** `frontend`
+- **Framework Preset:** `Vite`
+- **Build Command:** `npm run build`
+- **Output Directory:** `dist`
+- **Install Command:** `npm ci`
+
+Si el backend está publicado en otra URL, define estas variables en
+**Project Settings > Environment Variables**:
+
+```text
+VITE_API_BASE_URL=https://tu-backend.example.com/api
+VITE_WS_URL=wss://tu-backend.example.com/ws
+```
+
+El backend debe permitir el dominio `*.vercel.app` en sus orígenes WebSocket y
+estar configurado para CORS. Sin esas variables, Vercel solo sirve la interfaz
+estática y las llamadas se intentan hacer contra el mismo dominio de Vercel.
+
 ## Integración
 
 `editor-api.ts` transforma los modelos del backend a la proyección visual de Vue Flow y conserva visibilidad, tipos, identificadores, nulabilidad y layout. Las escrituras usan revisión optimista y el backend valida/persiste. Undo/Redo conserva instantáneas durante la sesión y se invalida ante cambios externos; no se mantiene después de recargar.

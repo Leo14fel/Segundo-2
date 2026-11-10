@@ -73,4 +73,4 @@ flutter test
 flutter build apk --debug
 ```
 
-Luego se ejecutan regresiones CU-13..17 y gates globales de ClassForge.
+Luego se ejecutan regresiones CU-13..17 y gates globales de SinapUML.

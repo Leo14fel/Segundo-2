@@ -7,7 +7,7 @@
 
 ## Problema
 
-CU-15 entrega un contrato HTTP reproducible, pero OpenAPI está orientado al transporte. CU-17 y el futuro asistente de la aplicación necesitan una vista semántica estable del dominio: identidad ClassForge, atributos, relaciones, capacidades, herencia y vínculos directos con operationIds.
+CU-15 entrega un contrato HTTP reproducible, pero OpenAPI está orientado al transporte. CU-17 y el futuro asistente de la aplicación necesitan una vista semántica estable del dominio: identidad SinapUML, atributos, relaciones, capacidades, herencia y vínculos directos con operationIds.
 
 ## Decisión de autoridad
 

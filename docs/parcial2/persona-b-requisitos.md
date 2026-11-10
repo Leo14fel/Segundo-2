@@ -1,9 +1,9 @@
-# ClassForge — Segundo Parcial
+# SinapUML — Segundo Parcial
 # Persona B: Asistente IA colaborativo, revisión y experiencia móvil
 
 ## 1. Objetivo de esta rama de trabajo
 
-Esta parte del segundo parcial transforma el asistente actual de ClassForge en un **participante compartido del proyecto**.
+Esta parte del segundo parcial transforma el asistente actual de SinapUML en un **participante compartido del proyecto**.
 
 La persona responsable de este documento puede trabajar en paralelo con la Persona A sin esperar a que existan:
 
@@ -114,7 +114,7 @@ ProjectAssistantContext
 Backend:
 
 ```text
-backend/src/main/java/com/classforge/projectassistant/
+backend/src/main/java/com/sinapuml/projectassistant/
 ```
 
 Subpaquetes opcionales:
@@ -456,7 +456,7 @@ El prompt debe definir claramente que la IA:
 Ejemplo conceptual:
 
 ```text
-Eres el asistente colaborativo de ClassForge.
+Eres el asistente colaborativo de SinapUML.
 
 Trabajas con varios integrantes sobre el mismo proyecto UML.
 
@@ -467,7 +467,7 @@ Puedes:
 - sugerir mejoras;
 - explicar decisiones.
 
-No puedes afirmar que un cambio fue persistido salvo que ClassForge
+No puedes afirmar que un cambio fue persistido salvo que SinapUML
 lo haya aplicado mediante su pipeline normal.
 
 Cuando revises UML, utiliza únicamente el ProjectDocument proporcionado.
@@ -645,7 +645,7 @@ El nuevo chat puede persistir:
 Sebastián:
 "Crea una clase Factura con id Long"
 
-ClassForge AI:
+SinapUML AI:
 "Preparé una propuesta para crear Factura con id Long."
 ```
 
@@ -794,13 +794,13 @@ AssistantContextBadgeComponent
 
 ```text
 ┌─────────────────────────────────────┐
-│ ClassForge AI                       │
+│ SinapUML AI                       │
 │ Proyecto: Veterinaria · rev 42      │
 ├─────────────────────────────────────┤
 │ Sebastián                           │
 │ Revisa las relaciones de Pedido.    │
 │                                     │
-│ ClassForge AI                       │
+│ SinapUML AI                       │
 │ Encontré 2 observaciones...         │
 │                                     │
 │ [Ver revisión]                      │
@@ -897,7 +897,7 @@ No implementar JointJS móvil completo.
 Vista:
 
 ```text
-CLASSFORGE
+SINAPUML
 Veterinaria
 
 rev 42
@@ -907,7 +907,7 @@ rev 42
 8 clases
 11 relaciones
 
-[ClassForge AI]
+[SinapUML AI]
 
 Sebastián:
 Revisa el proyecto.
@@ -1020,7 +1020,7 @@ Esta demo NO necesita nada de Persona A.
 
 ## Escenario
 
-Abrir ClassForge con:
+Abrir SinapUML con:
 
 ```text
 Sebastián

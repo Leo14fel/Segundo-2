@@ -16,16 +16,16 @@ if (-not (Test-Path $RepositoryPath)) {
 }
 
 $login = Invoke-RestMethod -Method Post -Uri "$BaseUrl/api/auth/login" -ContentType "application/json" -Body (@{
-    email = "demo@classforge.local"
-    password = "classforge-demo"
+    email = "demo@sinapuml.local"
+    password = "sinapuml-demo"
 } | ConvertTo-Json -Compress)
 $token = $login.accessToken
 if (-not $token) { throw "Could not authenticate against the CU-27 demo backend." }
 
-$classforgeXmi = Join-Path $workDir "classforge-veterinaria.xmi"
+$sinapumlXmi = Join-Path $workDir "sinapuml-veterinaria.xmi"
 $eaRoundTrip = Join-Path $workDir "enterprise-architect-roundtrip.xmi"
 Invoke-WebRequest -Method Get -Uri "$BaseUrl/api/projects/$projectId/xmi/export" `
-    -Headers @{ Authorization = "Bearer $token" } -OutFile $classforgeXmi -UseBasicParsing
+    -Headers @{ Authorization = "Bearer $token" } -OutFile $sinapumlXmi -UseBasicParsing
 
 $repository = $null
 try {
@@ -39,14 +39,14 @@ try {
         throw "Enterprise Architect could not open repository: $RepositoryPath"
     }
 
-    $modelName = "ClassForge CU27 Smoke " + (Get-Date -Format "yyyyMMdd-HHmmss")
+    $modelName = "SinapUML CU27 Smoke " + (Get-Date -Format "yyyyMMdd-HHmmss")
     $model = $repository.Models.AddNew($modelName, "")
     if (-not $model.Update()) { throw "EA could not create smoke model: $($model.GetLastError())" }
     $repository.Models.Refresh()
 
     $project = $repository.GetProjectInterface()
     $packageXmlGuid = $project.GUIDtoXML($model.PackageGUID)
-    $importResult = $project.ImportPackageXMI($packageXmlGuid, $classforgeXmi, 0, 1)
+    $importResult = $project.ImportPackageXMI($packageXmlGuid, $sinapumlXmi, 0, 1)
     if ($importResult) { throw "EA ImportPackageXMI failed: $importResult" }
 
     # xmiEA21 = 11 in the Enterprise Architect XMIType enumeration.
@@ -72,7 +72,7 @@ try {
     $multipart.Add($content, "file", "enterprise-architect-roundtrip.xmi")
     $response = $client.PostAsync("$BaseUrl/api/projects/$projectId/xmi/import/preview", $multipart).GetAwaiter().GetResult()
     $body = $response.Content.ReadAsStringAsync().GetAwaiter().GetResult()
-    if (-not $response.IsSuccessStatusCode) { throw "ClassForge rejected EA round-trip XMI: HTTP $([int]$response.StatusCode) $body" }
+    if (-not $response.IsSuccessStatusCode) { throw "SinapUML rejected EA round-trip XMI: HTTP $([int]$response.StatusCode) $body" }
     $preview = $body | ConvertFrom-Json
 } finally {
     $stream.Dispose()
@@ -88,7 +88,7 @@ $report = [ordered]@{
     schemaVersion = "1.0"
     status = "PASS"
     repository = (Resolve-Path $RepositoryPath).Path
-    classForgeExport = $classforgeXmi
+    sinapumlExport = $sinapumlXmi
     enterpriseArchitectExport = $eaRoundTrip
     classCount = $preview.classCount
     attributeCount = $preview.attributeCount
@@ -99,5 +99,5 @@ $reportPath = Join-Path $workDir "ea-smoke.json"
 $report | ConvertTo-Json -Depth 5 | Set-Content -Encoding UTF8 $reportPath
 
 Write-Host "Enterprise Architect CU-27 smoke GREEN."
-Write-Host "EA re-export was accepted by ClassForge preview: $($preview.classCount) classes / $($preview.relationshipCount) relationships."
+Write-Host "EA re-export was accepted by SinapUML preview: $($preview.classCount) classes / $($preview.relationshipCount) relationships."
 Write-Host "Report: $reportPath"

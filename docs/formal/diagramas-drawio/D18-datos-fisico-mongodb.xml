@@ -1,0 +1,95 @@
+<?xml version='1.0' encoding='utf-8'?>
+<mxfile host="Electron" type="device">
+  <diagram id="D18" name="D18 · Persistencia física MongoDB">
+    <mxGraphModel dx="1650" dy="1300" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1650" pageHeight="1300" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="D18-1" value="D18  /  Persistencia física MongoDB" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#243746;strokeColor=#657581;strokeWidth=1.3;fillColor=#FFFFFF;text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacing=0;fontSize=24;fontStyle=1;fontColor=#243746;" vertex="1" parent="1">
+          <mxGeometry x="30" y="20" width="1590" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="D18-2" value="Colecciones e índices relevantes del código · UQ = único; IDX = consulta; referencias sin claves foráneas SQL." style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#243746;strokeColor=#657581;strokeWidth=1.3;fillColor=#FFFFFF;text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacing=0;fontSize=13;fontStyle=0;fontColor=#526570;" vertex="1" parent="1">
+          <mxGeometry x="30" y="62" width="1590" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="D18-3" value="SinapUML  ·  PUDS  ·  9 de noviembre de 2026  |  Modelo documental basado en la implementación local" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#243746;strokeColor=#657581;strokeWidth=1.3;fillColor=#FFFFFF;text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacing=0;fontSize=11;fontStyle=0;fontColor=#6A7881;" vertex="1" parent="1">
+          <mxGeometry x="30" y="1260" width="1590" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="D18-4" value="app_users" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#243746;strokeColor=#657581;strokeWidth=1.3;fillColor=#FFFFFF;swimlane;startSize=36;horizontal=1;fillColor=#EAF1F7;swimlaneFillColor=#FFFFFF;align=center;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="135" width="500" height="190" as="geometry" />
+        </mxCell>
+        <mxCell id="D18-5" value="_id: UUID; email; passwordHash&lt;br&gt;UQ email (collation strength 2)" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#243746;strokeColor=#657581;strokeWidth=1.3;fillColor=#FFFFFF;text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacing=0;fontSize=13;fontStyle=0;fontColor=#243746;" vertex="1" parent="D18-4">
+          <mxGeometry x="10" y="42" width="480" height="142" as="geometry" />
+        </mxCell>
+        <mxCell id="D18-6" value="projects" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#243746;strokeColor=#657581;strokeWidth=1.3;fillColor=#FFFFFF;swimlane;startSize=36;horizontal=1;fillColor=#EAF1F7;swimlaneFillColor=#FFFFFF;align=center;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="580" y="135" width="500" height="190" as="geometry" />
+        </mxCell>
+        <mxCell id="D18-7" value="_id, ownerId, name, revision&lt;br&gt;document: BSON embebido&lt;br&gt;IDX (ownerId, updatedAt)" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#243746;strokeColor=#657581;strokeWidth=1.3;fillColor=#FFFFFF;text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacing=0;fontSize=13;fontStyle=0;fontColor=#243746;" vertex="1" parent="D18-6">
+          <mxGeometry x="10" y="42" width="480" height="142" as="geometry" />
+        </mxCell>
+        <mxCell id="D18-8" value="project_memberships" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#243746;strokeColor=#657581;strokeWidth=1.3;fillColor=#FFFFFF;swimlane;startSize=36;horizontal=1;fillColor=#EAF1F7;swimlaneFillColor=#FFFFFF;align=center;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="1120" y="135" width="500" height="190" as="geometry" />
+        </mxCell>
+        <mxCell id="D18-9" value="_id, projectId, userId, role&lt;br&gt;UQ (projectId, userId)&lt;br&gt;IDX userId" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#243746;strokeColor=#657581;strokeWidth=1.3;fillColor=#FFFFFF;text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacing=0;fontSize=13;fontStyle=0;fontColor=#243746;" vertex="1" parent="D18-8">
+          <mxGeometry x="10" y="42" width="480" height="142" as="geometry" />
+        </mxCell>
+        <mxCell id="D18-10" value="project_invitations" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#243746;strokeColor=#657581;strokeWidth=1.3;fillColor=#FFFFFF;swimlane;startSize=36;horizontal=1;fillColor=#EAF1F7;swimlaneFillColor=#FFFFFF;align=center;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="380" width="500" height="190" as="geometry" />
+        </mxCell>
+        <mxCell id="D18-11" value="_id, projectId, invitedEmail, status&lt;br&gt;IDX (invitedEmail, status, createdAt)&lt;br&gt;IDX (projectId, status)" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#243746;strokeColor=#657581;strokeWidth=1.3;fillColor=#FFFFFF;text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacing=0;fontSize=13;fontStyle=0;fontColor=#243746;" vertex="1" parent="D18-10">
+          <mxGeometry x="10" y="42" width="480" height="142" as="geometry" />
+        </mxCell>
+        <mxCell id="D18-12" value="project_ai_messages" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#243746;strokeColor=#657581;strokeWidth=1.3;fillColor=#FFFFFF;swimlane;startSize=36;horizontal=1;fillColor=#EAF1F7;swimlaneFillColor=#FFFFFF;align=center;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="580" y="380" width="500" height="190" as="geometry" />
+        </mxCell>
+        <mxCell id="D18-13" value="_id, projectId, requestId, role, sequence&lt;br&gt;UQ (projectId, requestId, role)&lt;br&gt;UQ sequence; IDX (projectId, sequence)" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#243746;strokeColor=#657581;strokeWidth=1.3;fillColor=#FFFFFF;text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacing=0;fontSize=13;fontStyle=0;fontColor=#243746;" vertex="1" parent="D18-12">
+          <mxGeometry x="10" y="42" width="480" height="142" as="geometry" />
+        </mxCell>
+        <mxCell id="D18-14" value="project_activities" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#243746;strokeColor=#657581;strokeWidth=1.3;fillColor=#FFFFFF;swimlane;startSize=36;horizontal=1;fillColor=#EAF1F7;swimlaneFillColor=#FFFFFF;align=center;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="1120" y="380" width="500" height="190" as="geometry" />
+        </mxCell>
+        <mxCell id="D18-15" value="_id, projectId, operationId, revisionAfter&lt;br&gt;UQ (projectId, operationId)&lt;br&gt;UQ (projectId, revisionAfter)&lt;br&gt;IDX (projectId, createdAt)" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#243746;strokeColor=#657581;strokeWidth=1.3;fillColor=#FFFFFF;text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacing=0;fontSize=13;fontStyle=0;fontColor=#243746;" vertex="1" parent="D18-14">
+          <mxGeometry x="10" y="42" width="480" height="142" as="geometry" />
+        </mxCell>
+        <mxCell id="D18-16" value="project_sessions" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#243746;strokeColor=#657581;strokeWidth=1.3;fillColor=#FFFFFF;swimlane;startSize=36;horizontal=1;fillColor=#EAF1F7;swimlaneFillColor=#FFFFFF;align=center;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="625" width="500" height="190" as="geometry" />
+        </mxCell>
+        <mxCell id="D18-17" value="_id, projectId, status, startRevision&lt;br&gt;UQ projectId parcial: status=OPEN&lt;br&gt;IDX (status, lastActivityAt)" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#243746;strokeColor=#657581;strokeWidth=1.3;fillColor=#FFFFFF;text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacing=0;fontSize=13;fontStyle=0;fontColor=#243746;" vertex="1" parent="D18-16">
+          <mxGeometry x="10" y="42" width="480" height="142" as="geometry" />
+        </mxCell>
+        <mxCell id="D18-18" value="project_session_participants" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#243746;strokeColor=#657581;strokeWidth=1.3;fillColor=#FFFFFF;swimlane;startSize=36;horizontal=1;fillColor=#EAF1F7;swimlaneFillColor=#FFFFFF;align=center;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="580" y="625" width="500" height="190" as="geometry" />
+        </mxCell>
+        <mxCell id="D18-19" value="_id, sessionId, userId&lt;br&gt;UQ (sessionId, userId)" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#243746;strokeColor=#657581;strokeWidth=1.3;fillColor=#FFFFFF;text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacing=0;fontSize=13;fontStyle=0;fontColor=#243746;" vertex="1" parent="D18-18">
+          <mxGeometry x="10" y="42" width="480" height="142" as="geometry" />
+        </mxCell>
+        <mxCell id="D18-20" value="project_user_visits" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#243746;strokeColor=#657581;strokeWidth=1.3;fillColor=#FFFFFF;swimlane;startSize=36;horizontal=1;fillColor=#EAF1F7;swimlaneFillColor=#FFFFFF;align=center;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="1120" y="625" width="500" height="190" as="geometry" />
+        </mxCell>
+        <mxCell id="D18-21" value="_id, projectId, userId, lastSeenRevision&lt;br&gt;UQ (projectId, userId)" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#243746;strokeColor=#657581;strokeWidth=1.3;fillColor=#FFFFFF;text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacing=0;fontSize=13;fontStyle=0;fontColor=#243746;" vertex="1" parent="D18-20">
+          <mxGeometry x="10" y="42" width="480" height="142" as="geometry" />
+        </mxCell>
+        <mxCell id="D18-22" value="project_notifications" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#243746;strokeColor=#657581;strokeWidth=1.3;fillColor=#FFFFFF;swimlane;startSize=36;horizontal=1;fillColor=#EAF1F7;swimlaneFillColor=#FFFFFF;align=center;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="870" width="500" height="190" as="geometry" />
+        </mxCell>
+        <mxCell id="D18-23" value="_id, projectId, recipientUserId, read&lt;br&gt;UQ dedupKey&lt;br&gt;IDX (recipientUserId, read, createdAt)" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#243746;strokeColor=#657581;strokeWidth=1.3;fillColor=#FFFFFF;text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacing=0;fontSize=13;fontStyle=0;fontColor=#243746;" vertex="1" parent="D18-22">
+          <mxGeometry x="10" y="42" width="480" height="142" as="geometry" />
+        </mxCell>
+        <mxCell id="D18-24" value="push_subscriptions" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#243746;strokeColor=#657581;strokeWidth=1.3;fillColor=#FFFFFF;swimlane;startSize=36;horizontal=1;fillColor=#EAF1F7;swimlaneFillColor=#FFFFFF;align=center;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="580" y="870" width="500" height="190" as="geometry" />
+        </mxCell>
+        <mxCell id="D18-25" value="_id: hash de endpoint; userId&lt;br&gt;endpoint, p256dh, auth&lt;br&gt;IDX userId" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#243746;strokeColor=#657581;strokeWidth=1.3;fillColor=#FFFFFF;text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacing=0;fontSize=13;fontStyle=0;fontColor=#243746;" vertex="1" parent="D18-24">
+          <mxGeometry x="10" y="42" width="480" height="142" as="geometry" />
+        </mxCell>
+        <mxCell id="D18-26" value="push_deliveries" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#243746;strokeColor=#657581;strokeWidth=1.3;fillColor=#FFFFFF;swimlane;startSize=36;horizontal=1;fillColor=#EAF1F7;swimlaneFillColor=#FFFFFF;align=center;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="1120" y="870" width="500" height="190" as="geometry" />
+        </mxCell>
+        <mxCell id="D18-27" value="_id, notificationId, subscriptionId&lt;br&gt;status, attempts, nextAttemptAt, leaseUntil&lt;br&gt;IDX (status, nextAttemptAt, leaseUntil)&lt;br&gt;TTL expiresAt: BSON Date" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#243746;strokeColor=#657581;strokeWidth=1.3;fillColor=#FFFFFF;text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacing=0;fontSize=13;fontStyle=0;fontColor=#243746;" vertex="1" parent="D18-26">
+          <mxGeometry x="10" y="42" width="480" height="142" as="geometry" />
+        </mxCell>
+        <mxCell id="D18-28" value="Colecciones técnicas adicionales: _sequences (contador global de mensajes) y legacy_migrations. Los Instant usan conversión UTC a String; expiresAt de push_deliveries usa BSON Date para TTL. Se requiere replica set y transacciones. Campos e índices mostrados son una selección, no un diccionario exhaustivo." style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#243746;strokeColor=#657581;strokeWidth=1.3;fillColor=#FFFFFF;shape=note;size=16;fillColor=#FFF5DE;spacing=10;align=left;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="45" y="1135" width="1560" height="100" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

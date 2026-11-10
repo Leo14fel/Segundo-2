@@ -17,7 +17,7 @@ function Fail([string]$Message) { throw $Message }
 function Require([bool]$Condition, [string]$Message) { if (-not $Condition) { Fail $Message } }
 
 $repo = (Get-Location).Path
-Require (Test-Path -LiteralPath (Join-Path $repo 'backend\gradlew.bat')) 'Ejecuta este script desde la raiz de ClassForge.'
+Require (Test-Path -LiteralPath (Join-Path $repo 'backend\gradlew.bat')) 'Ejecuta este script desde la raiz de SinapUML.'
 
 & .\scripts\assistant-vision-benchmark.ps1 -Suite regression -Attempts $Attempts -VisionUrl $VisionUrl -VisionModel $VisionModel -ModelLabel $ModelLabel -MinSemanticPercent $RegressionMin -MinSafetyPercent 100 -MinSchemaPercent 100 -VerboseAttempts:$VerboseAttempts
 & .\scripts\assistant-vision-benchmark.ps1 -Suite holdout -Attempts $Attempts -VisionUrl $VisionUrl -VisionModel $VisionModel -ModelLabel $ModelLabel -MinSemanticPercent $HoldoutMin -MinSafetyPercent 100 -MinSchemaPercent 100 -VerboseAttempts:$VerboseAttempts

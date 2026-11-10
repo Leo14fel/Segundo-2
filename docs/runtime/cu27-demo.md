@@ -5,21 +5,21 @@ La demo final usa el perfil Spring `demo` y el dominio canónico **Veterinaria C
 ## Estado determinista
 
 ```text
-OWNER  demo@classforge.local / classforge-demo
-EDITOR colaborador@classforge.local / classforge-demo
+OWNER  demo@sinapuml.local / sinapuml-demo
+EDITOR colaborador@sinapuml.local / sinapuml-demo
 
 Proyecto   Veterinaria CU-27
 Project ID 27000000-0000-0000-0000-000000000100
 Revision   1 al arrancar
 ```
 
-El perfil `demo` usa `backend/data/classforge-demo` y `ddl-auto=create`. Cada arranque manual del backend con ese perfil reconstruye el esquema demo y `DemoScenarioSeeder` carga `demo/veterinaria-cu27.xmi`. El perfil normal continúa usando `backend/data/classforge`.
+El perfil `demo` usa `backend/data/sinapuml-demo` y `ddl-auto=create`. Cada arranque manual del backend con ese perfil reconstruye el esquema demo y `DemoScenarioSeeder` carga `demo/veterinaria-cu27.xmi`. El perfil normal continúa usando `backend/data/sinapuml`.
 
 ## Regla de operación de los scripts
 
 Los scripts de CU-27 **no administran servidores**. No abren Spring, no abren Angular y no cierran procesos. El backend y el frontend se ejecutan manualmente en dos consolas propias para que sus logs y su ciclo de vida queden visibles durante la demo.
 
-- `demo-reset.ps1`: elimina exclusivamente la base demo `classforge-demo*` y el scratch local `.demo`.
+- `demo-reset.ps1`: elimina exclusivamente la base demo `sinapuml-demo*` y el scratch local `.demo`.
 - `demo-start.ps1`: valida que existan el perfil y el fixture y muestra los comandos manuales de arranque; no inicia procesos.
 - `demo-stop.ps1`: es un recordatorio de compatibilidad; no termina procesos.
 - `demo-smoke.ps1`: valida por HTTP una instancia demo que ya esté ejecutándose.
@@ -28,7 +28,7 @@ Los scripts de CU-27 **no administran servidores**. No abren Spring, no abren An
 
 ### 1. Detener manualmente instancias anteriores
 
-Si Spring o Angular ya están ejecutándose, detenerlos en sus respectivas consolas con `Ctrl+C`. Esto evita que H2 mantenga bloqueado `classforge-demo*` durante el reset.
+Si Spring o Angular ya están ejecutándose, detenerlos en sus respectivas consolas con `Ctrl+C`. Esto evita que H2 mantenga bloqueado `sinapuml-demo*` durante el reset.
 
 ### 2. Configurar Java y resetear únicamente los datos demo
 
@@ -109,8 +109,8 @@ El proxy Angular reenvía `/api/*` a `http://localhost:8082`.
 Usar cualquiera de estas cuentas:
 
 ```text
-OWNER : demo@classforge.local / classforge-demo
-EDITOR: colaborador@classforge.local / classforge-demo
+OWNER : demo@sinapuml.local / sinapuml-demo
+EDITOR: colaborador@sinapuml.local / sinapuml-demo
 ```
 
 Proyecto esperado:
@@ -161,17 +161,17 @@ CU-10/CU-11 ya prueban XMI 2.1 automáticamente. Para la transición se añade u
 3. ejecutar:
 
 ```powershell
-.\scripts\demo-ea-smoke.ps1 -RepositoryPath "F:\demo\classforge-cu27.qea"
+.\scripts\demo-ea-smoke.ps1 -RepositoryPath "F:\demo\sinapuml-cu27.qea"
 ```
 
 El script:
 
 ```text
-ClassForge export XMI
+SinapUML export XMI
  -> EA.Repository COM
  -> ImportPackageXMI
  -> ExportPackageXMI (XMI 2.1)
- -> ClassForge /xmi/import/preview
+ -> SinapUML /xmi/import/preview
 ```
 
 No aplica el XMI reimportado al proyecto: el último paso es preview. El reporte queda en `.demo/ea/ea-smoke.json`.
@@ -190,7 +190,7 @@ La Automation Interface oficial expone `Repository.GetProjectInterface()`, `Proj
 8. Ejecutar una modificación manual y Undo/Redo.
 9. Usar Assistant de texto y voz sobre UML, revisar preview y Apply.
 10. Mostrar Imagen → UML si los runtimes Vision están levantados.
-11. Importar/exportar XMI desde el diálogo de ClassForge; usar `demo-ea-smoke.ps1` para evidencia con EA real.
+11. Importar/exportar XMI desde el diálogo de SinapUML; usar `demo-ea-smoke.ps1` para evidencia con EA real.
 12. Generar el sistema Spring en modo Simple o Auth; para Auth seleccionar `Usuario.username/password`.
 13. Mostrar `openapi.yaml`, Postman y `domain-manifest.json`.
 14. Compilar/abrir Angular o Flutter generado.
@@ -200,7 +200,7 @@ Prompts sugeridos: `examples/veterinaria-cu27/demo-prompts.md`.
 
 ## Troubleshooting
 
-Si `demo-reset.ps1` informa que no puede eliminar `classforge-demo*`, detener el backend demo manualmente con `Ctrl+C` y volver a ejecutar el reset.
+Si `demo-reset.ps1` informa que no puede eliminar `sinapuml-demo*`, detener el backend demo manualmente con `Ctrl+C` y volver a ejecutar el reset.
 
 Si el smoke no encuentra el proyecto determinista, confirmar que Spring se inició exactamente con:
 
@@ -208,8 +208,8 @@ Si el smoke no encuentra el proyecto determinista, confirmar que Spring se inici
 .\gradlew.bat bootRun --no-daemon --args="--spring.profiles.active=demo"
 ```
 
-No usar `bootRun` sin el perfil `demo`, porque ese arranque utiliza la base normal `backend/data/classforge` y no el escenario CU-27.
+No usar `bootRun` sin el perfil `demo`, porque ese arranque utiliza la base normal `backend/data/sinapuml` y no el escenario CU-27.
 
 ## Regla de seguridad
 
-Las credenciales `classforge-demo` y el secreto JWT demo existen exclusivamente para el perfil `demo`; no son configuración de producción.
+Las credenciales `sinapuml-demo` y el secreto JWT demo existen exclusivamente para el perfil `demo`; no son configuración de producción.

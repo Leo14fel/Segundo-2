@@ -36,9 +36,10 @@ VITE_API_BASE_URL=https://tu-backend.example.com/api
 VITE_WS_URL=wss://tu-backend.example.com/ws
 ```
 
-El backend debe permitir el dominio `*.vercel.app` en sus orígenes WebSocket y
-estar configurado para CORS. Sin esas variables, Vercel solo sirve la interfaz
-estática y las llamadas se intentan hacer contra el mismo dominio de Vercel.
+En el backend configura el mismo dominio en
+`SINAPUML_CORS_ALLOWED_ORIGINS` y `SINAPUML_WEBSOCKET_ALLOWED_ORIGINS`.
+Sin esas variables, Vercel solo sirve la interfaz estática y las llamadas se
+intentan hacer contra el mismo dominio de Vercel.
 
 ## Integración
 

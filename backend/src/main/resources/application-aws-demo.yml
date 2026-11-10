@@ -30,6 +30,8 @@ sinapuml:
         fallback-to-semantic: ${SINAPUML_ASSISTANT_VISION_HYBRID_FALLBACK:false}
 
   security:
+    cors:
+      allowed-origins: ${SINAPUML_CORS_ALLOWED_ORIGINS:https://*.cloudfront.net}
     jwt:
       secret: ${SINAPUML_JWT_SECRET}
       expiration-minutes: 480
